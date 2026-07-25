@@ -21,22 +21,23 @@ export const site = {
   name: "A World Within",
   legalName: "A World Within LLC",
   tagline: "Extra-Ordinary Care",
-  discipline: "Ketamine-Assisted Psychotherapy",
-  practitioner: "Becky",
+  discipline: "Care for Non-Ordinary States of Conciousness",
+  practitioner: "Becky J Schwanz",
   // «TODO» e.g. "LCSW" — shown after the name where credentials appear.
   practitionerTitle: "",
+  // CareBear, Flight Instructor, Psychonaut, Care Curator 
   // Practitioner portrait. Save the image file to:  public/images/becky-portrait.jpg
   // (change the name/extension here if your file is different). Leave "" to
   // show a placeholder instead.
   portrait: "/images/becky-portrait.jpg",
-  portraitAlt: "Becky, Ketamine-Assisted Psychotherapist",
+  portraitAlt: "Becky, the Care bear",
 
   // ---- Contact ----------------------------------------------------
-  email: "hello@aworldwithin.example", // «TODO» real email
-  phone: "(555) 000-0000", // «TODO» real phone (display format)
-  phoneHref: "tel:+15550000000", // «TODO» real phone (digits, keep the tel: prefix)
+  email: "becky@extraordinarycare432.com", // «TODO» real email
+  phone: "(515) 329-5083", // «TODO» real phone (display format)
+  phoneHref: "tel:+15153295083", // «TODO» real phone (digits, keep the tel: prefix)
   // How long clients should expect to wait for a reply.
-  responseTime: "within a couple of business days",
+  responseTime: "within 7 business days",
 
   // ---- Location & reach -------------------------------------------
   // Set inPerson to false for a telehealth-only practice (hides the address).
@@ -48,7 +49,7 @@ export const site = {
     zip: "", // «TODO»
   },
   // «TODO» e.g. "In-person in Portland + telehealth across Oregon"
-  serviceArea: "",
+  serviceArea: "Des Moines Metro Area",
 
   // ---- Hours (set value to "Closed" for days off) -----------------
   hours: [
