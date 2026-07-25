@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ButtonLink, Card, Container, ConsultCTA, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Becky",
@@ -108,11 +109,23 @@ export default function AboutPage() {
         <Reveal>
           <Card>
             <h2 className="text-2xl text-cream">Credentials &amp; licensure</h2>
-            <p className="mt-3 text-cream-muted">
-              {/* TODO(becky): confirm license type, number, state(s), and any
-                  certifications (e.g. KAP training) before launch. */}
-              Licensure, certifications, and training details to be confirmed.
-            </p>
+            {site.credentials.length > 0 ? (
+              <ul className="mt-4 space-y-2">
+                {site.credentials.map((c) => (
+                  <li key={c} className="flex gap-3 text-cream-muted">
+                    <span aria-hidden="true" className="mt-1 text-gold">
+                      ·
+                    </span>
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-3 text-cream-muted">
+                {/* Add credentials in src/lib/site.ts → credentials[] */}
+                Licensure, certifications, and training details to be confirmed.
+              </p>
+            )}
             <div className="mt-6">
               <ButtonLink href="/process/" variant="ghost">
                 How Becky works

@@ -21,7 +21,7 @@ export default function SiteHeader() {
           <span className="font-serif text-2xl tracking-tight text-cream">
             {site.name}
           </span>
-          <span className="mt-1 text-[0.7rem] font-sans uppercase tracking-[0.22em] text-sage">
+          <span className="mt-1 text-xs font-sans italic tracking-wide text-sage">
             {site.tagline}
           </span>
         </Link>
@@ -45,7 +45,7 @@ export default function SiteHeader() {
           })}
           <Link
             href="/contact/"
-            className="rounded-full bg-gold px-5 py-2 text-sm font-medium text-base-2 transition-colors hover:bg-gold-light"
+            className="rounded-full bg-gold px-5 py-2 text-sm font-medium text-base-2 transition-[background-color,transform] duration-150 hover:bg-gold-light active:scale-[0.97]"
           >
             Request a Consultation
           </Link>
@@ -102,7 +102,7 @@ export default function SiteHeader() {
               <Link
                 href="/contact/"
                 onClick={() => setOpen(false)}
-                className="block rounded-full bg-gold px-5 py-3 text-center font-medium text-base-2"
+                className="block rounded-full bg-gold px-5 py-3.5 text-center font-medium text-base-2 transition-transform duration-150 active:scale-[0.98]"
               >
                 Request a Consultation
               </Link>

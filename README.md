@@ -31,13 +31,27 @@ Connect the repo in Netlify and it builds automatically.
 - **Analytics (optional):** set `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` in Netlify env
   vars to enable cookieless Plausible analytics (`src/components/Analytics.tsx`).
 
+## Editing client info — one file
+
+**All practice details live in [`src/lib/site.ts`](src/lib/site.ts)** — name, contact,
+address, hours, credentials, service area, social links, booking URL, and SEO
+description. Edit that one file and the whole site (header, footer, contact page,
+SEO, structured data) updates automatically. Fields marked `«TODO»` still need
+real values before launch.
+
+## Design options page
+
+`/(style)` → **`/style/`** is a private (noindex) page showing 3 font pairings
+and 3 color palettes to share with the client for a decision. Send them the
+deployed `…/style/` URL; they reply with a font (A/B/C) + color (1/2/3) choice.
+
 ## Structure
 
 ```
 src/
-  app/                 one folder per route (home, about, kap, …, legal)
+  app/                 one folder per route (home, about, kap, …, legal, style)
   components/          SiteHeader, SiteFooter, Reveal, ui.tsx, CrisisResources…
-  lib/site.ts          site config: name, contact, nav, crisis line
+  lib/site.ts          ← CLIENT INFO: name, contact, address, hours, credentials…
   lib/conditions.ts    conditions + evidence-strength data
 ```
 

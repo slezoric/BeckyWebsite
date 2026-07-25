@@ -1,11 +1,11 @@
 import { site } from "@/lib/site";
 
 /**
- * schema.org MedicalBusiness JSON-LD for local search.
- * TODO(becky): fill in real address, geo, hours, and areaServed before launch.
+ * schema.org MedicalBusiness JSON-LD for local search. Pulls from the client
+ * info in src/lib/site.ts — fill in address/serviceArea there for richer results.
  */
 export default function StructuredData() {
-  const data = {
+  const data: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     name: site.name,
@@ -17,9 +17,20 @@ export default function StructuredData() {
     medicalSpecialty: "Psychiatric",
     availableService: {
       "@type": "MedicalTherapy",
-      name: "Ketamine-Assisted Psychotherapy",
+      name: site.discipline,
     },
   };
+
+  if (site.inPerson && site.address.line1) {
+    data.address = {
+      "@type": "PostalAddress",
+      streetAddress: site.address.line1,
+      addressLocality: site.address.city,
+      addressRegion: site.address.state,
+      postalCode: site.address.zip,
+    };
+  }
+  if (site.serviceArea) data.areaServed = site.serviceArea;
 
   return (
     <script

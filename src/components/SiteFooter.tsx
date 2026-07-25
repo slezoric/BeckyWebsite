@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { crisis, nav, site } from "@/lib/site";
+import { crisis, nav, site, socialLinks } from "@/lib/site";
 
 const legal = [
   { href: "/getting-started/", label: "Getting Started" },
@@ -37,6 +37,22 @@ export default function SiteFooter() {
             A warm, grounded space for healing — meeting you exactly where you
             are.
           </p>
+          {socialLinks.length > 0 && (
+            <ul className="mt-5 flex gap-4 text-sm">
+              {socialLinks.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cream-muted hover:text-cream"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <nav aria-label="Site">

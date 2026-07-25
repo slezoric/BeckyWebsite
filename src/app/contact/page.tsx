@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Container, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import CrisisResources from "@/components/CrisisResources";
-import { site } from "@/lib/site";
+import { ButtonLink } from "@/components/ui";
+import { site, formattedAddress } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Request a Consultation",
@@ -119,7 +120,7 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="rounded-full bg-gold px-7 py-3 font-medium text-base-2 transition-colors hover:bg-gold-light"
+                  className="rounded-full bg-gold px-7 py-3.5 font-medium text-base-2 transition-[background-color,transform] duration-150 hover:bg-gold-light active:scale-[0.98]"
                 >
                   Send request
                 </button>
@@ -156,10 +157,41 @@ export default function ContactPage() {
                     </dd>
                   </div>
                 </dl>
+                {site.inPerson && formattedAddress && (
+                  <div className="mt-4 text-sm">
+                    <dt className="text-cream-dim">Location</dt>
+                    <dd className="text-cream-muted">{formattedAddress}</dd>
+                  </div>
+                )}
+                {site.serviceArea && (
+                  <div className="mt-4 text-sm">
+                    <dt className="text-cream-dim">Serving</dt>
+                    <dd className="text-cream-muted">{site.serviceArea}</dd>
+                  </div>
+                )}
+
+                {site.hours.length > 0 && (
+                  <dl className="mt-5 space-y-1 border-t border-white/5 pt-5 text-sm">
+                    {site.hours.map((h) => (
+                      <div
+                        key={h.day}
+                        className="flex justify-between gap-4 text-cream-muted"
+                      >
+                        <dt>{h.day}</dt>
+                        <dd>{h.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+
+                {site.bookingUrl && (
+                  <div className="mt-6">
+                    <ButtonLink href={site.bookingUrl}>Book online</ButtonLink>
+                  </div>
+                )}
+
                 <p className="mt-5 text-xs text-cream-dim">
-                  {/* TODO(becky): confirm real email, phone, response time,
-                      and service location / telehealth states. */}
-                  We typically respond within a couple of business days.
+                  We typically respond {site.responseTime}.
                 </p>
               </div>
             </Reveal>

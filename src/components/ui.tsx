@@ -35,7 +35,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`inline-block rounded-full px-7 py-3 font-medium transition-colors ${styles} ${className}`}
+      className={`inline-block rounded-full px-7 py-3 text-center font-medium transition-[background-color,transform] duration-150 active:scale-[0.97] ${styles} ${className}`}
     >
       {children}
     </Link>
