@@ -25,6 +25,11 @@ export const site = {
   practitioner: "Becky",
   // «TODO» e.g. "LCSW" — shown after the name where credentials appear.
   practitionerTitle: "",
+  // Practitioner portrait. Save the image file to:  public/images/becky-portrait.jpg
+  // (change the name/extension here if your file is different). Leave "" to
+  // show a placeholder instead.
+  portrait: "/images/becky-portrait.jpg",
+  portraitAlt: "Becky, Ketamine-Assisted Psychotherapist",
 
   // ---- Contact ----------------------------------------------------
   email: "hello@aworldwithin.example", // «TODO» real email

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ButtonLink, Card, Container, ConsultCTA, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
@@ -37,11 +38,21 @@ export default function AboutPage() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           {/* Portrait placeholder */}
           <Reveal>
-            <div className="aspect-[4/5] w-full overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-surface-2 to-forest/30">
-              {/* TODO(becky): replace with a professional portrait photograph. */}
-              <div className="flex h-full items-center justify-center text-center text-sm text-cream-dim">
-                Portrait of Becky
-              </div>
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-surface-2 to-forest/30">
+              {site.portrait ? (
+                <Image
+                  src={site.portrait}
+                  alt={site.portraitAlt}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover object-top"
+                />
+              ) : (
+                <div className="flex h-full items-center justify-center text-center text-sm text-cream-dim">
+                  Portrait of Becky
+                </div>
+              )}
             </div>
           </Reveal>
 
