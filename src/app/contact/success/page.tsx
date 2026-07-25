@@ -12,10 +12,10 @@ export default function ContactSuccessPage() {
   return (
     <Container className="py-28 text-center">
       <Reveal>
-        <p className="text-sm uppercase tracking-widest text-sage">
+        <p className="text-sm uppercase tracking-widest text-blush">
           Message received
         </p>
-        <h1 className="mx-auto mt-4 max-w-2xl text-4xl text-cream sm:text-5xl">
+        <h1 className="mx-auto mt-4 max-w-2xl text-5xl text-cream sm:text-6xl">
           Thank you for reaching out
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-lg text-cream-muted">
@@ -29,7 +29,7 @@ export default function ContactSuccessPage() {
             Learn more about KAP
           </ButtonLink>
         </div>
-        <p className="mx-auto mt-10 max-w-md text-xs text-cream-dim">
+        <p className="mx-auto mt-10 max-w-md text-sm text-cream-muted">
           If you&rsquo;re in crisis, please call or text 988 (U.S. Suicide &amp;
           Crisis Lifeline) or dial 911. This website is not a crisis service.
         </p>

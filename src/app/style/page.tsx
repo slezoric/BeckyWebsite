@@ -137,10 +137,10 @@ export default function StylePage() {
   return (
     <>
       <Container className="pb-4 pt-20 sm:pt-24">
-        <p className="text-sm uppercase tracking-widest text-sage">
+        <p className="text-sm uppercase tracking-widest text-blush">
           For your review
         </p>
-        <h1 className="mt-4 max-w-3xl text-4xl text-cream sm:text-5xl">
+        <h1 className="mt-4 max-w-3xl text-5xl text-cream sm:text-6xl">
           Choose the look &amp; feel
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-cream-muted">
@@ -153,7 +153,7 @@ export default function StylePage() {
 
       {/* Typography */}
       <Container className="py-14">
-        <h2 className="text-2xl text-cream sm:text-3xl">Typography</h2>
+        <h2 className="text-3xl text-cream sm:text-4xl">Typography</h2>
         <p className="mt-3 max-w-2xl text-cream-muted">
           The same words, set three ways. Notice how each one <em>feels</em>.
         </p>
@@ -170,7 +170,7 @@ export default function StylePage() {
                 </span>
                 <span className="text-cream">{f.name}</span>
                 {f.current && (
-                  <span className="rounded-full border border-sage/40 px-3 py-1 text-xs text-sage">
+                  <span className="rounded-full border border-blush/40 px-3 py-1 text-xs text-blush">
                     Current
                   </span>
                 )}
@@ -179,7 +179,7 @@ export default function StylePage() {
 
               <div className="mt-8 border-t border-white/5 pt-8">
                 <p
-                  className="text-sm tracking-wide text-sage"
+                  className="text-sm tracking-wide text-blush"
                   style={{ fontFamily: f.tagline ?? f.body }}
                 >
                   Extra-Ordinary Care
@@ -212,7 +212,7 @@ export default function StylePage() {
 
       {/* Color */}
       <Container className="py-14">
-        <h2 className="text-2xl text-cream sm:text-3xl">Color</h2>
+        <h2 className="text-3xl text-cream sm:text-4xl">Color</h2>
         <p className="mt-3 max-w-2xl text-cream-muted">
           Three warm, nature-based palettes — all deep and calming, each with a
           slightly different mood.
@@ -251,7 +251,7 @@ export default function StylePage() {
                   Extra-Ordinary Care
                 </p>
                 <p
-                  className="mt-2 font-serif text-2xl"
+                  className="mt-2 font-display text-3xl"
                   style={{ color: t.text }}
                 >
                   A World Within
@@ -298,7 +298,7 @@ export default function StylePage() {
 
       <Container className="py-16">
         <div className="rounded-3xl border border-white/5 bg-surface/40 p-8 text-center sm:p-12">
-          <h2 className="text-2xl text-cream sm:text-3xl">
+          <h2 className="text-3xl text-cream sm:text-4xl">
             Which speaks to you?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-cream-muted">

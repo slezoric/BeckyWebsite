@@ -31,7 +31,7 @@ export default function SiteFooter() {
 
       <div className="mx-auto grid max-w-content gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
-          <p className="font-serif text-2xl text-cream">{site.name}</p>
+          <p className="font-display text-3xl text-cream">{site.name}</p>
           <p className="mt-2 max-w-xs text-sm text-cream-dim">{site.tagline}</p>
           <p className="mt-4 max-w-xs text-sm text-cream-muted">
             A warm, grounded space for healing — meeting you exactly where you

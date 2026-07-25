@@ -3,50 +3,50 @@ import { Card, Container, ConsultCTA, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "The Process",
+  title: "The Journey",
   description:
-    "The KAP journey step by step — consultation, preparation, the supported session, and integration — plus the practical details you'll want to know.",
+    "What the whole journey looks like — the first conversation, preparing together, the session itself, and the quiet work of making sense of it afterward.",
 };
 
 const phases = [
   {
     n: "01",
-    title: "Consultation & assessment",
-    body: "We start with an initial meeting to go over basic information and assess together whether KAP is a viable, safe option for you. If we move forward, we'll refer you to a qualified prescriber for medical evaluation — coordinating with your existing care team when helpful.",
+    title: "A first conversation",
+    body: "We start by simply talking. You share what brought you here and what you are hoping for; Becky listens, and together you work out whether this feels right for you. If it does, she'll connect you with a doctor she trusts, who looks after the medical side — and she'll gladly work alongside anyone already caring for you.",
   },
   {
     n: "02",
-    title: "Preparation",
-    body: "Preparation includes education about the medicine and the experiences it can bring, along with a shared understanding of how support is provided, boundaries, and expectations. Nothing moves forward until you feel ready.",
+    title: "Preparing together",
+    body: "Before anything else, you get to know each other properly. You'll talk about what the day will be like, what you might meet along the way, and what kind of support helps you feel safest. Every question is welcome, however small. Nothing goes ahead until you are genuinely ready.",
   },
   {
     n: "03",
-    title: "The medicine session",
-    body: "Ketamine is given as a sublingual tablet or nasal spray. You rest in a supported space — often with an eye mask and music — while a highly-trained therapist stays with you. Your vitals are monitored throughout for safety.",
+    title: "The journey inward",
+    body: "You settle somewhere soft and quiet — a blanket, an eye mask if you want one, music chosen with care. The medicine dissolves gently in your mouth, or arrives as a small nasal spray. Then you rest and let it carry you. Becky stays beside you the entire time, keeping a quiet, watchful eye on how you are doing.",
   },
   {
     n: "04",
-    title: "Integration",
-    body: "In the days and weeks that follow, we work together to make sense of what surfaced — including anything that felt challenging — and translate insight into lasting changes in mind, mood, and behavior.",
+    title: "Finding your way back",
+    body: "This is where lasting change is made. In the days and weeks that follow, you and Becky sit with whatever surfaced — the beautiful parts and the hard parts alike — and slowly turn what you glimpsed into something you can actually live.",
   },
 ];
 
 const logistics = [
   {
-    title: "Before your session",
-    body: "Avoid eating or drinking for 4 hours prior to reduce the chance of nausea.",
+    title: "The morning of",
+    body: "Have nothing to eat or drink for about four hours beforehand — it simply helps your stomach stay settled. Wear whatever feels most comfortable.",
   },
   {
-    title: "Getting home",
-    body: "Arrange for a responsible person to drive you home. You won't drive or do anything hazardous for the rest of the day.",
+    title: "Getting home safely",
+    body: "Arrange for someone you trust to drive you home, and give yourself the rest of the day off — no driving, no errands, nothing that asks much of you.",
   },
   {
-    title: "During the session",
-    body: "It's best to rest still with your eyes closed or an eye mask. We provide a calm, private setting and stay with you the whole time.",
+    title: "During your time here",
+    body: "It's most comfortable to lie still with your eyes closed or covered. The room is private, quiet, and yours for as long as you need it.",
   },
   {
-    title: "Monitoring",
-    body: "Under your prescriber's direction, we monitor blood pressure and oxygen before, during, and after your experience.",
+    title: "Looking after you",
+    body: "Becky keeps a gentle eye on how your body is doing throughout, working alongside the doctor overseeing your care.",
   },
 ];
 
@@ -54,9 +54,9 @@ export default function ProcessPage() {
   return (
     <>
       <PageHeader
-        eyebrow="The process"
-        title="A structured, supported journey"
-        intro="Change is best facilitated within a safe, caring container — preparation, guidance, and integration. Here's what to expect at each stage."
+        eyebrow="The journey"
+        title="You'll know every step before you take it"
+        intro="Nothing here is rushed, and nothing is a surprise. This is what the whole path looks like — from the first conversation to the quiet, unhurried work that comes after."
       />
 
       {/* Phases */}
@@ -65,11 +65,11 @@ export default function ProcessPage() {
           {phases.map((p, i) => (
             <Reveal key={p.n} delay={i * 60} as="li">
               <div className="flex gap-6 rounded-2xl border border-white/5 bg-surface/40 p-6 sm:p-8">
-                <span className="font-serif text-4xl text-gold sm:text-5xl">
+                <span className="font-display text-5xl text-gold sm:text-6xl">
                   {p.n}
                 </span>
                 <div>
-                  <h2 className="text-xl text-cream sm:text-2xl">{p.title}</h2>
+                  <h2 className="text-2xl text-cream sm:text-3xl">{p.title}</h2>
                   <p className="mt-3 text-cream-muted">{p.body}</p>
                 </div>
               </div>
@@ -78,15 +78,16 @@ export default function ProcessPage() {
         </ol>
       </Container>
 
-      {/* Logistics */}
+      {/* Practical things */}
       <section className="border-t border-white/5 bg-base-2/60">
         <Container className="py-20">
           <Reveal>
-            <h2 className="text-3xl text-cream sm:text-4xl">
-              Practical things to know
+            <h2 className="text-4xl text-cream sm:text-5xl">
+              Small things that help the day go gently
             </h2>
             <p className="mt-4 max-w-2xl text-cream-muted">
-              A few details that help each session go smoothly and safely.
+              None of this is complicated — and Becky will walk you through all
+              of it well beforehand.
             </p>
           </Reveal>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">

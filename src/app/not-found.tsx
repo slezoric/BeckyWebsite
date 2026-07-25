@@ -3,8 +3,8 @@ import { ButtonLink, Container } from "@/components/ui";
 export default function NotFound() {
   return (
     <Container className="py-28 text-center">
-      <p className="text-sm uppercase tracking-widest text-sage">404</p>
-      <h1 className="mx-auto mt-4 max-w-xl text-4xl text-cream sm:text-5xl">
+      <p className="text-sm uppercase tracking-widest text-blush">404</p>
+      <h1 className="mx-auto mt-4 max-w-xl text-5xl text-cream sm:text-6xl">
         This path doesn&rsquo;t lead anywhere
       </h1>
       <p className="mx-auto mt-6 max-w-md text-cream-muted">

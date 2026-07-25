@@ -3,52 +3,59 @@ import { Container, ConsultCTA, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions",
+  title: "Questions",
   description:
-    "Common questions about Ketamine-Assisted Psychotherapy — safety, side effects, whether it's right for you, dosing, and what to expect afterward.",
+    "Honest answers to what people most often want to know — whether it's safe, what it feels like, whether it's right for you, and what happens afterward.",
 };
 
 const faqs = [
   {
-    q: "Is ketamine safe?",
-    a: "Ketamine has an extensive safety record and has been used at much higher doses for surgical anesthesia for decades. In our practice it's given in low, medically-appropriate doses, your vitals are monitored throughout, and a trained therapist stays with you. As with any medication there are potential side effects, which we review carefully beforehand.",
+    q: "Is this safe?",
+    a: "This medicine has been used in hospitals for more than fifty years, including with children and in surgery, at much larger amounts than you'll ever receive here. Here it's given in small, careful doses, Becky stays with you the entire time, and she keeps a quiet eye on how your body is doing throughout. Like anything, it isn't completely without risk — and you'll hear all of it plainly before you decide.",
   },
   {
-    q: "What are the common side effects?",
-    a: "The most common is a short-term rise in blood pressure or heart rate. Others can include dizziness, nausea, impaired balance or coordination, slurred speech, and temporary confusion. These effects are transient and typically resolve as the medicine wears off, usually within about four hours.",
+    q: "What does it actually feel like?",
+    a: "Most people describe something floating and dreamlike. Colors seem richer, music goes deeper, and time stretches out. Your body feels distant and pleasantly heavy. Many feel a great sense of ease — as though a weight they had stopped noticing has been set down for a while.",
   },
   {
-    q: "How will I know if it's right for me?",
-    a: "We begin with a consultation and careful assessment of your medical and psychiatric history. Together we'll decide whether KAP is a safe, appropriate fit — and if it isn't, we'll help point you toward other options. There's no pressure to proceed.",
+    q: "What if something difficult comes up?",
+    a: "Sometimes it does — grief, or something you've been carrying quietly for years. That isn't a sign anything has gone wrong; it's often where the real healing lives. Becky is trained to stay steady with you through exactly those moments, and you'll make sense of it together afterward. You won't be left alone with it.",
   },
   {
-    q: "How is the ketamine given?",
-    a: "In our practice, ketamine is administered as a sublingual (dissolving) tablet or a nasal spray — no injections. This approach allows for psychotherapy during the experience and tends to feel more comfortable for people who are hesitant about needles.",
+    q: "Will I lose control, or say things I regret?",
+    a: "No. You aren't unconscious, and you aren't out of control — you can speak, move, and ask for anything you need. Most people simply become quieter and more inward. Nothing is asked of you, and nothing you say will be met with judgment.",
   },
   {
-    q: "How is my dose decided?",
-    a: "Dosing is personalized and collaborative. Working with your prescriber, we consider your goals, prior experience, body size, and sensitivity. Those new to ketamine typically begin with lower doses to build familiarity and reduce anxiety.",
+    q: "How will I know if this is right for me?",
+    a: "You don't have to know — that's what the first conversation is for. You'll talk it through together, and Becky will be honest if she doesn't think this is the right path for you. There is no pressure in either direction, and no cost to simply asking.",
   },
   {
-    q: "How quickly does it work, and how long does it last?",
-    a: "Ketamine is distinguished by its rapid onset — relief can appear within hours. Research indicates a roughly 70% initial response rate. Durable improvement generally requires more than one session and is most robust as part of an overall treatment program. Results vary and are not guaranteed.",
+    q: "How is the medicine given? Are there needles?",
+    a: "No needles. It either dissolves gently in your mouth or comes as a small nasal spray. This is deliberate — it's kinder for anyone who finds needles hard, and it means you and Becky can still talk during the experience if that's what you want.",
   },
   {
-    q: "What happens if I don't respond?",
-    a: "If you don't respond after the first session, repeated treatment is offered. If there's no response after a series of eight sessions, additional ketamine won't be offered, as studies show continued dosing is unlikely to help — and we'll discuss other options together at that point.",
+    q: "How much will I be given?",
+    a: "That's decided with you, never for you. It depends on what you're hoping for, whether you've experienced anything like this before, and how sensitive you tend to be. If it's all new to you, you'll start gently and low — there's no rush, and you can always go deeper another time.",
   },
   {
-    q: "What should I do before and after a session?",
-    a: "Avoid eating or drinking for four hours beforehand, and arrange for someone to drive you home. Don't drive or engage in hazardous activities for the rest of the day. In the days that follow, we'll meet for integration to make sense of the experience.",
+    q: "How quickly does it help, and how long does it last?",
+    a: "Often surprisingly fast — relief can arrive the same day, which is quite unlike most other approaches. Around seven in ten people feel something shift early on. It usually holds better after more than one visit, and best of all when it's part of a wider circle of care. That said, no one can promise you a particular outcome.",
   },
   {
-    q: "Is my information kept private?",
-    a: "Yes. Your privacy and all therapy records are kept confidential and maintained with the same precautions as ordinary medical records. Sharing records with anyone else requires your signed release.",
+    q: "What if it doesn't work for me?",
+    a: "Then you try again — many people need more than one visit before anything shifts. But if you've had a full series and nothing has changed, Becky won't keep going simply to keep going. She'll say so honestly, and help you look at what else might serve you better.",
   },
   {
-    q: "Do you take insurance? What does it cost?",
-    a: "Fees and insurance details will be confirmed during your consultation.",
-    todo: true,
+    q: "What do I need to do on the day?",
+    a: "Very little. Don't eat or drink for about four hours beforehand, wear something comfortable, and arrange for someone you trust to drive you home. Then give yourself the rest of the day — no driving, no errands, nothing demanding. Rest is part of the work.",
+  },
+  {
+    q: "Will anyone find out I've been here?",
+    a: "No. What you share stays between you and Becky, held with the same care as any medical record. Nothing goes to anyone else unless you put it in writing that you want it to.",
+  },
+  {
+    q: "What does it cost? Do you take insurance?",
+    a: "Becky will talk you through fees and what insurance may cover during your first conversation, so there are no surprises.",
   },
 ];
 
@@ -56,9 +63,9 @@ export default function FaqPage() {
   return (
     <>
       <PageHeader
-        eyebrow="FAQ"
-        title="Questions, answered"
-        intro="Honest answers to what people most often ask. If your question isn't here, reach out — we're glad to talk it through."
+        eyebrow="Questions"
+        title="Ask anything. Nothing here is a silly question."
+        intro="These are the things people most often want to know but sometimes hesitate to ask. If yours isn't here, just reach out — Becky is always glad to talk it through."
       />
 
       <Container className="py-10">

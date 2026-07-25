@@ -23,7 +23,7 @@ const resources = [
 export default function CrisisResources() {
   return (
     <Card className="border-clay/30 bg-clay/10">
-      <h2 className="text-xl text-cream">Need help right now?</h2>
+      <h2 className="text-3xl text-cream">Need help right now?</h2>
       <p className="mt-2 text-sm text-cream-muted">
         This website isn&rsquo;t a crisis service and messages aren&rsquo;t
         monitored around the clock. If you&rsquo;re in crisis or thinking about

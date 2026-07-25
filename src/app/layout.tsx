@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Ephesis, Mulish } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import SiteHeader from "@/components/SiteHeader";
@@ -7,15 +7,16 @@ import SiteFooter from "@/components/SiteFooter";
 import StructuredData from "@/components/StructuredData";
 import Analytics from "@/components/Analytics";
 
-const fraunces = Fraunces({
+const ephesis = Ephesis({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: "400",
+  variable: "--font-ephesis",
   display: "swap",
 });
 
-const inter = Inter({
+const mulish = Mulish({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-mulish",
   display: "swap",
 });
 
@@ -47,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${ephesis.variable} ${mulish.variable}`}>
       <head>
         {/* If JS is disabled, scroll-reveal content must still be visible. */}
         <noscript>

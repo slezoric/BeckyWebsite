@@ -31,7 +31,7 @@ export function ButtonLink({
   const styles =
     variant === "primary"
       ? "bg-gold text-base-2 hover:bg-gold-light"
-      : "border border-sage/40 text-cream hover:border-sage hover:bg-surface/50";
+      : "border border-blush/40 text-cream hover:border-blush hover:bg-surface/50";
   return (
     <Link
       href={href}
@@ -56,11 +56,11 @@ export function PageHeader({
     <Container className="pb-4 pt-20 sm:pt-24">
       <Reveal>
         {eyebrow && (
-          <p className="text-sm uppercase tracking-widest text-sage">
+          <p className="text-sm uppercase tracking-widest text-blush">
             {eyebrow}
           </p>
         )}
-        <h1 className="mt-4 max-w-3xl text-4xl text-cream sm:text-5xl">
+        <h1 className="mt-4 max-w-3xl text-5xl text-cream sm:text-6xl">
           {title}
         </h1>
         {intro && (
@@ -98,7 +98,7 @@ export function Prose({
 }) {
   return (
     <div
-      className={`space-y-5 text-cream-muted [&_a]:text-gold [&_a]:underline-offset-4 hover:[&_a]:underline [&_h2]:mt-12 [&_h2]:text-2xl [&_h2]:text-cream [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:text-cream [&_li]:pl-1 [&_strong]:text-cream [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6 ${className}`}
+      className={`space-y-5 text-cream-muted [&_a]:text-gold [&_a]:underline-offset-4 hover:[&_a]:underline [&_h2]:mt-12 [&_h2]:text-4xl [&_h2]:text-cream [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:text-cream [&_li]:pl-1 [&_strong]:text-cream [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6 ${className}`}
     >
       {children}
     </div>
@@ -108,7 +108,7 @@ export function Prose({
 /** Reusable consultation call-to-action band for the bottom of pages. */
 export function ConsultCTA({
   heading = "Ready to take a first step?",
-  body = "Reach out for a no-pressure consultation. We'll talk through your goals and whether Ketamine-Assisted Psychotherapy is a good fit for you.",
+  body = "Reach out and we'll simply talk — about what brought you here, what you're hoping for, and whether this feels like your path. No pressure, and no commitment in asking.",
 }: {
   heading?: string;
   body?: string;
@@ -116,12 +116,12 @@ export function ConsultCTA({
   return (
     <Container className="py-20">
       <Reveal className="overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-surface-2 to-surface px-6 py-14 text-center sm:px-12">
-        <h2 className="mx-auto max-w-2xl text-3xl text-cream sm:text-4xl">
+        <h2 className="mx-auto max-w-2xl text-4xl text-cream sm:text-5xl">
           {heading}
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-cream-muted">{body}</p>
         <div className="mt-8">
-          <ButtonLink href="/contact/">Request a Consultation</ButtonLink>
+          <ButtonLink href="/contact/">Start the conversation</ButtonLink>
         </div>
       </Reveal>
     </Container>

@@ -5,23 +5,23 @@ import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Becky",
+  title: "Meet Becky",
   description:
-    "Becky is a Ketamine-Assisted Psychotherapist who blends clinical expertise with a compassionate, human-centered approach — weaving somatic awareness, mindfulness, and trauma-informed care.",
+    "Becky brings deep training and an even deeper belief that people know how to heal — offering a warm, grounded, unhurried place to do that work.",
 };
 
-const modalities = [
+const approaches = [
   {
-    title: "Somatic awareness",
-    body: "Listening to the body as part of the healing process — where so much of what we carry is held.",
+    title: "Listening to the body",
+    body: "So much of what we carry is held in the body, not the mind. Becky pays attention to both.",
   },
   {
-    title: "Mindfulness",
-    body: "Meeting each moment with curiosity and openness, softening rigid patterns of mind and mood.",
+    title: "Meeting the moment",
+    body: "Coming to each moment with curiosity rather than judgment — which is how rigid things start to soften.",
   },
   {
-    title: "Trauma-informed care",
-    body: "Grounded in safety and choice, honoring the unique story and strengths each person brings.",
+    title: "Gentle with old hurt",
+    body: "Nothing forced, nothing rushed. You stay in charge of the pace, and of what you do and don't touch.",
   },
 ];
 
@@ -29,16 +29,16 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="About"
-        title="Meet Becky"
-        intro="A Ketamine-Assisted Psychotherapist who blends clinical expertise with a compassionate, human-centered approach to care."
+        eyebrow="Meet Becky"
+        title="Someone to walk beside you"
+        intro="Deep training, and an even deeper belief that people already carry what they need to heal — sometimes they just need good company while they find it."
       />
 
       <Container className="py-10">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           {/* Portrait placeholder */}
           <Reveal>
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-surface-2 to-forest/30">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-surface-2 to-wine/40">
               {site.portrait ? (
                 <Image
                   src={site.portrait}
@@ -59,31 +59,29 @@ export default function AboutPage() {
           <Reveal delay={80}>
             <div className="space-y-5 text-lg text-cream-muted">
               <p>
-                With a deep respect for the mind&rsquo;s capacity to heal and
-                transform, Becky draws from evidence-based practices and an
-                integrative therapeutic style to help clients navigate
-                depression, anxiety, trauma, and many of life&rsquo;s challenges
-                with renewed breath.
+                Becky has a deep respect for what the mind can do when it is
+                given room. She works with people carrying depression, anxiety,
+                old hurt, and the ordinary hard parts of being alive — and helps
+                them find their way back to breathing a little easier.
               </p>
               <p>
-                At the heart of her work is the belief that healing is not
-                linear — it&rsquo;s an unfolding journey that requires safety,
-                curiosity, and courage. Ketamine-Assisted Psychotherapy is
-                offered as a powerful tool to help clients access deeper layers
-                of insight, soften rigid patterns, and reconnect with their
-                inner resilience.
+                At the heart of her work is a simple belief: healing is not
+                linear. It is an unfolding journey, and it asks for safety,
+                curiosity, and courage. This medicine is one way of reaching the
+                quieter, more resilient part of yourself — the one that has been
+                there all along, underneath everything.
               </p>
               <p>
-                Through thoughtfully guided preparation, intentionally supported
-                inner-work sessions, and integration, Becky helps participants
-                turn breakthrough experiences into lasting change. Known for
-                creating a warm, grounded, and non-judgmental space, she meets
-                each individual exactly where they are.
+                She&rsquo;ll prepare you properly, stay with you through the
+                whole of it, and sit with you afterward while you make sense of
+                what you found. People describe her space as warm, grounded, and
+                entirely without judgment. She meets you exactly where you are —
+                not where you think you ought to be.
               </p>
               <p>
-                Whether someone is seeking relief from longstanding emotional
-                pain or exploring personal growth on a deeper level, Becky is
-                dedicated to walking alongside them.
+                Whether you are worn down by something you have carried for
+                years, or simply sense there is more waiting for you, Becky would
+                be glad to walk alongside you.
               </p>
             </div>
           </Reveal>
@@ -94,16 +92,16 @@ export default function AboutPage() {
       <section className="border-y border-white/5 bg-base-2/60">
         <Container className="py-20">
           <Reveal>
-            <h2 className="text-3xl text-cream sm:text-4xl">
-              An integrative approach
+            <h2 className="text-4xl text-cream sm:text-5xl">
+              How she works
             </h2>
             <p className="mt-4 max-w-2xl text-cream-muted">
-              Becky&rsquo;s work weaves together several threads of care, chosen
-              to fit each person&rsquo;s needs.
+              A few threads run through everything Becky does, woven differently
+              for each person who sits down with her.
             </p>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {modalities.map((m, i) => (
+            {approaches.map((m, i) => (
               <Reveal key={m.title} delay={i * 80}>
                 <Card className="h-full">
                   <h3 className="text-xl text-cream">{m.title}</h3>
@@ -119,7 +117,7 @@ export default function AboutPage() {
       <Container className="py-16">
         <Reveal>
           <Card>
-            <h2 className="text-2xl text-cream">Credentials &amp; licensure</h2>
+            <h2 className="text-3xl text-cream">Credentials &amp; licensure</h2>
             {site.credentials.length > 0 ? (
               <ul className="mt-4 space-y-2">
                 {site.credentials.map((c) => (
@@ -139,7 +137,7 @@ export default function AboutPage() {
             )}
             <div className="mt-6">
               <ButtonLink href="/process/" variant="ghost">
-                How Becky works
+                See the whole journey
               </ButtonLink>
             </div>
           </Card>

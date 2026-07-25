@@ -6,18 +6,18 @@ import { ButtonLink } from "@/components/ui";
 import { site, formattedAddress } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Request a Consultation",
+  title: "Start the Conversation",
   description:
-    "Reach out to request a no-pressure consultation about Ketamine-Assisted Psychotherapy with Becky. Please don't include private health details in this form.",
+    "Reach out to Becky for an unhurried first conversation. Please leave private health details out of this form — you'll have somewhere safer to share them.",
 };
 
 export default function ContactPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Contact"
-        title="Request a consultation"
-        intro="Reach out and we'll be in touch to schedule a no-pressure conversation. Every journey begins with a single, gentle step."
+        eyebrow="Get in touch"
+        title="Every journey starts with one small step"
+        intro="Send a note and Becky will be in touch to find a time to talk. You don't need the right words, and you don't need to have it figured out — reaching out is enough."
       />
 
       <Container className="py-10">
@@ -112,7 +112,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <p className="text-xs leading-relaxed text-cream-dim">
+                <p className="text-sm leading-relaxed text-cream-muted">
                   For your privacy, please don&rsquo;t include sensitive health
                   details or medical history in this form. We&rsquo;ll gather
                   anything we need securely once we connect.
@@ -132,7 +132,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             <Reveal>
               <div className="rounded-3xl border border-white/5 bg-surface/40 p-6 sm:p-8">
-                <h2 className="text-xl text-cream">Prefer to reach out directly?</h2>
+                <h2 className="text-3xl text-cream">Prefer to reach out directly?</h2>
                 <dl className="mt-5 space-y-4 text-sm">
                   <div>
                     <dt className="text-cream-dim">Email</dt>
@@ -190,7 +190,7 @@ export default function ContactPage() {
                   </div>
                 )}
 
-                <p className="mt-5 text-xs text-cream-dim">
+                <p className="mt-5 text-sm text-cream-dim">
                   We typically respond {site.responseTime}.
                 </p>
               </div>

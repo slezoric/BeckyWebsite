@@ -18,16 +18,19 @@ export default function SiteHeader() {
           onClick={() => setOpen(false)}
           aria-label={`${site.name} — ${site.tagline}`}
         >
-          <span className="font-serif text-2xl tracking-tight text-cream">
+          <span className="font-display text-4xl leading-tight text-cream">
             {site.name}
           </span>
-          <span className="mt-1 text-xs font-sans italic tracking-wide text-sage">
+          <span className="mt-1 text-xs font-sans italic tracking-wide text-blush">
             {site.tagline}
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-5 xl:flex xl:gap-7"
+          aria-label="Primary"
+        >
           {nav.map((item) => {
             const active = pathname === item.href;
             return (
@@ -35,7 +38,7 @@ export default function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`text-sm transition-colors hover:text-cream ${
+                className={`whitespace-nowrap text-base transition-colors hover:text-cream ${
                   active ? "text-gold" : "text-cream-muted"
                 }`}
               >
@@ -45,16 +48,16 @@ export default function SiteHeader() {
           })}
           <Link
             href="/contact/"
-            className="rounded-full bg-gold px-5 py-2 text-sm font-medium text-base-2 transition-[background-color,transform] duration-150 hover:bg-gold-light active:scale-[0.97]"
+            className="whitespace-nowrap rounded-full bg-gold px-5 py-2.5 text-base font-medium text-base-2 transition-[background-color,transform] duration-150 hover:bg-gold-light active:scale-[0.97]"
           >
-            Request a Consultation
+            Start the conversation
           </Link>
         </nav>
 
         {/* Mobile toggle */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-cream-muted lg:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-cream-muted xl:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -83,7 +86,7 @@ export default function SiteHeader() {
       {open && (
         <nav
           id="mobile-nav"
-          className="border-t border-white/5 bg-base-2 px-5 py-4 lg:hidden"
+          className="border-t border-white/5 bg-base-2 px-5 py-4 xl:hidden"
           aria-label="Primary"
         >
           <ul className="flex flex-col gap-1">
@@ -104,7 +107,7 @@ export default function SiteHeader() {
                 onClick={() => setOpen(false)}
                 className="block rounded-full bg-gold px-5 py-3.5 text-center font-medium text-base-2 transition-transform duration-150 active:scale-[0.98]"
               >
-                Request a Consultation
+                Start the conversation
               </Link>
             </li>
           </ul>

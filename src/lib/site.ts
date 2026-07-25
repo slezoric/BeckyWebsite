@@ -21,7 +21,7 @@ export const site = {
   name: "A World Within",
   legalName: "A World Within LLC",
   tagline: "Extra-Ordinary Care",
-  discipline: "Care for Non-Ordinary States of Conciousness",
+  discipline: "Care for Non-Ordinary States of Consciousness",
   practitioner: "Becky J Schwanz",
   // «TODO» e.g. "LCSW" — shown after the name where credentials appear.
   practitionerTitle: "",
@@ -30,7 +30,10 @@ export const site = {
   // (change the name/extension here if your file is different). Leave "" to
   // show a placeholder instead.
   portrait: "/images/becky-portrait.jpg",
-  portraitAlt: "Becky, the Care bear",
+  // Alt text is read aloud by screen readers and shown if the image fails to
+  // load, so it describes the photo literally rather than being a nickname.
+  portraitAlt:
+    "Becky J Schwanz, smiling, wearing a black hat and a woven shawl",
 
   // ---- Contact ----------------------------------------------------
   email: "becky@extraordinarycare432.com", // «TODO» real email
@@ -78,17 +81,17 @@ export const site = {
   // ---- Site -------------------------------------------------------
   url: "https://aworldwithin.example", // «TODO» real domain (used for SEO/sitemap)
   description:
-    "Warm, evidence-based Ketamine-Assisted Psychotherapy with Becky. A safe, grounded space for depression, anxiety, trauma, and deeper personal growth.",
+    "Ketamine-assisted therapy with Becky — a warm, unhurried place to work with depression, anxiety, and old hurt, with someone beside you the whole way.",
 } as const;
 
 // Main navigation links (order shown left to right).
 export const nav: { href: string; label: string }[] = [
-  { href: "/about/", label: "About" },
-  { href: "/kap/", label: "What is KAP" },
-  { href: "/what-we-treat/", label: "What We Treat" },
-  { href: "/process/", label: "The Process" },
-  { href: "/getting-started/", label: "Getting Started" },
-  { href: "/faq/", label: "FAQ" },
+  { href: "/about/", label: "Meet Becky" },
+  { href: "/kap/", label: "How It Works" },
+  { href: "/what-we-treat/", label: "What It Helps" },
+  { href: "/process/", label: "The Journey" },
+  { href: "/getting-started/", label: "Is It For Me?" },
+  { href: "/faq/", label: "Questions" },
 ];
 
 // U.S. 988 Suicide & Crisis Lifeline — surfaced sitewide so no one hits a dead end.

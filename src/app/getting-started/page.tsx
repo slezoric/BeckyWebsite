@@ -4,43 +4,43 @@ import Reveal from "@/components/Reveal";
 import { crisis } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Getting Started",
+  title: "Is It For Me?",
   description:
-    "How to begin with Ketamine-Assisted Psychotherapy — eligibility, the conditions that need care first, and contraindications. A careful assessment comes first.",
+    "How to begin, and how Becky keeps you safe — what's needed beforehand, what should be settled first, and when this work isn't the right path.",
 };
 
 const requirements = [
-  "Be under the care of a primary care physician who can evaluate your overall health, including heart and respiratory status.",
-  "Be under the care of a mental health provider — either your current therapist, or someone you begin working with alongside treatment.",
-  "Complete a careful interview and, if needed, a review of your medical and psychiatric history to confirm you're a good candidate.",
+  "Have a regular doctor who knows you, so someone is keeping an eye on your general health — particularly your heart and your breathing.",
+  "Have a therapist in your life — either someone you already see, or someone you begin seeing as this work starts.",
+  "Sit down for an unhurried conversation about your history, so you and Becky can decide together whether this is right for you.",
 ];
 
 const treatFirst = [
-  "Uncontrolled high blood pressure (hypertension)",
-  "Unstable angina, recent heart attack, severe arrhythmia, or uncontrolled heart failure",
-  "Untreated or uncontrolled hyperthyroidism",
-  "Increased intracranial pressure or certain neurological conditions",
-  "Severe liver disease",
-  "Active hallucinations or untreated mania",
+  "Blood pressure that isn't yet well controlled",
+  "Heart trouble — chest pain, a recent heart attack, an irregular heartbeat, or heart failure",
+  "A thyroid that hasn't settled yet",
+  "Raised pressure in the brain, or certain neurological conditions",
+  "Serious liver trouble",
+  "Seeing or hearing things others don't, or a manic episode that isn't yet being treated",
 ];
 
 const notEligible = [
-  "Primary psychotic or dissociative disorders, including schizophrenia and schizoaffective disorder",
-  "A current manic or mixed episode",
-  "Active substance use disorder or intoxication, particularly alcohol or sedatives",
-  "Pregnancy or breastfeeding, unless specifically cleared by a qualified medical provider",
-  "Known allergy or hypersensitivity to ketamine",
-  "History of aneurysm, stroke, or intracranial bleeding",
-  "Active suicidal intent requiring a higher level of care",
+  "Schizophrenia, schizoaffective disorder, or psychosis that is currently active",
+  "A manic or mixed episode happening right now",
+  "Drinking or sedative use that has taken hold, or being under the influence",
+  "Pregnancy or breastfeeding, unless a doctor has specifically said it's safe",
+  "A known allergy to this medicine",
+  "A history of aneurysm, stroke, or bleeding in the brain",
+  "Thoughts of ending your life that need more immediate, intensive care than this",
 ];
 
 export default function GettingStartedPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Getting started"
-        title="How to begin — and how we keep you safe"
-        intro="KAP isn't right for everyone, and the guidelines below exist to protect you. Think of them as care, not gatekeeping. A thorough assessment is always the first step."
+        eyebrow="Is this for me?"
+        title="This isn't right for everyone — and that's said with care"
+        intro="Some of what follows may read like a list of rules. It isn't. Every line exists to keep you safe, and Becky would far rather tell you honestly that this isn't your path than take you somewhere that could harm you."
       />
 
       {/* Crisis callout */}
@@ -49,17 +49,17 @@ export default function GettingStartedPage() {
           <div className="rounded-2xl border border-clay/30 bg-clay/10 p-6">
             <p className="text-sm text-cream">
               <strong className="text-cream">
-                If you&rsquo;re in crisis or thinking about harming yourself
+                If you&rsquo;re in danger of hurting yourself right now
               </strong>
-              , please reach out now — call or text{" "}
+              , please don&rsquo;t wait for an appointment — call or text{" "}
               <a
                 href={crisis.lineHref}
                 className="font-medium text-gold underline-offset-4 hover:underline"
               >
                 {crisis.line}
               </a>{" "}
-              (U.S. Suicide &amp; Crisis Lifeline) or dial 911 for emergencies.
-              This website is not a crisis service.
+              to reach someone straight away, or 911 in an emergency. You deserve
+              help sooner than a website can offer it.
             </p>
           </div>
         </Reveal>
@@ -69,7 +69,11 @@ export default function GettingStartedPage() {
         <div className="grid gap-10 lg:grid-cols-2">
           <Reveal>
             <Card className="h-full">
-              <h2 className="text-2xl text-cream">What&rsquo;s required</h2>
+              <h2 className="text-3xl text-cream">What you&rsquo;ll need</h2>
+              <p className="mt-3 text-sm text-cream-muted">
+                Not hurdles — just the circle of support that makes this work
+                safe and lasting.
+              </p>
               <ul className="mt-5 space-y-4">
                 {requirements.map((r) => (
                   <li key={r} className="flex gap-3 text-cream-muted">
@@ -85,21 +89,16 @@ export default function GettingStartedPage() {
 
           <Reveal delay={80}>
             <Card className="h-full">
-              <h2 className="text-2xl text-cream">
-                Conditions to treat first
-              </h2>
+              <h2 className="text-3xl text-cream">Things to settle first</h2>
               <p className="mt-3 text-sm text-cream-muted">
-                Some conditions need to be well-managed before ketamine can be
-                used safely. These don&rsquo;t necessarily rule out treatment —
-                they may simply require clearance or a modified plan.
+                These don&rsquo;t close the door — they just need looking after
+                before you begin. Often it&rsquo;s a matter of one conversation
+                with your doctor.
               </p>
               <ul className="mt-5 space-y-2">
                 {treatFirst.map((t) => (
-                  <li
-                    key={t}
-                    className="flex gap-3 text-sm text-cream-muted"
-                  >
-                    <span aria-hidden="true" className="mt-1 text-sage">
+                  <li key={t} className="flex gap-3 text-sm text-cream-muted">
+                    <span aria-hidden="true" className="mt-1 text-blush">
                       ·
                     </span>
                     <span>{t}</span>
@@ -112,13 +111,14 @@ export default function GettingStartedPage() {
 
         <Reveal className="mt-8">
           <Card className="border-clay/20">
-            <h2 className="text-2xl text-cream">
-              When KAP may not be appropriate
+            <h2 className="text-3xl text-cream">
+              When this isn&rsquo;t the right path
             </h2>
             <p className="mt-3 text-sm text-cream-muted">
-              For safety, ketamine is generally not offered in the following
-              situations. A comprehensive medical and psychiatric assessment
-              determines what&rsquo;s right for each individual.
+              In these situations this work could genuinely cause harm, so it
+              isn&rsquo;t offered. If that&rsquo;s you, it doesn&rsquo;t mean
+              nothing can help — it means something else will serve you better,
+              and Becky will point you toward it.
             </p>
             <ul className="mt-5 grid gap-2 sm:grid-cols-2">
               {notEligible.map((n) => (
@@ -130,23 +130,23 @@ export default function GettingStartedPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-xs text-cream-dim">
-              This is not a complete list. Certain medications — such as
-              lamotrigine or benzodiazepines — may affect treatment, and all
-              contraindications are reviewed individually with your prescribing
-              clinician.
+            <p className="mt-5 text-sm text-cream-muted">
+              This isn&rsquo;t a complete list. Some medicines — certain mood
+              stabilisers and anxiety medicines among them — can also change how
+              this works. Everything is looked at properly, and individually,
+              with the doctor overseeing your care.
             </p>
           </Card>
         </Reveal>
 
         <Reveal className="mt-10">
           <Prose>
-            <h2>Ready to take the first step?</h2>
+            <h2>If you&rsquo;re still reading, that means something</h2>
             <p>
-              Beginning is simple: reach out to request a consultation. We&rsquo;ll
-              meet, talk through your goals and history, and figure out together
-              whether Ketamine-Assisted Psychotherapy is a good fit — with no
-              pressure either way.
+              Beginning is simpler than it looks: you reach out, and you talk.
+              You&rsquo;ll say what brought you here and what you&rsquo;re hoping
+              for, and together you&rsquo;ll work out whether this is your path.
+              There is no pressure either way, and no commitment in asking.
             </p>
           </Prose>
         </Reveal>

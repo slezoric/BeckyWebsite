@@ -1,6 +1,6 @@
-// Conditions and their research evidence strength, sourced directly from the
-// "CIFI_KAP Introduction" source document. Presented honestly — transparency about the
-// state of the evidence is a trust asset, not a liability.
+// What this work can help with, and how much research stands behind each.
+// Names are kept as people commonly know them, so anyone can find themselves
+// here — but the descriptions are written plainly, without clinical shorthand.
 
 export type Strength =
   | "Strong"
@@ -17,54 +17,54 @@ export type Condition = {
 
 export const conditions: Condition[] = [
   {
-    name: "Treatment-Resistant Depression",
+    name: "Depression that hasn't lifted",
     strength: "Strong",
-    note: "The condition with the strongest research support. Multiple trials and meta-analyses show rapid antidepressant effects, often within hours to days.",
+    note: "This is where the evidence is strongest. For people who have tried other things without much relief, the heaviness often begins to lift within hours or days rather than weeks.",
   },
   {
-    name: "Major Depressive Disorder",
+    name: "Depression",
     strength: "Strong",
-    note: "Significant short-term antidepressant effects, including in people not formally classified as treatment-resistant. Benefits are rapid but may need maintenance.",
+    note: "Real, meaningful relief for many people — including those who wouldn't describe their depression as severe. It tends to arrive quickly, and usually holds better with more than one visit.",
   },
   {
-    name: "Suicidal Ideation in Depression",
+    name: "Thoughts of ending your life",
     strength: "Strong",
-    note: "Shown to reduce suicidal thoughts rapidly — sometimes within hours, even before broader depressive symptoms improve.",
+    note: "Among the most striking findings: these thoughts can quieten remarkably fast, sometimes within hours — often before the wider heaviness has begun to lift.",
   },
   {
-    name: "Bipolar Depression",
+    name: "The low side of bipolar",
     strength: "Moderate to Strong",
-    note: "Meaningful reductions in depressive symptoms during the depressive phase. Careful psychiatric supervision is important given a risk of triggering mania.",
+    note: "Good evidence of real relief during the depressive stretches. Because it can occasionally tip things the other way, this is done with especially close care from your doctor.",
   },
   {
-    name: "Post-Traumatic Stress Disorder (PTSD)",
+    name: "The weight of past trauma",
     strength: "Moderate",
-    note: "Multiple studies report reduced PTSD symptoms, particularly when ketamine is combined with psychotherapy. The research base is smaller than for depression.",
+    note: "Encouraging results, particularly when the medicine is paired with real therapeutic support — which is exactly how it is offered here. The research is younger than it is for depression.",
   },
   {
-    name: "Anxiety Disorders",
+    name: "Anxiety",
     strength: "Moderate",
-    note: "Reductions in generalized and social anxiety in some people. Benefits often appear rapidly but may require repeated treatment to persist.",
+    note: "Many people find the constant background hum of worry quietens. Relief often comes quickly, though it usually takes more than one visit to settle in.",
   },
   {
-    name: "Obsessive-Compulsive Disorder (OCD)",
+    name: "Obsessive thoughts and compulsions",
     strength: "Moderate but preliminary",
-    note: "Small trials show short-term reductions in obsessive symptoms. Promising but preliminary compared with depression research.",
+    note: "Small studies have found relief from intrusive, looping thoughts in the short term. Genuinely promising, but the research is still early.",
   },
   {
-    name: "Alcohol Use Disorder",
+    name: "Drinking that has taken hold",
     strength: "Preliminary",
-    note: "Some evidence that ketamine-assisted psychotherapy may reduce relapse and consumption. More large-scale trials are needed.",
+    note: "Early signs suggest this work may help people drink less and return to it less often, especially alongside therapy. More research is still needed.",
   },
   {
-    name: "Other Substance Use Disorders",
+    name: "Other substance use",
     strength: "Preliminary",
-    note: "Early evidence for cocaine and opioid use disorders, particularly when paired with behavioral therapy. Research remains exploratory.",
+    note: "Some early, hopeful findings when paired with ongoing therapeutic support. This remains an area still being explored.",
   },
   {
-    name: "Eating Disorders",
+    name: "Eating disorders",
     strength: "Preliminary",
-    note: "Limited studies, particularly in anorexia nervosa, suggest potential benefit. Evidence is currently insufficient to consider it established.",
+    note: "A small number of studies point to possible benefit. There isn't yet enough evidence to consider this a settled path.",
   },
 ];
 
@@ -77,10 +77,12 @@ export const strengthOrder: Strength[] = [
   "Preliminary",
 ];
 
+// Confidence ramp: brightest (gold) for the strongest evidence, fading to a
+// muted neutral for the most preliminary — so strength reads at a glance.
 export const strengthColor: Record<Strength, string> = {
-  Strong: "text-forest-light border-forest-light/40 bg-forest/20",
-  "Moderate to Strong": "text-sage border-sage/40 bg-sage/10",
-  Moderate: "text-sage border-sage/30 bg-sage/5",
-  "Moderate but preliminary": "text-gold border-gold/30 bg-gold/5",
-  Preliminary: "text-clay border-clay/30 bg-clay/5",
+  Strong: "text-gold border-gold/50 bg-gold/15",
+  "Moderate to Strong": "text-clay border-clay/40 bg-clay/10",
+  Moderate: "text-blush border-blush/40 bg-blush/10",
+  "Moderate but preliminary": "text-blush-deep border-blush-deep/30 bg-blush/5",
+  Preliminary: "text-cream-dim border-cream-dim/25 bg-cream-dim/5",
 };
