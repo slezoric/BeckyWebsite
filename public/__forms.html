@@ -1,0 +1,24 @@
+<!--
+  Netlify Forms detection stub.
+  Netlify registers forms by scanning static HTML at deploy time. This bare
+  form guarantees the "consultation" form (and all its fields) is detected,
+  independent of how Next.js renders the interactive form on /contact/.
+  Do not delete.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <form name="consultation" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="consultation" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+  </body>
+</html>

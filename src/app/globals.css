@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/*
+  A World Within design system — warm, nature-based, deep.
+  Palette reads as "earth at dusk": deep charcoal-green base, forest + sage,
+  warm clay, amber-gold accent for actions, sand/cream text.
+*/
+@theme {
+  /* Backgrounds & surfaces (deepest → lighter) */
+  --color-base: #141a17;
+  --color-base-2: #1a2420;
+  --color-surface: #22302a;
+  --color-surface-2: #2e3d35;
+
+  /* Greens */
+  --color-forest: #3a5a44;
+  --color-forest-light: #4d7358;
+  --color-sage: #8fa88e;
+
+  /* Warm secondary */
+  --color-clay: #b5715a;
+  --color-clay-deep: #9c6b4e;
+
+  /* Accent — CTAs only */
+  --color-gold: #d4a24e;
+  --color-gold-light: #e3bd77;
+
+  /* Text */
+  --color-cream: #f1e9dc;
+  --color-cream-muted: #c9bea9;
+  --color-cream-dim: #9d9483;
+
+  /* Type */
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  /* Content width */
+  --breakpoint-content: 72rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings default to the warm serif */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Visible, calm focus ring for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background-color: var(--color-forest);
+  color: var(--color-cream);
+}
+
+/*
+  Gentle scroll reveal. Motion is opt-in: only animates when the user
+  has NOT requested reduced motion. Otherwise content is simply visible.
+*/
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
