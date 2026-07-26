@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { crisis, nav, site, socialLinks } from "@/lib/site";
 
 const legal = [
@@ -30,9 +31,16 @@ export default function SiteFooter() {
       </div>
 
       <div className="mx-auto grid max-w-content gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.5fr_1fr_1fr]">
-        <div>
-          <p className="font-display text-3xl text-cream">{site.name}</p>
-          <p className="mt-2 max-w-xs text-sm text-cream-dim">{site.tagline}</p>
+        {/* Brand block: centred on phones, left-aligned once the columns
+            sit side by side. */}
+        <div className="flex flex-col items-center text-center md:items-start md:text-left">
+          <Image
+            src="/images/logo-cream.png"
+            alt={`${site.name} — ${site.tagline}`}
+            width={1023}
+            height={457}
+            className="h-28 w-auto sm:h-32"
+          />
           <p className="mt-4 max-w-xs text-sm text-cream-muted">
             A warm, grounded space for healing — meeting you exactly where you
             are.

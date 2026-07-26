@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { nav, site } from "@/lib/site";
@@ -14,21 +15,23 @@ export default function SiteHeader() {
       <div className="mx-auto flex max-w-content items-center justify-between px-5 py-4 sm:px-8">
         <Link
           href="/"
-          className="flex flex-col leading-none"
+          className="shrink-0"
           onClick={() => setOpen(false)}
           aria-label={`${site.name} — ${site.tagline}`}
         >
-          <span className="font-display text-4xl leading-tight text-cream">
-            {site.name}
-          </span>
-          <span className="mt-1 text-xs font-sans italic tracking-wide text-blush">
-            {site.tagline}
-          </span>
+          <Image
+            src="/images/logo-horizontal.png"
+            alt={`${site.name} — ${site.tagline}`}
+            width={1244}
+            height={213}
+            priority
+            className="h-12 w-auto sm:h-14 2xl:h-16"
+          />
         </Link>
 
         {/* Desktop nav */}
         <nav
-          className="hidden items-center gap-5 xl:flex xl:gap-7"
+          className="hidden items-center gap-4 xl:flex 2xl:gap-7"
           aria-label="Primary"
         >
           {nav.map((item) => {
@@ -50,7 +53,7 @@ export default function SiteHeader() {
             href="/contact/"
             className="whitespace-nowrap rounded-full bg-gold px-5 py-2.5 text-base font-medium text-base-2 transition-[background-color,transform] duration-150 hover:bg-gold-light active:scale-[0.97]"
           >
-            Start the conversation
+            Get in touch
           </Link>
         </nav>
 
