@@ -19,13 +19,24 @@ export default function SiteHeader() {
           onClick={() => setOpen(false)}
           aria-label={`${site.name} — ${site.tagline}`}
         >
+          {/* Phones: the lockup as supplied, circle above the name. */}
+          <Image
+            src="/images/logo-cream.png"
+            alt={`${site.name} — ${site.tagline}`}
+            width={1023}
+            height={457}
+            priority
+            className="h-20 w-auto sm:hidden"
+          />
+          {/* Wider screens: circle moves beside the name so the header bar
+              stays shallow and sits alongside the navigation. */}
           <Image
             src="/images/logo-horizontal.png"
-            alt={`${site.name} — ${site.tagline}`}
+            alt=""
+            aria-hidden="true"
             width={1244}
             height={213}
-            priority
-            className="h-12 w-auto sm:h-14 2xl:h-16"
+            className="hidden h-14 w-auto sm:block 2xl:h-16"
           />
         </Link>
 
