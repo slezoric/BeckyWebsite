@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/contact/success/", "/style/"],
+      disallow: ["/contact/success/", "/style/", "/admin/"],
     },
     sitemap: new URL("/sitemap.xml", site.url).toString(),
   };

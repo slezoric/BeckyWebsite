@@ -1,0 +1,808 @@
+# ---------------------------------------------------------------------------
+#  Admin panel configuration
+#
+#  This tells the editor which parts of the website can be changed and what to
+#  call them. Labels are written for someone who has never seen code.
+#
+#  Saving a change here commits it to GitHub, which makes Netlify rebuild the
+#  site. Changes appear live about a minute or two after publishing.
+# ---------------------------------------------------------------------------
+
+backend:
+  name: github
+  repo: slezoric/BeckyWebsite
+  branch: main
+
+# Changes are saved as a draft first, so nothing goes live until it is
+# explicitly published. The draft also gets its own preview link.
+publish_mode: editorial_workflow
+
+media_folder: "public/images"
+public_folder: "/images"
+
+# Show the live preview pane beside the editor.
+show_preview_links: true
+
+collections:
+  # -------------------------------------------------------------------------
+  - name: "pages"
+    label: "Website pages"
+    label_singular: "page"
+    description: "The wording on each page of the website."
+    editor:
+      preview: true
+    files:
+      # ---------------------------------------------------------------------
+      - name: "home"
+        label: "Home page"
+        file: "src/content/home.json"
+        description: "The first page visitors see."
+        fields:
+          - {
+              name: heroEyebrow,
+              label: "Small line above the headline",
+              widget: string,
+            }
+          - {
+              name: heroHeading,
+              label: "Main headline",
+              widget: text,
+              hint: "The large handwritten line at the top of the page.",
+            }
+          - { name: heroIntro, label: "Opening paragraph", widget: text }
+          - {
+              name: heroPrimaryButton,
+              label: "Main button text",
+              widget: string,
+            }
+          - {
+              name: heroSecondaryButton,
+              label: "Second button text",
+              widget: string,
+            }
+          - {
+              name: quote,
+              label: "Quote",
+              widget: text,
+              hint: "Shown in large handwriting across the middle of the page. Don't add quotation marks — they're added for you.",
+            }
+          - { name: quoteAttribution, label: "Quote signed by", widget: string }
+          - {
+              name: conditionsEyebrow,
+              label: "Small line above 'what people come with'",
+              widget: string,
+            }
+          - {
+              name: conditionsHeading,
+              label: "Heading for 'what people come with'",
+              widget: string,
+            }
+          - name: conditions
+            label: "What people come with"
+            label_singular: "card"
+            widget: list
+            summary: "{{fields.title}}"
+            hint: "The four cards. You can add, remove, or drag to reorder them."
+            fields:
+              - { name: title, label: "Card title", widget: string }
+              - { name: body, label: "Card text", widget: text }
+          - {
+              name: conditionsLink,
+              label: "Link text below the cards",
+              widget: string,
+            }
+          - {
+              name: journeyEyebrow,
+              label: "Small line above 'the journey'",
+              widget: string,
+            }
+          - {
+              name: journeyHeading,
+              label: "Heading for 'the journey'",
+              widget: string,
+            }
+          - name: steps
+            label: "The three steps"
+            label_singular: "step"
+            widget: list
+            summary: "{{fields.number}} — {{fields.title}}"
+            fields:
+              - {
+                  name: number,
+                  label: "Step number",
+                  widget: string,
+                  hint: "For example 01, 02, 03.",
+                }
+              - { name: title, label: "Step title", widget: string }
+              - { name: body, label: "Step description", widget: text }
+          - {
+              name: journeyButton,
+              label: "Button below the steps",
+              widget: string,
+            }
+          - {
+              name: metaTitle,
+              label: "Search-engine title (optional)",
+              widget: string,
+              required: false,
+            }
+          - {
+              name: metaDescription,
+              label: "Search-engine description (optional)",
+              widget: text,
+              required: false,
+            }
+
+      # ---------------------------------------------------------------------
+      - name: "about"
+        label: "Meet Becky page"
+        file: "src/content/about.json"
+        fields:
+          - { name: eyebrow, label: "Small line above the heading", widget: string }
+          - { name: heading, label: "Page heading", widget: string }
+          - { name: intro, label: "Opening paragraph", widget: text }
+          - name: bio
+            label: "About Becky"
+            label_singular: "paragraph"
+            widget: list
+            field: { name: paragraph, label: "Paragraph", widget: text }
+            hint: "One box per paragraph. Add or reorder as you like."
+          - {
+              name: approachesHeading,
+              label: "Heading for 'how she works'",
+              widget: string,
+            }
+          - {
+              name: approachesIntro,
+              label: "Intro for 'how she works'",
+              widget: text,
+            }
+          - name: approaches
+            label: "How she works"
+            label_singular: "card"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Card title", widget: string }
+              - { name: body, label: "Card text", widget: text }
+          - {
+              name: credentialsHeading,
+              label: "Credentials heading",
+              widget: string,
+            }
+          - {
+              name: credentialsEmpty,
+              label: "Text shown when no credentials are listed",
+              widget: text,
+              hint: "Credentials themselves are added under 'Practice details'.",
+            }
+          - {
+              name: credentialsButton,
+              label: "Button under credentials",
+              widget: string,
+            }
+          - {
+              name: ctaHeading,
+              label: "Heading of the closing invitation",
+              widget: string,
+            }
+          - { name: metaTitle, label: "Search-engine title", widget: string }
+          - {
+              name: metaDescription,
+              label: "Search-engine description",
+              widget: text,
+            }
+
+      # ---------------------------------------------------------------------
+      - name: "how-it-works"
+        label: "How It Works page"
+        file: "src/content/how-it-works.json"
+        fields:
+          - { name: eyebrow, label: "Small line above the heading", widget: string }
+          - { name: heading, label: "Page heading", widget: string }
+          - { name: intro, label: "Opening paragraph", widget: text }
+          - name: sections
+            label: "Sections of the page"
+            label_singular: "section"
+            widget: list
+            summary: "{{fields.heading}}"
+            fields:
+              - { name: heading, label: "Section heading", widget: string }
+              - name: paragraphs
+                label: "Paragraphs"
+                label_singular: "paragraph"
+                widget: list
+                field: { name: paragraph, label: "Paragraph", widget: text }
+          - {
+              name: safetyCardHeading,
+              label: "Reassurance box — heading",
+              widget: string,
+            }
+          - {
+              name: safetyCardBody,
+              label: "Reassurance box — text",
+              widget: text,
+            }
+          - {
+              name: factsCardHeading,
+              label: "Quick facts box — heading",
+              widget: string,
+            }
+          - name: facts
+            label: "Quick facts"
+            label_singular: "fact"
+            widget: list
+            field: { name: fact, label: "Fact", widget: string }
+          - {
+              name: honestNote,
+              label: "Honest note (the highlighted box)",
+              widget: text,
+            }
+          - { name: metaTitle, label: "Search-engine title", widget: string }
+          - {
+              name: metaDescription,
+              label: "Search-engine description",
+              widget: text,
+            }
+
+      # ---------------------------------------------------------------------
+      - name: "what-it-helps"
+        label: "What It Helps page"
+        file: "src/content/what-it-helps.json"
+        fields:
+          - { name: eyebrow, label: "Small line above the heading", widget: string }
+          - { name: heading, label: "Page heading", widget: string }
+          - { name: intro, label: "Opening paragraph", widget: text }
+          - {
+              name: tableHeadCondition,
+              label: "Table column 1 heading",
+              widget: string,
+            }
+          - {
+              name: tableHeadEvidence,
+              label: "Table column 2 heading",
+              widget: string,
+            }
+          - {
+              name: tableHeadNote,
+              label: "Table column 3 heading",
+              widget: string,
+            }
+          - name: conditions
+            label: "Conditions"
+            label_singular: "condition"
+            widget: list
+            summary: "{{fields.name}} — {{fields.strength}}"
+            hint: "Each row of the table. Drag to reorder; strongest evidence usually goes first."
+            fields:
+              - { name: name, label: "What someone might be carrying", widget: string }
+              - name: strength
+                label: "How strong is the evidence?"
+                widget: select
+                options:
+                  - "Strong"
+                  - "Moderate to Strong"
+                  - "Moderate"
+                  - "Moderate but preliminary"
+                  - "Preliminary"
+                hint: "This sets the colour of the little badge."
+              - { name: note, label: "What we know so far", widget: text }
+          - {
+              name: footnote,
+              label: "Note below the table",
+              widget: text,
+            }
+          - { name: footnoteLink, label: "Link text in that note", widget: string }
+          - {
+              name: ctaHeading,
+              label: "Heading of the closing invitation",
+              widget: string,
+            }
+          - { name: metaTitle, label: "Search-engine title", widget: string }
+          - {
+              name: metaDescription,
+              label: "Search-engine description",
+              widget: text,
+            }
+
+      # ---------------------------------------------------------------------
+      - name: "journey"
+        label: "The Journey page"
+        file: "src/content/journey.json"
+        fields:
+          - { name: eyebrow, label: "Small line above the heading", widget: string }
+          - { name: heading, label: "Page heading", widget: string }
+          - { name: intro, label: "Opening paragraph", widget: text }
+          - name: phases
+            label: "Stages of the journey"
+            label_singular: "stage"
+            widget: list
+            summary: "{{fields.number}} — {{fields.title}}"
+            fields:
+              - { name: number, label: "Number", widget: string }
+              - { name: title, label: "Stage title", widget: string }
+              - { name: body, label: "Description", widget: text }
+          - {
+              name: logisticsHeading,
+              label: "Heading for the practical section",
+              widget: string,
+            }
+          - {
+              name: logisticsIntro,
+              label: "Intro for the practical section",
+              widget: text,
+            }
+          - name: logistics
+            label: "Practical things to know"
+            label_singular: "card"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Card title", widget: string }
+              - { name: body, label: "Card text", widget: text }
+          - { name: metaTitle, label: "Search-engine title", widget: string }
+          - {
+              name: metaDescription,
+              label: "Search-engine description",
+              widget: text,
+            }
+
+      # ---------------------------------------------------------------------
+      - name: "is-it-for-me"
+        label: "Is It For Me? page"
+        file: "src/content/is-it-for-me.json"
+        description: "Please have any medical wording on this page checked before publishing."
+        fields:
+          - { name: eyebrow, label: "Small line above the heading", widget: string }
+          - { name: heading, label: "Page heading", widget: string }
+          - { name: intro, label: "Opening paragraph", widget: text }
+          - {
+              name: crisisCalloutStrong,
+              label: "Crisis box — bold opening words",
+              widget: string,
+            }
+          - {
+              name: crisisCalloutBeforeNumber,
+              label: "Crisis box — text before the phone number",
+              widget: string,
+            }
+          - {
+              name: crisisCalloutAfterNumber,
+              label: "Crisis box — text after the phone number",
+              widget: text,
+            }
+          - {
+              name: requirementsHeading,
+              label: "'What you'll need' heading",
+              widget: string,
+            }
+          - {
+              name: requirementsIntro,
+              label: "'What you'll need' intro",
+              widget: text,
+            }
+          - name: requirements
+            label: "What you'll need"
+            label_singular: "item"
+            widget: list
+            field: { name: item, label: "Item", widget: text }
+          - {
+              name: treatFirstHeading,
+              label: "'Things to settle first' heading",
+              widget: string,
+            }
+          - {
+              name: treatFirstIntro,
+              label: "'Things to settle first' intro",
+              widget: text,
+            }
+          - name: treatFirst
+            label: "Things to settle first"
+            label_singular: "item"
+            widget: list
+            field: { name: item, label: "Item", widget: string }
+          - {
+              name: notRightHeading,
+              label: "'When this isn't right' heading",
+              widget: string,
+            }
+          - {
+              name: notRightIntro,
+              label: "'When this isn't right' intro",
+              widget: text,
+            }
+          - name: notRight
+            label: "When this isn't the right path"
+            label_singular: "item"
+            widget: list
+            field: { name: item, label: "Item", widget: string }
+          - {
+              name: notRightFootnote,
+              label: "Note below that list",
+              widget: text,
+            }
+          - { name: closingHeading, label: "Closing heading", widget: string }
+          - { name: closingBody, label: "Closing paragraph", widget: text }
+          - {
+              name: ctaHeading,
+              label: "Heading of the closing invitation",
+              widget: string,
+            }
+          - { name: metaTitle, label: "Search-engine title", widget: string }
+          - {
+              name: metaDescription,
+              label: "Search-engine description",
+              widget: text,
+            }
+
+      # ---------------------------------------------------------------------
+      - name: "faq"
+        label: "Questions page"
+        file: "src/content/faq.json"
+        fields:
+          - { name: eyebrow, label: "Small line above the heading", widget: string }
+          - { name: heading, label: "Page heading", widget: string }
+          - { name: intro, label: "Opening paragraph", widget: text }
+          - name: items
+            label: "Questions and answers"
+            label_singular: "question"
+            widget: list
+            summary: "{{fields.question}}"
+            hint: "Drag to reorder. The most common questions work best near the top."
+            fields:
+              - { name: question, label: "Question", widget: string }
+              - { name: answer, label: "Answer", widget: text }
+          - { name: metaTitle, label: "Search-engine title", widget: string }
+          - {
+              name: metaDescription,
+              label: "Search-engine description",
+              widget: text,
+            }
+
+      # ---------------------------------------------------------------------
+      - name: "contact"
+        label: "Contact page"
+        file: "src/content/contact.json"
+        fields:
+          - { name: eyebrow, label: "Small line above the heading", widget: string }
+          - { name: heading, label: "Page heading", widget: string }
+          - { name: intro, label: "Opening paragraph", widget: text }
+          - { name: labelName, label: "Form — name label", widget: string }
+          - { name: placeholderName, label: "Form — name hint text", widget: string }
+          - { name: labelEmail, label: "Form — email label", widget: string }
+          - { name: placeholderEmail, label: "Form — email hint text", widget: string }
+          - { name: labelPhone, label: "Form — phone label", widget: string }
+          - {
+              name: labelPhoneOptional,
+              label: "Form — the word beside 'phone'",
+              widget: string,
+            }
+          - { name: placeholderPhone, label: "Form — phone hint text", widget: string }
+          - { name: labelMessage, label: "Form — message label", widget: string }
+          - {
+              name: placeholderMessage,
+              label: "Form — message hint text",
+              widget: string,
+            }
+          - {
+              name: privacyNote,
+              label: "Privacy note under the form",
+              widget: text,
+              hint: "This asks people not to send health details. Please keep that meaning.",
+            }
+          - { name: submitButton, label: "Send button text", widget: string }
+          - { name: sidebarHeading, label: "Side panel heading", widget: string }
+          - { name: labelLocation, label: "Side panel — 'Location' label", widget: string }
+          - { name: labelServing, label: "Side panel — 'Serving' label", widget: string }
+          - { name: bookingButton, label: "Online booking button text", widget: string }
+          - { name: crisisHeading, label: "Crisis box heading", widget: string }
+          - { name: crisisIntro, label: "Crisis box text", widget: text }
+          - {
+              name: successEyebrow,
+              label: "Thank-you page — small line",
+              widget: string,
+            }
+          - {
+              name: successHeading,
+              label: "Thank-you page — heading",
+              widget: string,
+            }
+          - { name: successBody, label: "Thank-you page — message", widget: text }
+          - {
+              name: successPrimaryButton,
+              label: "Thank-you page — first button",
+              widget: string,
+            }
+          - {
+              name: successSecondaryButton,
+              label: "Thank-you page — second button",
+              widget: string,
+            }
+          - {
+              name: successCrisisNote,
+              label: "Thank-you page — crisis note",
+              widget: text,
+            }
+          - { name: metaTitle, label: "Search-engine title", widget: string }
+          - {
+              name: metaDescription,
+              label: "Search-engine description",
+              widget: text,
+            }
+
+  # -------------------------------------------------------------------------
+  - name: "practice"
+    label: "Practice details"
+    description: "Your name, contact details, hours, and credentials. These appear all over the website."
+    files:
+      - name: "site"
+        label: "Contact & practice details"
+        file: "src/content/site.json"
+        fields:
+          - { name: name, label: "Practice name", widget: string }
+          - { name: legalName, label: "Legal business name", widget: string }
+          - { name: tagline, label: "Tagline", widget: string }
+          - {
+              name: discipline,
+              label: "What you do",
+              widget: string,
+              hint: "Appears in the browser tab and in Google results.",
+            }
+          - { name: practitioner, label: "Your name", widget: string }
+          - {
+              name: practitionerTitle,
+              label: "Letters after your name",
+              widget: string,
+              required: false,
+              hint: "For example LCSW. Leave empty if not needed.",
+            }
+          - { name: email, label: "Email address", widget: string }
+          - {
+              name: phone,
+              label: "Phone number (as shown)",
+              widget: string,
+              hint: "For example (515) 329-5083",
+            }
+          - {
+              name: phoneHref,
+              label: "Phone number (for tapping)",
+              widget: string,
+              hint: "Digits only, keeping the 'tel:+1' at the start. For example tel:+15153295083",
+            }
+          - {
+              name: responseTime,
+              label: "How soon you usually reply",
+              widget: string,
+              hint: "Finishes the sentence 'We typically respond ___.'",
+            }
+          - {
+              name: inPerson,
+              label: "Do you see people in person?",
+              widget: boolean,
+              hint: "Turn off for online-only, and the address will be hidden.",
+            }
+          - name: address
+            label: "Address"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: line1, label: "Street address", widget: string, required: false }
+              - { name: city, label: "Town or city", widget: string, required: false }
+              - { name: state, label: "State", widget: string, required: false }
+              - { name: zip, label: "ZIP code", widget: string, required: false }
+          - {
+              name: serviceArea,
+              label: "Area you serve",
+              widget: string,
+              required: false,
+            }
+          - name: hours
+            label: "Opening hours"
+            label_singular: "row"
+            widget: list
+            summary: "{{fields.day}} — {{fields.value}}"
+            fields:
+              - { name: day, label: "Day or days", widget: string }
+              - {
+                  name: value,
+                  label: "Hours",
+                  widget: string,
+                  hint: "For example 'By appointment' or 'Closed'.",
+                }
+          - name: credentials
+            label: "Credentials and training"
+            label_singular: "credential"
+            widget: list
+            required: false
+            field: { name: credential, label: "Credential", widget: string }
+            hint: "Shown on the Meet Becky page. Leave empty to hide the list."
+          - {
+              name: bookingUrl,
+              label: "Online booking link",
+              widget: string,
+              required: false,
+              hint: "Paste a scheduling link to add a 'Book online' button. Leave empty to use the form only.",
+            }
+          - name: social
+            label: "Social links"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: instagram, label: "Instagram", widget: string, required: false }
+              - { name: facebook, label: "Facebook", widget: string, required: false }
+              - { name: linkedin, label: "LinkedIn", widget: string, required: false }
+          - {
+              name: portrait,
+              label: "Your photograph",
+              widget: image,
+              required: false,
+            }
+          - {
+              name: portraitAlt,
+              label: "Description of the photograph",
+              widget: string,
+              hint: "Read aloud to visitors who use a screen reader. Describe what's in the picture.",
+            }
+          - {
+              name: url,
+              label: "Website address",
+              widget: string,
+              hint: "The full address of the live site, used by search engines.",
+            }
+          - {
+              name: description,
+              label: "Description for search engines",
+              widget: text,
+            }
+
+      - name: "navigation"
+        label: "Menu, footer & crisis note"
+        file: "src/content/navigation.json"
+        fields:
+          - name: items
+            label: "Menu links"
+            label_singular: "link"
+            widget: list
+            summary: "{{fields.label}}"
+            hint: "Drag to reorder the menu. Please don't change the web address unless a page has moved."
+            fields:
+              - { name: label, label: "Menu wording", widget: string }
+              - { name: href, label: "Web address", widget: string }
+          - {
+              name: headerButton,
+              label: "Button at the top of every page",
+              widget: string,
+            }
+          - {
+              name: footerBlurb,
+              label: "Short line in the footer",
+              widget: text,
+            }
+          - {
+              name: crisisNote,
+              label: "Crisis note shown on every page",
+              widget: text,
+              hint: "Please keep the 988 number and the point that this site isn't a crisis service.",
+            }
+          - {
+              name: legalFootnote,
+              label: "Legal small print in the footer",
+              widget: text,
+              hint: "Reviewed by your attorney — please check with them before changing.",
+            }
+
+  # -------------------------------------------------------------------------
+  - name: "legal"
+    label: "Legal pages"
+    description: "Consent, disclaimer, privacy and terms. Please have changes here reviewed by your attorney before publishing."
+    files:
+      - name: "legal"
+        label: "All legal pages"
+        file: "src/content/legal.json"
+        fields:
+          - name: disclaimer
+            label: "Disclaimer"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small line above the heading", widget: string }
+              - { name: heading, label: "Page heading", widget: string }
+              - { name: reviewNote, label: "Note at the top", widget: text }
+              - name: sections
+                label: "Sections"
+                label_singular: "section"
+                widget: list
+                summary: "{{fields.heading}}"
+                fields:
+                  - { name: heading, label: "Section heading", widget: string }
+                  - name: paragraphs
+                    label: "Paragraphs"
+                    label_singular: "paragraph"
+                    widget: list
+                    field: { name: paragraph, label: "Paragraph", widget: text }
+              - { name: metaTitle, label: "Search-engine title", widget: string }
+              - {
+                  name: metaDescription,
+                  label: "Search-engine description",
+                  widget: text,
+                }
+          - name: privacy
+            label: "Privacy Policy"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small line above the heading", widget: string }
+              - { name: heading, label: "Page heading", widget: string }
+              - { name: reviewNote, label: "Note at the top", widget: text }
+              - name: sections
+                label: "Sections"
+                label_singular: "section"
+                widget: list
+                summary: "{{fields.heading}}"
+                fields:
+                  - { name: heading, label: "Section heading", widget: string }
+                  - name: paragraphs
+                    label: "Paragraphs"
+                    label_singular: "paragraph"
+                    widget: list
+                    field: { name: paragraph, label: "Paragraph", widget: text }
+              - { name: metaTitle, label: "Search-engine title", widget: string }
+              - {
+                  name: metaDescription,
+                  label: "Search-engine description",
+                  widget: text,
+                }
+          - name: terms
+            label: "Terms of Use"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small line above the heading", widget: string }
+              - { name: heading, label: "Page heading", widget: string }
+              - { name: reviewNote, label: "Note at the top", widget: text }
+              - name: sections
+                label: "Sections"
+                label_singular: "section"
+                widget: list
+                summary: "{{fields.heading}}"
+                fields:
+                  - { name: heading, label: "Section heading", widget: string }
+                  - name: paragraphs
+                    label: "Paragraphs"
+                    label_singular: "paragraph"
+                    widget: list
+                    field: { name: paragraph, label: "Paragraph", widget: text }
+              - { name: metaTitle, label: "Search-engine title", widget: string }
+              - {
+                  name: metaDescription,
+                  label: "Search-engine description",
+                  widget: text,
+                }
+          - name: informedConsent
+            label: "Informed Consent"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small line above the heading", widget: string }
+              - { name: heading, label: "Page heading", widget: string }
+              - { name: intro, label: "Opening paragraph", widget: text }
+              - { name: callout, label: "Highlighted box at the top", widget: text }
+              - { name: reviewNote, label: "Note at the bottom", widget: text }
+              - name: sections
+                label: "Sections"
+                label_singular: "section"
+                widget: list
+                summary: "{{fields.heading}}"
+                fields:
+                  - { name: heading, label: "Section heading", widget: string }
+                  - name: paragraphs
+                    label: "Paragraphs"
+                    label_singular: "paragraph"
+                    widget: list
+                    field: { name: paragraph, label: "Paragraph", widget: text }
+              - { name: metaTitle, label: "Search-engine title", widget: string }
+              - {
+                  name: metaDescription,
+                  label: "Search-engine description",
+                  widget: text,
+                }

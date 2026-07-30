@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { crisis, nav, site, socialLinks } from "@/lib/site";
+import { crisis, nav, navExtras, site, socialLinks } from "@/lib/site";
 
 const legal = [
   { href: "/getting-started/", label: "Getting Started" },
@@ -42,8 +42,7 @@ export default function SiteFooter() {
             className="h-28 w-auto sm:h-32"
           />
           <p className="mt-4 max-w-xs text-sm text-cream-muted">
-            A warm, grounded space for healing — meeting you exactly where you
-            are.
+            {navExtras.footerBlurb}
           </p>
           {socialLinks.length > 0 && (
             <ul className="mt-5 flex gap-4 text-sm">
@@ -108,11 +107,7 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-content px-5 pb-10 sm:px-8">
         <p className="text-xs leading-relaxed text-cream-dim">
           © {"2025"} {site.legalName}. {site.discipline} with{" "}
-          {site.practitioner}. The content on this site is for educational
-          purposes only and is not medical advice, diagnosis, or treatment.
-          Ketamine is used off-label for mental health conditions; individual
-          results vary and are not guaranteed. Always consult a qualified health
-          provider.
+          {site.practitioner}. {navExtras.legalFootnote}
         </p>
       </div>
     </footer>

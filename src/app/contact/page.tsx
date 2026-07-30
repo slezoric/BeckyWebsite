@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
-import { Container, PageHeader } from "@/components/ui";
+import { ButtonLink, Container, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import CrisisResources from "@/components/CrisisResources";
-import { ButtonLink } from "@/components/ui";
 import { site, formattedAddress } from "@/lib/site";
+import content from "@/content/contact.json";
 
 export const metadata: Metadata = {
-  title: "Start the Conversation",
-  description:
-    "Reach out to Becky for an unhurried first conversation. Please leave private health details out of this form — you'll have somewhere safer to share them.",
+  title: content.metaTitle,
+  description: content.metaDescription,
 };
+
+const field =
+  "mt-2 w-full rounded-lg border border-white/10 bg-base-2 px-4 py-3 text-cream placeholder:text-cream-dim focus:border-gold focus:outline-none";
 
 export default function ContactPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Get in touch"
-        title="Every journey starts with one small step"
-        intro="Send a note and Becky will be in touch to find a time to talk. You don't need the right words, and you don't need to have it figured out — reaching out is enough."
+        eyebrow={content.eyebrow}
+        title={content.heading}
+        intro={content.intro}
       />
 
       <Container className="py-10">
@@ -43,11 +45,8 @@ export default function ContactPage() {
 
               <div className="grid gap-5">
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm text-cream-muted"
-                  >
-                    Name
+                  <label htmlFor="name" className="block text-sm text-cream-muted">
+                    {content.labelName}
                   </label>
                   <input
                     id="name"
@@ -55,17 +54,14 @@ export default function ContactPage() {
                     type="text"
                     required
                     autoComplete="name"
-                    className="mt-2 w-full rounded-lg border border-white/10 bg-base-2 px-4 py-3 text-cream placeholder:text-cream-dim focus:border-gold focus:outline-none"
-                    placeholder="How should we address you?"
+                    className={field}
+                    placeholder={content.placeholderName}
                   />
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm text-cream-muted"
-                  >
-                    Email
+                  <label htmlFor="email" className="block text-sm text-cream-muted">
+                    {content.labelEmail}
                   </label>
                   <input
                     id="email"
@@ -73,26 +69,25 @@ export default function ContactPage() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="mt-2 w-full rounded-lg border border-white/10 bg-base-2 px-4 py-3 text-cream placeholder:text-cream-dim focus:border-gold focus:outline-none"
-                    placeholder="you@example.com"
+                    className={field}
+                    placeholder={content.placeholderEmail}
                   />
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm text-cream-muted"
-                  >
-                    Phone{" "}
-                    <span className="text-cream-dim">(optional)</span>
+                  <label htmlFor="phone" className="block text-sm text-cream-muted">
+                    {content.labelPhone}{" "}
+                    <span className="text-cream-dim">
+                      {content.labelPhoneOptional}
+                    </span>
                   </label>
                   <input
                     id="phone"
                     name="phone"
                     type="tel"
                     autoComplete="tel"
-                    className="mt-2 w-full rounded-lg border border-white/10 bg-base-2 px-4 py-3 text-cream placeholder:text-cream-dim focus:border-gold focus:outline-none"
-                    placeholder="(555) 000-0000"
+                    className={field}
+                    placeholder={content.placeholderPhone}
                   />
                 </div>
 
@@ -101,28 +96,26 @@ export default function ContactPage() {
                     htmlFor="message"
                     className="block text-sm text-cream-muted"
                   >
-                    How can we help?
+                    {content.labelMessage}
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={5}
-                    className="mt-2 w-full rounded-lg border border-white/10 bg-base-2 px-4 py-3 text-cream placeholder:text-cream-dim focus:border-gold focus:outline-none"
-                    placeholder="A sentence or two about what brings you here is plenty."
+                    className={field}
+                    placeholder={content.placeholderMessage}
                   />
                 </div>
 
                 <p className="text-sm leading-relaxed text-cream-muted">
-                  For your privacy, please don&rsquo;t include sensitive health
-                  details or medical history in this form. We&rsquo;ll gather
-                  anything we need securely once we connect.
+                  {content.privacyNote}
                 </p>
 
                 <button
                   type="submit"
                   className="rounded-full bg-gold px-7 py-3.5 font-medium text-base-2 transition-[background-color,transform] duration-150 hover:bg-gold-light active:scale-[0.98]"
                 >
-                  Send request
+                  {content.submitButton}
                 </button>
               </div>
             </form>
@@ -132,7 +125,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             <Reveal>
               <div className="rounded-3xl border border-white/5 bg-surface/40 p-6 sm:p-8">
-                <h2 className="text-3xl text-cream">Prefer to reach out directly?</h2>
+                <h2 className="text-3xl text-cream">{content.sidebarHeading}</h2>
                 <dl className="mt-5 space-y-4 text-sm">
                   <div>
                     <dt className="text-cream-dim">Email</dt>
@@ -157,16 +150,17 @@ export default function ContactPage() {
                     </dd>
                   </div>
                 </dl>
+
                 {site.inPerson && formattedAddress && (
                   <div className="mt-4 text-sm">
-                    <dt className="text-cream-dim">Location</dt>
-                    <dd className="text-cream-muted">{formattedAddress}</dd>
+                    <p className="text-cream-dim">{content.labelLocation}</p>
+                    <p className="text-cream-muted">{formattedAddress}</p>
                   </div>
                 )}
                 {site.serviceArea && (
                   <div className="mt-4 text-sm">
-                    <dt className="text-cream-dim">Serving</dt>
-                    <dd className="text-cream-muted">{site.serviceArea}</dd>
+                    <p className="text-cream-dim">{content.labelServing}</p>
+                    <p className="text-cream-muted">{site.serviceArea}</p>
                   </div>
                 )}
 
@@ -186,7 +180,9 @@ export default function ContactPage() {
 
                 {site.bookingUrl && (
                   <div className="mt-6">
-                    <ButtonLink href={site.bookingUrl}>Book online</ButtonLink>
+                    <ButtonLink href={site.bookingUrl}>
+                      {content.bookingButton}
+                    </ButtonLink>
                   </div>
                 )}
 
@@ -197,7 +193,10 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal delay={80}>
-              <CrisisResources />
+              <CrisisResources
+                heading={content.crisisHeading}
+                intro={content.crisisIntro}
+              />
             </Reveal>
           </div>
         </div>

@@ -2,21 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container, ConsultCTA, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
-import { conditions, strengthColor } from "@/lib/conditions";
+import { strengthColor, type Strength } from "@/lib/conditions";
+import content from "@/content/what-it-helps.json";
 
 export const metadata: Metadata = {
-  title: "What It Helps",
-  description:
-    "What this work can help with — set out honestly, alongside how much research stands behind each, including where the evidence is still thin.",
+  title: content.metaTitle,
+  description: content.metaDescription,
 };
 
 export default function WhatWeTreatPage() {
   return (
     <>
       <PageHeader
-        eyebrow="What it helps"
-        title="An honest look at what this can and can't do"
-        intro="You deserve the real picture, not a sales pitch. Here is what people come with, and how much research genuinely stands behind each one — including the places where we simply don't know enough yet."
+        eyebrow={content.eyebrow}
+        title={content.heading}
+        intro={content.intro}
       />
 
       <Container className="py-10">
@@ -26,23 +26,26 @@ export default function WhatWeTreatPage() {
             <table className="w-full border-collapse text-left">
               <thead className="bg-surface/60 text-sm uppercase tracking-wide text-cream-dim">
                 <tr>
-                  <th className="px-6 py-4 font-medium">What you might be carrying</th>
-                  <th className="px-6 py-4 font-medium">Evidence</th>
-                  <th className="px-6 py-4 font-medium">What we know so far</th>
+                  <th className="px-6 py-4 font-medium">
+                    {content.tableHeadCondition}
+                  </th>
+                  <th className="px-6 py-4 font-medium">
+                    {content.tableHeadEvidence}
+                  </th>
+                  <th className="px-6 py-4 font-medium">
+                    {content.tableHeadNote}
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                {conditions.map((c) => (
-                  <tr
-                    key={c.name}
-                    className="border-t border-white/5 align-top"
-                  >
+                {content.conditions.map((c) => (
+                  <tr key={c.name} className="border-t border-white/5 align-top">
                     <td className="px-6 py-5 font-medium text-cream">
                       {c.name}
                     </td>
                     <td className="px-6 py-5">
                       <span
-                        className={`inline-block whitespace-nowrap rounded-full border px-3 py-1 text-xs ${strengthColor[c.strength]}`}
+                        className={`inline-block whitespace-nowrap rounded-full border px-3 py-1 text-xs ${strengthColor[c.strength as Strength]}`}
                       >
                         {c.strength}
                       </span>
@@ -59,14 +62,12 @@ export default function WhatWeTreatPage() {
 
         {/* Mobile: stacked cards */}
         <div className="space-y-4 md:hidden">
-          {conditions.map((c, i) => (
+          {content.conditions.map((c, i) => (
             <Reveal key={c.name} delay={i * 40}>
               <div className="rounded-2xl border border-white/5 bg-surface/40 p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <h2 className="text-3xl text-cream">{c.name}</h2>
-                </div>
+                <h2 className="text-3xl text-cream">{c.name}</h2>
                 <span
-                  className={`mt-2 inline-block rounded-full border px-3 py-1 text-xs ${strengthColor[c.strength]}`}
+                  className={`mt-2 inline-block rounded-full border px-3 py-1 text-xs ${strengthColor[c.strength as Strength]}`}
                 >
                   {c.strength}
                 </span>
@@ -78,21 +79,18 @@ export default function WhatWeTreatPage() {
 
         <Reveal className="mt-10">
           <p className="max-w-3xl text-sm text-cream-dim">
-            There are also things this work isn&rsquo;t right for, and Becky will
-            tell you plainly if that&rsquo;s the case for you — some conditions
-            make it genuinely unsafe. Working that out together is always the
-            first step.{" "}
+            {content.footnote}{" "}
             <Link
               href="/getting-started/"
               className="text-gold underline-offset-4 hover:underline"
             >
-              See whether this is right for you →
+              {content.footnoteLink}
             </Link>
           </p>
         </Reveal>
       </Container>
 
-      <ConsultCTA heading="Wondering if it could help you?" />
+      <ConsultCTA heading={content.ctaHeading} />
     </>
   );
 }

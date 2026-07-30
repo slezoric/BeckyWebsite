@@ -1,43 +1,7 @@
 import { ButtonLink, Card, Container, ConsultCTA } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import Link from "next/link";
-
-const conditions = [
-  {
-    title: "Heaviness that won't lift",
-    body: "When sadness has settled in and stayed — even after you've tried the things that were supposed to help.",
-  },
-  {
-    title: "A mind that won't rest",
-    body: "Worry running quietly behind everything, and the tiredness that comes from always bracing for what's next.",
-  },
-  {
-    title: "What the past still holds",
-    body: "Old hurt that lives in the body and shapes today, long after you thought you had moved on.",
-  },
-  {
-    title: "A longing for something more",
-    body: "For those who aren't in crisis, but sense there is more depth and aliveness available to them.",
-  },
-];
-
-const steps = [
-  {
-    n: "01",
-    title: "Finding your footing",
-    body: "We meet, take our time, and get to know one another. You'll learn what to expect and ask anything you like. Nothing moves forward until you feel genuinely ready.",
-  },
-  {
-    n: "02",
-    title: "The journey inward",
-    body: "You settle somewhere soft and quiet, with music and a blanket if you'd like. The medicine opens a door, and Becky stays with you the whole way through.",
-  },
-  {
-    n: "03",
-    title: "Finding your way back",
-    body: "Afterward we sit together and make sense of what surfaced — gently turning what you glimpsed into something that lasts in everyday life.",
-  },
-];
+import content from "@/content/home.json";
 
 export default function Home() {
   return (
@@ -52,20 +16,20 @@ export default function Home() {
         <Container className="pb-16 pt-24 text-center sm:pt-32">
           <Reveal>
             <p className="text-sm uppercase tracking-widest text-blush">
-              A gentle path inward, walked with Becky
+              {content.heroEyebrow}
             </p>
             <h1 className="mx-auto mt-5 max-w-4xl text-5xl leading-[1.05] text-cream sm:text-6xl md:text-7xl">
-              Healing is not linear. You don&rsquo;t have to walk it alone.
+              {content.heroHeading}
             </h1>
             <p className="mx-auto mt-7 max-w-xl text-lg text-cream-muted">
-              There is a world within you — quieter and more resilient than the
-              pain you have been carrying. This is a warm, unhurried place to go
-              looking for it, with someone beside you the whole way.
+              {content.heroIntro}
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-              <ButtonLink href="/contact/">Start the conversation</ButtonLink>
+              <ButtonLink href="/contact/">
+                {content.heroPrimaryButton}
+              </ButtonLink>
               <ButtonLink href="/kap/" variant="ghost">
-                How this works
+                {content.heroSecondaryButton}
               </ButtonLink>
             </div>
           </Reveal>
@@ -77,11 +41,10 @@ export default function Home() {
         <Container className="py-20">
           <Reveal>
             <p className="mx-auto max-w-3xl text-center font-display text-4xl leading-relaxed text-cream sm:text-5xl">
-              &ldquo;Healing is not linear — it&rsquo;s an unfolding journey that
-              requires safety, curiosity, and courage.&rdquo;
+              &ldquo;{content.quote}&rdquo;
             </p>
             <p className="mt-6 text-center text-sm uppercase tracking-widest text-cream-dim">
-              Becky
+              {content.quoteAttribution}
             </p>
           </Reveal>
         </Container>
@@ -92,14 +55,14 @@ export default function Home() {
         <Container className="py-20">
           <Reveal>
             <p className="text-sm uppercase tracking-widest text-blush">
-              You might recognize yourself here
+              {content.conditionsEyebrow}
             </p>
             <h2 className="mt-4 max-w-2xl text-4xl text-cream sm:text-5xl">
-              Support for the weight you&rsquo;ve been carrying
+              {content.conditionsHeading}
             </h2>
           </Reveal>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {conditions.map((c, i) => (
+            {content.conditions.map((c, i) => (
               <Reveal key={c.title} delay={i * 80}>
                 <Card className="h-full">
                   <h3 className="text-xl text-cream">{c.title}</h3>
@@ -113,7 +76,7 @@ export default function Home() {
               href="/what-we-treat/"
               className="text-sm text-gold underline-offset-4 hover:underline"
             >
-              See what this can help with, honestly →
+              {content.conditionsLink}
             </Link>
           </Reveal>
         </Container>
@@ -124,17 +87,19 @@ export default function Home() {
         <Container className="py-20">
           <Reveal>
             <p className="text-sm uppercase tracking-widest text-blush">
-              The journey
+              {content.journeyEyebrow}
             </p>
             <h2 className="mt-4 max-w-2xl text-4xl text-cream sm:text-5xl">
-              You&rsquo;ll know every step before you take it
+              {content.journeyHeading}
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {steps.map((s, i) => (
-              <Reveal key={s.n} delay={i * 100}>
+            {content.steps.map((s, i) => (
+              <Reveal key={s.number} delay={i * 100}>
                 <div>
-                  <span className="font-display text-5xl text-gold">{s.n}</span>
+                  <span className="font-display text-5xl text-gold">
+                    {s.number}
+                  </span>
                   <h3 className="mt-3 text-xl text-cream">{s.title}</h3>
                   <p className="mt-3 text-sm text-cream-muted">{s.body}</p>
                 </div>
@@ -143,7 +108,7 @@ export default function Home() {
           </div>
           <Reveal className="mt-10">
             <ButtonLink href="/process/" variant="ghost">
-              Walk through the whole journey
+              {content.journeyButton}
             </ButtonLink>
           </Reveal>
         </Container>

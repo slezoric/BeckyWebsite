@@ -20,15 +20,17 @@ const resources = [
 
 /** Always-visible crisis resources. Prominent on the contact page so no one
  *  in distress is left without an immediate, human option. */
-export default function CrisisResources() {
+export default function CrisisResources({
+  heading = "Need help right now?",
+  intro = "This website isn't a crisis service and messages aren't monitored around the clock. If you're in crisis or thinking about harming yourself, please use one of these now:",
+}: {
+  heading?: string;
+  intro?: string;
+}) {
   return (
     <Card className="border-clay/30 bg-clay/10">
-      <h2 className="text-3xl text-cream">Need help right now?</h2>
-      <p className="mt-2 text-sm text-cream-muted">
-        This website isn&rsquo;t a crisis service and messages aren&rsquo;t
-        monitored around the clock. If you&rsquo;re in crisis or thinking about
-        harming yourself, please use one of these now:
-      </p>
+      <h2 className="text-3xl text-cream">{heading}</h2>
+      <p className="mt-2 text-sm text-cream-muted">{intro}</p>
       <ul className="mt-5 space-y-3">
         {resources.map((r) => (
           <li key={r.label}>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Edit the website — A World Within</title>
+  </head>
+  <body>
+    <!-- Decap CMS: the editing panel. Everything it can change is described
+         in config.yml next to this file. -->
+    <script src="https://unpkg.com/decap-cms@^3.8.4/dist/decap-cms.js"></script>
+    <script>
+      // Make the live preview pane look like the real website, so what Becky
+      // sees while typing resembles what visitors will see.
+      window.CMS.registerPreviewStyle("/admin/preview.css");
+    </script>
+  </body>
+</html>

@@ -1,80 +1,29 @@
 import type { Metadata } from "next";
 import { Container, ConsultCTA, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
+import content from "@/content/faq.json";
 
 export const metadata: Metadata = {
-  title: "Questions",
-  description:
-    "Honest answers to what people most often want to know — whether it's safe, what it feels like, whether it's right for you, and what happens afterward.",
+  title: content.metaTitle,
+  description: content.metaDescription,
 };
-
-const faqs = [
-  {
-    q: "Is this safe?",
-    a: "This medicine has been used in hospitals for more than fifty years, including with children and in surgery, at much larger amounts than you'll ever receive here. Here it's given in small, careful doses, Becky stays with you the entire time, and she keeps a quiet eye on how your body is doing throughout. Like anything, it isn't completely without risk — and you'll hear all of it plainly before you decide.",
-  },
-  {
-    q: "What does it actually feel like?",
-    a: "Most people describe something floating and dreamlike. Colors seem richer, music goes deeper, and time stretches out. Your body feels distant and pleasantly heavy. Many feel a great sense of ease — as though a weight they had stopped noticing has been set down for a while.",
-  },
-  {
-    q: "What if something difficult comes up?",
-    a: "Sometimes it does — grief, or something you've been carrying quietly for years. That isn't a sign anything has gone wrong; it's often where the real healing lives. Becky is trained to stay steady with you through exactly those moments, and you'll make sense of it together afterward. You won't be left alone with it.",
-  },
-  {
-    q: "Will I lose control, or say things I regret?",
-    a: "No. You aren't unconscious, and you aren't out of control — you can speak, move, and ask for anything you need. Most people simply become quieter and more inward. Nothing is asked of you, and nothing you say will be met with judgment.",
-  },
-  {
-    q: "How will I know if this is right for me?",
-    a: "You don't have to know — that's what the first conversation is for. You'll talk it through together, and Becky will be honest if she doesn't think this is the right path for you. There is no pressure in either direction, and no cost to simply asking.",
-  },
-  {
-    q: "How is the medicine given? Are there needles?",
-    a: "No needles. It either dissolves gently in your mouth or comes as a small nasal spray. This is deliberate — it's kinder for anyone who finds needles hard, and it means you and Becky can still talk during the experience if that's what you want.",
-  },
-  {
-    q: "How much will I be given?",
-    a: "That's decided with you, never for you. It depends on what you're hoping for, whether you've experienced anything like this before, and how sensitive you tend to be. If it's all new to you, you'll start gently and low — there's no rush, and you can always go deeper another time.",
-  },
-  {
-    q: "How quickly does it help, and how long does it last?",
-    a: "Often surprisingly fast — relief can arrive the same day, which is quite unlike most other approaches. Around seven in ten people feel something shift early on. It usually holds better after more than one visit, and best of all when it's part of a wider circle of care. That said, no one can promise you a particular outcome.",
-  },
-  {
-    q: "What if it doesn't work for me?",
-    a: "Then you try again — many people need more than one visit before anything shifts. But if you've had a full series and nothing has changed, Becky won't keep going simply to keep going. She'll say so honestly, and help you look at what else might serve you better.",
-  },
-  {
-    q: "What do I need to do on the day?",
-    a: "Very little. Don't eat or drink for about four hours beforehand, wear something comfortable, and arrange for someone you trust to drive you home. Then give yourself the rest of the day — no driving, no errands, nothing demanding. Rest is part of the work.",
-  },
-  {
-    q: "Will anyone find out I've been here?",
-    a: "No. What you share stays between you and Becky, held with the same care as any medical record. Nothing goes to anyone else unless you put it in writing that you want it to.",
-  },
-  {
-    q: "What does it cost? Do you take insurance?",
-    a: "Becky will talk you through fees and what insurance may cover during your first conversation, so there are no surprises.",
-  },
-];
 
 export default function FaqPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Questions"
-        title="Ask anything. Nothing here is a silly question."
-        intro="These are the things people most often want to know but sometimes hesitate to ask. If yours isn't here, just reach out — Becky is always glad to talk it through."
+        eyebrow={content.eyebrow}
+        title={content.heading}
+        intro={content.intro}
       />
 
       <Container className="py-10">
         <div className="mx-auto max-w-3xl divide-y divide-white/5 rounded-2xl border border-white/5 bg-surface/30">
-          {faqs.map((f, i) => (
-            <Reveal key={f.q} delay={i * 30} as="div">
+          {content.items.map((f, i) => (
+            <Reveal key={f.question} delay={i * 30} as="div">
               <details className="group px-6 py-2">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-lg text-cream marker:content-['']">
-                  <span>{f.q}</span>
+                  <span>{f.question}</span>
                   <span
                     aria-hidden="true"
                     className="shrink-0 text-gold transition-transform group-open:rotate-45"
@@ -82,7 +31,7 @@ export default function FaqPage() {
                     +
                   </span>
                 </summary>
-                <p className="pb-5 text-cream-muted">{f.a}</p>
+                <p className="pb-5 text-cream-muted">{f.answer}</p>
               </details>
             </Reveal>
           ))}

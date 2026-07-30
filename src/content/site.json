@@ -1,0 +1,36 @@
+{
+  "name": "A World Within",
+  "legalName": "A World Within LLC",
+  "tagline": "Extra-Ordinary Care",
+  "discipline": "Care for Non-Ordinary States of Consciousness",
+  "practitioner": "Becky J Schwanz",
+  "practitionerTitle": "",
+  "portrait": "/images/becky-portrait.jpg",
+  "portraitAlt": "Becky J Schwanz, smiling, wearing a black hat and a woven shawl",
+  "email": "becky@extraordinarycare432.com",
+  "phone": "(515) 329-5083",
+  "phoneHref": "tel:+15153295083",
+  "responseTime": "within 7 business days",
+  "inPerson": true,
+  "address": {
+    "line1": "",
+    "city": "",
+    "state": "",
+    "zip": ""
+  },
+  "serviceArea": "Des Moines Metro Area",
+  "hours": [
+    { "day": "Monday – Thursday", "value": "By appointment" },
+    { "day": "Friday", "value": "By appointment" },
+    { "day": "Saturday – Sunday", "value": "Closed" }
+  ],
+  "credentials": [],
+  "bookingUrl": "",
+  "social": {
+    "instagram": "",
+    "facebook": "",
+    "linkedin": ""
+  },
+  "url": "https://aworldwithin.example",
+  "description": "Ketamine-assisted therapy with Becky — a warm, unhurried place to work with depression, anxiety, and old hurt, with someone beside you the whole way."
+}

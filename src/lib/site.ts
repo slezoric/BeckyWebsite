@@ -1,98 +1,33 @@
 /**
  * ============================================================
- *   CLIENT INFORMATION  —  EDIT THIS ONE FILE
+ *   SITE DATA  —  loaded from the editable content files
  * ============================================================
- *  This is the single source of truth for everything about the
- *  practice. Change a value here and it updates everywhere on the
- *  site automatically — the header, footer, contact page, SEO tags,
- *  and Google structured data. For routine content updates you only
- *  ever need to touch THIS file; no other code required.
+ *  Everything here now comes from JSON files in `src/content/`,
+ *  which Becky can edit through the admin panel at /admin.
  *
- *  HOW TO EDIT: change only the text inside the quotes "like this".
- *  Keep the commas, quotes, and brackets exactly as they are.
+ *  DO NOT hard-code copy in this file. To change wording or
+ *  practice details, edit the content files (or use /admin):
  *
- *  Fields marked  «TODO»  still hold placeholder values and MUST be
- *  filled in with real information before the site goes live.
+ *      src/content/site.json        practice + contact details
+ *      src/content/navigation.json  menu labels, footer, crisis note
+ *
+ *  This file just gives the rest of the code a typed, tidy way
+ *  to read that content.
  * ============================================================
  */
 
-export const site = {
-  // ---- Identity ---------------------------------------------------
-  name: "A World Within",
-  legalName: "A World Within LLC",
-  tagline: "Extra-Ordinary Care",
-  discipline: "Care for Non-Ordinary States of Consciousness",
-  practitioner: "Becky J Schwanz",
-  // «TODO» e.g. "LCSW" — shown after the name where credentials appear.
-  practitionerTitle: "",
-  // CareBear, Flight Instructor, Psychonaut, Care Curator 
-  // Practitioner portrait. Save the image file to:  public/images/becky-portrait.jpg
-  // (change the name/extension here if your file is different). Leave "" to
-  // show a placeholder instead.
-  portrait: "/images/becky-portrait.jpg",
-  // Alt text is read aloud by screen readers and shown if the image fails to
-  // load, so it describes the photo literally rather than being a nickname.
-  portraitAlt:
-    "Becky J Schwanz, smiling, wearing a black hat and a woven shawl",
+import siteContent from "@/content/site.json";
+import navContent from "@/content/navigation.json";
 
-  // ---- Contact ----------------------------------------------------
-  email: "becky@extraordinarycare432.com", // «TODO» real email
-  phone: "(515) 329-5083", // «TODO» real phone (display format)
-  phoneHref: "tel:+15153295083", // «TODO» real phone (digits, keep the tel: prefix)
-  // How long clients should expect to wait for a reply.
-  responseTime: "within 7 business days",
+export const site = siteContent;
 
-  // ---- Location & reach -------------------------------------------
-  // Set inPerson to false for a telehealth-only practice (hides the address).
-  inPerson: true,
-  address: {
-    line1: "", // «TODO» e.g. "123 Calm Way, Suite 200"
-    city: "", // «TODO»
-    state: "", // «TODO» e.g. "CA"
-    zip: "", // «TODO»
-  },
-  // «TODO» e.g. "In-person in Portland + telehealth across Oregon"
-  serviceArea: "Des Moines Metro Area",
+export const nav: { href: string; label: string }[] = navContent.items;
 
-  // ---- Hours (set value to "Closed" for days off) -----------------
-  hours: [
-    { day: "Monday – Thursday", value: "By appointment" },
-    { day: "Friday", value: "By appointment" },
-    { day: "Saturday – Sunday", value: "Closed" },
-  ],
-
-  // ---- Credentials & licensure (add one line per item) ------------
-  // «TODO» e.g. "LCSW #12345 (California)", "Certified in Ketamine-Assisted Psychotherapy"
-  credentials: [] as string[],
-
-  // ---- Booking ----------------------------------------------------
-  // If Becky uses an outside scheduler, paste its URL here and the
-  // contact page will add a "Book online" button. Leave "" to use the
-  // request form only.
-  bookingUrl: "",
-
-  // ---- Social links (leave "" to hide a link) ---------------------
-  social: {
-    instagram: "", // full URL, e.g. "https://instagram.com/…"
-    facebook: "",
-    linkedin: "",
-  },
-
-  // ---- Site -------------------------------------------------------
-  url: "https://aworldwithin.example", // «TODO» real domain (used for SEO/sitemap)
-  description:
-    "Ketamine-assisted therapy with Becky — a warm, unhurried place to work with depression, anxiety, and old hurt, with someone beside you the whole way.",
-} as const;
-
-// Main navigation links (order shown left to right).
-export const nav: { href: string; label: string }[] = [
-  { href: "/about/", label: "Meet Becky" },
-  { href: "/kap/", label: "How It Works" },
-  { href: "/what-we-treat/", label: "What It Helps" },
-  { href: "/process/", label: "The Journey" },
-  { href: "/getting-started/", label: "Is It For Me?" },
-  { href: "/faq/", label: "Questions" },
-];
+export const navExtras = {
+  headerButton: navContent.headerButton,
+  footerBlurb: navContent.footerBlurb,
+  legalFootnote: navContent.legalFootnote,
+};
 
 // U.S. 988 Suicide & Crisis Lifeline — surfaced sitewide so no one hits a dead end.
 export const crisis = {
@@ -100,7 +35,7 @@ export const crisis = {
   lineHref: "tel:988",
   text: "Text or call 988",
   label: "988 Suicide & Crisis Lifeline",
-  note: "If you are in crisis or thinking about harming yourself, call or text 988 (U.S.), or dial 911 for emergencies. This website is not a crisis service.",
+  note: navContent.crisisNote,
 } as const;
 
 // ---- Derived helpers (no need to edit) ----------------------------

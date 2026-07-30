@@ -1,0 +1,52 @@
+{
+  "metaTitle": "",
+  "metaDescription": "",
+  "heroEyebrow": "A gentle path inward, walked with Becky",
+  "heroHeading": "Healing is not linear. You don't have to walk it alone.",
+  "heroIntro": "There is a world within you — quieter and more resilient than the pain you have been carrying. This is a warm, unhurried place to go looking for it, with someone beside you the whole way.",
+  "heroPrimaryButton": "Start the conversation",
+  "heroSecondaryButton": "How this works",
+  "quote": "Healing is not linear — it's an unfolding journey that requires safety, curiosity, and courage.",
+  "quoteAttribution": "Becky",
+  "conditionsEyebrow": "You might recognize yourself here",
+  "conditionsHeading": "Support for the weight you've been carrying",
+  "conditions": [
+    {
+      "title": "Heaviness that won't lift",
+      "body": "When sadness has settled in and stayed — even after you've tried the things that were supposed to help."
+    },
+    {
+      "title": "A mind that won't rest",
+      "body": "Worry running quietly behind everything, and the tiredness that comes from always bracing for what's next."
+    },
+    {
+      "title": "What the past still holds",
+      "body": "Old hurt that lives in the body and shapes today, long after you thought you had moved on."
+    },
+    {
+      "title": "A longing for something more",
+      "body": "For those who aren't in crisis, but sense there is more depth and aliveness available to them."
+    }
+  ],
+  "conditionsLink": "See what this can help with, honestly →",
+  "journeyEyebrow": "The journey",
+  "journeyHeading": "You'll know every step before you take it",
+  "steps": [
+    {
+      "number": "01",
+      "title": "Finding your footing",
+      "body": "We meet, take our time, and get to know one another. You'll learn what to expect and ask anything you like. Nothing moves forward until you feel genuinely ready."
+    },
+    {
+      "number": "02",
+      "title": "The journey inward",
+      "body": "You settle somewhere soft and quiet, with music and a blanket if you'd like. The medicine opens a door, and Becky stays with you the whole way through."
+    },
+    {
+      "number": "03",
+      "title": "Finding your way back",
+      "body": "Afterward we sit together and make sense of what surfaced — gently turning what you glimpsed into something that lasts in everyday life."
+    }
+  ],
+  "journeyButton": "Walk through the whole journey"
+}

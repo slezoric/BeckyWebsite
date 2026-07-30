@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { nav, site } from "@/lib/site";
+import { nav, navExtras, site } from "@/lib/site";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -12,7 +12,10 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/5 bg-base/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-content items-center justify-between px-5 py-4 sm:px-8">
+      {/* On phones the logo is centred and the menu button is absolutely
+          placed, so the button's width doesn't pull the logo off-centre.
+          From sm up the logo sits left with the nav opposite it. */}
+      <div className="relative mx-auto flex max-w-content items-center justify-center px-5 py-4 sm:justify-between sm:px-8">
         <Link
           href="/"
           className="shrink-0"
@@ -64,14 +67,14 @@ export default function SiteHeader() {
             href="/contact/"
             className="whitespace-nowrap rounded-full bg-gold px-5 py-2.5 text-base font-medium text-base-2 transition-[background-color,transform] duration-150 hover:bg-gold-light active:scale-[0.97]"
           >
-            Get in touch
+            {navExtras.headerButton}
           </Link>
         </nav>
 
         {/* Mobile toggle */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-cream-muted xl:hidden"
+          className="absolute right-3 inline-flex items-center justify-center rounded-md p-2 text-cream-muted sm:static sm:right-auto xl:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -121,7 +124,7 @@ export default function SiteHeader() {
                 onClick={() => setOpen(false)}
                 className="block rounded-full bg-gold px-5 py-3.5 text-center font-medium text-base-2 transition-transform duration-150 active:scale-[0.98]"
               >
-                Start the conversation
+                {navExtras.headerButton}
               </Link>
             </li>
           </ul>

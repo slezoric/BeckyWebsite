@@ -31,13 +31,32 @@ Connect the repo in Netlify and it builds automatically.
 - **Analytics (optional):** set `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` in Netlify env
   vars to enable cookieless Plausible analytics (`src/components/Analytics.tsx`).
 
-## Editing client info — one file
+## Content editing (Decap CMS)
 
-**All practice details live in [`src/lib/site.ts`](src/lib/site.ts)** — name, contact,
-address, hours, credentials, service area, social links, booking URL, and SEO
-description. Edit that one file and the whole site (header, footer, contact page,
-SEO, structured data) updates automatically. Fields marked `«TODO»` still need
-real values before launch.
+**Becky edits the site herself at `/admin`** — no code, no developer needed.
+See [EDITING-GUIDE.md](EDITING-GUIDE.md) for the guide written for her.
+
+All wording lives in `src/content/*.json`; pages just read from it. Editing the
+JSON directly and editing via `/admin` are the same thing.
+
+| File | What it holds |
+| --- | --- |
+| `site.json` | Name, contact, hours, credentials, address, social, SEO |
+| `navigation.json` | Menu labels, header button, footer blurb, crisis note |
+| `home.json` … `contact.json` | One file per page |
+| `legal.json` | Consent, disclaimer, privacy, terms |
+
+**How it works:** she saves → Decap commits to `main` → Netlify rebuilds →
+live in ~1–2 min. `publish_mode: editorial_workflow` means saves become
+**drafts with their own deploy-preview link**, so nothing reaches the live site
+until she clicks Publish.
+
+**One-time setup (already done):** a GitHub OAuth app registered with callback
+`https://api.netlify.com/auth/done`, installed under Netlify → Site settings →
+Access control → OAuth. Becky needs collaborator access on the repo.
+
+Adding a new editable field: add it to the JSON, read it in the page, then
+describe it in `public/admin/config.yml` so it appears in her editor.
 
 ## Design options page
 
@@ -49,10 +68,14 @@ deployed `…/style/` URL; they reply with a font (A/B/C) + color (1/2/3) choice
 
 ```
 src/
+  content/             ← ALL EDITABLE COPY (what /admin writes to)
   app/                 one folder per route (home, about, kap, …, legal, style)
   components/          SiteHeader, SiteFooter, Reveal, ui.tsx, CrisisResources…
-  lib/site.ts          ← CLIENT INFO: name, contact, address, hours, credentials…
-  lib/conditions.ts    conditions + evidence-strength data
+  lib/site.ts          typed access to content/site.json + navigation.json
+  lib/conditions.ts    evidence-strength → colour mapping only
+public/
+  admin/               Decap CMS: index.html, config.yml, preview.css
+  images/              logo variants, portrait (see images/README.md)
 ```
 
 Page copy is adapted from the client source docs (`CIFI_*.docx`, kept in repo root).
