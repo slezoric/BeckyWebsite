@@ -1,14 +1,21 @@
 {
-  "metaTitle": "How This Works",
-  "metaDescription": "A gentle, plain-language introduction to ketamine-assisted therapy — what the medicine is, what the experience feels like, and why it is always paired with real support.",
-  "eyebrow": "How this works",
-  "heading": "A door opens. You don't walk through it alone.",
-  "intro": "Some medicines quiet a symptom. This one softens the walls we build over years — and for a little while, makes it possible to see ourselves with fresh eyes. What you do with that opening is where the real change happens.",
+  "safetyCardHeading": "You are safe here",
+  "heading": "Together ~ we prepare, we journey, we integrate. Care within connection.",
+  "safetyCardBody": "No needles — the medicine dissolves in your mouth or is a small nasal spray. You rest somewhere comfortable, with music and an eye mask if you like. Becky stays with you the entire time and keeps a quiet eye on how you are doing.",
+  "facts": [
+    "Over fifty years of use in medicine",
+    "Relief can come quickly — sometimes the same day",
+    "You are never left on your own",
+    "Everything is paced to you, never rushed"
+  ],
+  "eyebrow": "How does it work",
+  "factsCardHeading": "Things worth knowing",
+  "intro": "Legally prescribed medication \ndissociative medicine\nholistic integrative care\n\nExpanded states of consciousness can open the door to profound self-discovery, helping you reconnect with your inner wisdom, meet the different parts of yourself with compassion, and gain fresh perspective on your inner world. When approached with intention and supported through thoughtful integration, these experiences can create space for healing, harmony, and a deeper connection with the many parts of who you are. They can inspire lasting personal growth, emotional well-being, and a greater sense of wholeness, authenticity, and inner alignment.\n\nSome medicines quiet a symptom. This one softens the walls we build over years — and for a little while, makes it possible to see ourselves with fresh eyes. What you do with that opening is where the real change happens.",
   "sections": [
     {
       "heading": "What this medicine is",
       "paragraphs": [
-        "Ketamine has been used safely in hospitals and doctors' offices for more than fifty years — including with children, and including in surgery. It is one of the medicines the World Health Organization considers essential. That long track record is a big part of why it feels safe to use here.",
+        "to be determined",
         "More recently, doctors and therapists discovered something else about it: given in small, careful amounts, it can lift the heaviness of depression and anxiety remarkably quickly — often in hours rather than the weeks other medicines take. This use is newer than its original one, and the doctor looking after you will talk that through with you honestly."
       ]
     },
@@ -36,14 +43,7 @@
       ]
     }
   ],
-  "safetyCardHeading": "You are safe here",
-  "safetyCardBody": "No needles — the medicine dissolves in your mouth or is a small nasal spray. You rest somewhere comfortable, with music and an eye mask if you like. Becky stays with you the entire time and keeps a quiet eye on how you are doing.",
-  "factsCardHeading": "Things worth knowing",
-  "facts": [
-    "Over fifty years of use in medicine",
-    "Relief can come quickly — sometimes the same day",
-    "You are never left on your own",
-    "Everything is paced to you, never rushed"
-  ],
-  "honestNote": "Honest note: this is still a newer path, and no one can promise you a particular outcome. It helps many people, it does not help everyone, and it works best as part of a wider circle of care."
+  "honestNote": "Honest note: this is still a newer path, and no one can promise you a particular outcome. It helps many people, it does not help everyone, and it works best as part of a wider circle of care.",
+  "metaTitle": "How This Works",
+  "metaDescription": "A gentle, plain-language introduction to ketamine-assisted therapy — what the medicine is, what the experience feels like, and why it is always paired with real support."
 }
