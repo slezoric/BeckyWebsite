@@ -1,52 +1,52 @@
 {
-  "metaTitle": "",
-  "metaDescription": "",
-  "heroEyebrow": "A gentle path inward, walked with Becky",
-  "heroHeading": "Healing is not linear. You don't have to walk it alone.",
-  "heroIntro": "There is a world within you — quieter and more resilient than the pain you have been carrying. This is a warm, unhurried place to go looking for it, with someone beside you the whole way.",
-  "heroPrimaryButton": "Start the conversation",
-  "heroSecondaryButton": "How this works",
-  "quote": "Healing is not linear — it's an unfolding journey that requires safety, curiosity, and courage.",
-  "quoteAttribution": "Becky",
-  "conditionsEyebrow": "You might recognize yourself here",
-  "conditionsHeading": "Support for the weight you've been carrying",
+  "journeyHeading": "You'll know every step before you take it",
+  "quoteAttribution": "-Stanislav Grof",
+  "steps": [
+    {
+      "number": "First",
+      "title": "Finding the path",
+      "body": "Stepping onto this path begins with clearing the brush and packing your emotional bags with care and intention. Together with your guide, you plot the map of your inner landscape, ensuring your feet feel firmly grounded before taking the first step."
+    },
+    {
+      "number": "Then",
+      "title": "The journey inward",
+      "body": "Here, you cross the threshold into a deep, uncharted forest where the mind's familiar trails gently fade away. As you walk through these vivid, unexpected vistas, you lean into the steady presence of your guide and trust each step of the unfolding journey."
+    },
+    {
+      "number": "Finally",
+      "title": "Finding your way back",
+      "body": "Returning from the woods, you gather the beautiful stones and insights you found along the trail to build a permanent home. This is where you walk the wisdom back into your daily routine, letting the new path become your familiar, everyday terrain."
+    }
+  ],
+  "heroHeading": "Healing is winding path. Compassion and curiosity lead the way.",
+  "journeyEyebrow": "The journey",
+  "conditionsHeading": "What are you seeking care for?",
+  "heroSecondaryButton": "How the care flows",
+  "heroEyebrow": "A journey inward, wandering with B",
+  "conditionsEyebrow": "Do you see your reflection in any of these experiences?",
+  "heroIntro": "There is a world within — quieter and more resilient than you've imagined. This is a warm, rhythmic place to rest while you explore, with someone beside you the whole way.",
+  "conditionsLink": "Curious what it's all about →",
+  "journeyButton": "Walk through the whole journey",
+  "metaTitle": "Holistic Ketamine and Psychedelic Integration Care | A World Within",
+  "metaDescription": "Discover safe preparation and integration support for non-ordinary states of consciousness. Explore your inner landscape through holistic coaching and transpersonal care.",
   "conditions": [
     {
-      "title": "Heaviness that won't lift",
-      "body": "When sadness has settled in and stayed — even after you've tried the things that were supposed to help."
+      "title": "Heaviness that just won't lift",
+      "body": "When sadness has settled in and stayed — even after trying all the things that \"they\" told you to."
     },
     {
       "title": "A mind that won't rest",
-      "body": "Worry running quietly behind everything, and the tiredness that comes from always bracing for what's next."
+      "body": "Worry that looms behind everything, and the exhaustion that comes from always bracing for the next impact."
     },
     {
-      "title": "What the past still holds",
-      "body": "Old hurt that lives in the body and shapes today, long after you thought you had moved on."
+      "title": "What unfolds in the path",
+      "body": "Imagine being able to access the deepest parts of yourself and discovering that you have always been enough. "
     },
     {
-      "title": "A longing for something more",
-      "body": "For those who aren't in crisis, but sense there is more depth and aliveness available to them."
+      "title": "Have you always believed there was something more to life",
+      "body": "For those who aren't in crisis, but sense there is more depth and aliveness available to them. Let's get curious. "
     }
   ],
-  "conditionsLink": "See what this can help with, honestly →",
-  "journeyEyebrow": "The journey",
-  "journeyHeading": "You'll know every step before you take it",
-  "steps": [
-    {
-      "number": "01",
-      "title": "Finding your footing",
-      "body": "We meet, take our time, and get to know one another. You'll learn what to expect and ask anything you like. Nothing moves forward until you feel genuinely ready."
-    },
-    {
-      "number": "02",
-      "title": "The journey inward",
-      "body": "You settle somewhere soft and quiet, with music and a blanket if you'd like. The medicine opens a door, and Becky stays with you the whole way through."
-    },
-    {
-      "number": "03",
-      "title": "Finding your way back",
-      "body": "Afterward we sit together and make sense of what surfaced — gently turning what you glimpsed into something that lasts in everyday life."
-    }
-  ],
-  "journeyButton": "Walk through the whole journey"
+  "heroPrimaryButton": "Let's talk about it",
+  "quote": "\"The healing and transformative potential in non-ordinary states of consciousness is profound,\" \n "
 }
