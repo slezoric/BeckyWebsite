@@ -8,7 +8,7 @@
     "linkedin": ""
   },
   "portraitAlt": "Becky J Schwanz, smiling, wearing a black hat and a woven shawl",
-  "phone": "(515) 329-5083 (text only)",
+  "phone": "1234567890",
   "tagline": "Extra-Ordinary Care",
   "responseTime": "within 7 business days",
   "url": "https://aworldwithin.example",
@@ -34,7 +34,7 @@
     "zip": ""
   },
   "bookingUrl": "",
-  "phoneHref": "tel:+15153295083",
+  "phoneHref": "1234567890",
   "inPerson": true,
   "practitioner": "Becky J Schwanz",
   "portrait": "/images/becky-portrait.jpg",
