@@ -81,7 +81,7 @@ export default function WhatWeTreatPage() {
           <p className="max-w-3xl text-sm text-cream-dim">
             {content.footnote}{" "}
             <Link
-              href="/getting-started/"
+              href="/faq/#is-it-for-me"
               className="text-gold underline-offset-4 hover:underline"
             >
               {content.footnoteLink}

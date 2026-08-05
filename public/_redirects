@@ -1,0 +1,11 @@
+# Old addresses kept alive after merging pages, so anything Becky has already
+# shared or that search engines have indexed still lands somewhere sensible.
+# 301 tells search engines the move is permanent and passes ranking across.
+
+# "The Meditation" is now part of "How It Flows"
+/process/            /kap/#what-happens        301
+/process             /kap/#what-happens        301
+
+# "Is It For Me?" is now part of "Questions"
+/getting-started/    /faq/#is-it-for-me        301
+/getting-started     /faq/#is-it-for-me        301

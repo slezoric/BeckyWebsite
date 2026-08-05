@@ -195,7 +195,8 @@ collections:
 
       # ---------------------------------------------------------------------
       - name: "how-it-works"
-        label: "How It Works page"
+        label: "How It Flows page"
+        description: "Also holds what happens on the day, and the practical details — these used to be a separate page."
         file: "src/content/how-it-works.json"
         fields:
           - { name: eyebrow, label: "Small line above the heading", widget: string }
@@ -238,6 +239,43 @@ collections:
               label: "Honest note (the highlighted box)",
               widget: text,
             }
+          - {
+              name: journeyHeading,
+              label: "What happens — heading",
+              widget: string,
+            }
+          - {
+              name: journeyIntro,
+              label: "What happens — intro",
+              widget: text,
+            }
+          - name: phases
+            label: "Stages of the session"
+            label_singular: "stage"
+            widget: list
+            summary: "{{fields.number}} — {{fields.title}}"
+            fields:
+              - { name: number, label: "Number", widget: string }
+              - { name: title, label: "Stage title", widget: string }
+              - { name: body, label: "Description", widget: text }
+          - {
+              name: logisticsHeading,
+              label: "Practical details — heading",
+              widget: string,
+            }
+          - {
+              name: logisticsIntro,
+              label: "Practical details — intro",
+              widget: text,
+            }
+          - name: logistics
+            label: "Practical details"
+            label_singular: "card"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Card title", widget: string }
+              - { name: body, label: "Card text", widget: text }
           - { name: metaTitle, label: "Search-engine title", widget: string }
           - {
               name: metaDescription,
@@ -306,56 +344,33 @@ collections:
             }
 
       # ---------------------------------------------------------------------
-      - name: "journey"
-        label: "The Journey page"
-        file: "src/content/journey.json"
+      - name: "faq"
+        label: "Questions page"
+        description: "Also holds the 'is this for me' section — this used to be a separate page."
+        file: "src/content/faq.json"
         fields:
           - { name: eyebrow, label: "Small line above the heading", widget: string }
           - { name: heading, label: "Page heading", widget: string }
           - { name: intro, label: "Opening paragraph", widget: text }
-          - name: phases
-            label: "Stages of the journey"
-            label_singular: "stage"
+          - name: items
+            label: "Questions and answers"
+            label_singular: "question"
             widget: list
-            summary: "{{fields.number}} — {{fields.title}}"
+            summary: "{{fields.question}}"
+            hint: "Drag to reorder. The most common questions work best near the top."
             fields:
-              - { name: number, label: "Number", widget: string }
-              - { name: title, label: "Stage title", widget: string }
-              - { name: body, label: "Description", widget: text }
+              - { name: question, label: "Question", widget: string }
+              - { name: answer, label: "Answer", widget: text }
           - {
-              name: logisticsHeading,
-              label: "Heading for the practical section",
+              name: eligibilityHeading,
+              label: "Is this for me — heading",
               widget: string,
             }
           - {
-              name: logisticsIntro,
-              label: "Intro for the practical section",
+              name: eligibilityIntro,
+              label: "Is this for me — intro",
               widget: text,
             }
-          - name: logistics
-            label: "Practical things to know"
-            label_singular: "card"
-            widget: list
-            summary: "{{fields.title}}"
-            fields:
-              - { name: title, label: "Card title", widget: string }
-              - { name: body, label: "Card text", widget: text }
-          - { name: metaTitle, label: "Search-engine title", widget: string }
-          - {
-              name: metaDescription,
-              label: "Search-engine description",
-              widget: text,
-            }
-
-      # ---------------------------------------------------------------------
-      - name: "is-it-for-me"
-        label: "Is It For Me? page"
-        file: "src/content/is-it-for-me.json"
-        description: "Please have any medical wording on this page checked before publishing."
-        fields:
-          - { name: eyebrow, label: "Small line above the heading", widget: string }
-          - { name: heading, label: "Page heading", widget: string }
-          - { name: intro, label: "Opening paragraph", widget: text }
           - {
               name: crisisCalloutStrong,
               label: "Crisis box — bold opening words",
@@ -371,87 +386,30 @@ collections:
               label: "Crisis box — text after the phone number",
               widget: text,
             }
-          - {
-              name: requirementsHeading,
-              label: "'What you'll need' heading",
-              widget: string,
-            }
-          - {
-              name: requirementsIntro,
-              label: "'What you'll need' intro",
-              widget: text,
-            }
+          - { name: requirementsHeading, label: "'What you'll need' heading", widget: string }
+          - { name: requirementsIntro, label: "'What you'll need' intro", widget: text }
           - name: requirements
             label: "What you'll need"
             label_singular: "item"
             widget: list
             field: { name: item, label: "Item", widget: text }
-          - {
-              name: treatFirstHeading,
-              label: "'Things to settle first' heading",
-              widget: string,
-            }
-          - {
-              name: treatFirstIntro,
-              label: "'Things to settle first' intro",
-              widget: text,
-            }
+          - { name: treatFirstHeading, label: "'Things to settle first' heading", widget: string }
+          - { name: treatFirstIntro, label: "'Things to settle first' intro", widget: text }
           - name: treatFirst
             label: "Things to settle first"
             label_singular: "item"
             widget: list
             field: { name: item, label: "Item", widget: string }
-          - {
-              name: notRightHeading,
-              label: "'When this isn't right' heading",
-              widget: string,
-            }
-          - {
-              name: notRightIntro,
-              label: "'When this isn't right' intro",
-              widget: text,
-            }
+          - { name: notRightHeading, label: "'When this isn't right' heading", widget: string }
+          - { name: notRightIntro, label: "'When this isn't right' intro", widget: text }
           - name: notRight
             label: "When this isn't the right path"
             label_singular: "item"
             widget: list
             field: { name: item, label: "Item", widget: string }
-          - {
-              name: notRightFootnote,
-              label: "Note below that list",
-              widget: text,
-            }
+          - { name: notRightFootnote, label: "Note below that list", widget: text }
           - { name: closingHeading, label: "Closing heading", widget: string }
           - { name: closingBody, label: "Closing paragraph", widget: text }
-          - {
-              name: ctaHeading,
-              label: "Heading of the closing invitation",
-              widget: string,
-            }
-          - { name: metaTitle, label: "Search-engine title", widget: string }
-          - {
-              name: metaDescription,
-              label: "Search-engine description",
-              widget: text,
-            }
-
-      # ---------------------------------------------------------------------
-      - name: "faq"
-        label: "Questions page"
-        file: "src/content/faq.json"
-        fields:
-          - { name: eyebrow, label: "Small line above the heading", widget: string }
-          - { name: heading, label: "Page heading", widget: string }
-          - { name: intro, label: "Opening paragraph", widget: text }
-          - name: items
-            label: "Questions and answers"
-            label_singular: "question"
-            widget: list
-            summary: "{{fields.question}}"
-            hint: "Drag to reorder. The most common questions work best near the top."
-            fields:
-              - { name: question, label: "Question", widget: string }
-              - { name: answer, label: "Answer", widget: text }
           - { name: metaTitle, label: "Search-engine title", widget: string }
           - {
               name: metaDescription,

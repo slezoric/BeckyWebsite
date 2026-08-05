@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: content.metaDescription,
 };
 
-export default function KapPage() {
+export default function HowItFlowsPage() {
   return (
     <>
       <PageHeader
@@ -18,13 +18,13 @@ export default function KapPage() {
         intro={content.intro}
       />
 
+      {/* What this is */}
       <Container className="py-10">
         <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr]">
           <div>
             <ContentSections sections={content.sections} />
           </div>
 
-          {/* Aside: reassurance */}
           <div className="space-y-5">
             <Reveal>
               <Card>
@@ -56,6 +56,59 @@ export default function KapPage() {
           </div>
         </div>
       </Container>
+
+      {/* What actually happens — formerly its own page */}
+      <section id="what-happens" className="border-t border-white/5 bg-base-2/60">
+        <Container className="py-20">
+          <Reveal>
+            <h2 className="max-w-3xl text-4xl text-cream sm:text-5xl">
+              {content.journeyHeading}
+            </h2>
+            <p className="mt-4 max-w-2xl text-cream-muted">
+              {content.journeyIntro}
+            </p>
+          </Reveal>
+          <ol className="mt-10 space-y-6">
+            {content.phases.map((p, i) => (
+              <Reveal key={p.number} delay={i * 60} as="li">
+                <div className="flex gap-6 rounded-2xl border border-white/5 bg-surface/40 p-6 sm:p-8">
+                  <span className="font-display text-5xl text-gold sm:text-6xl">
+                    {p.number}
+                  </span>
+                  <div>
+                    <h3 className="text-xl text-cream sm:text-2xl">{p.title}</h3>
+                    <p className="mt-3 text-cream-muted">{p.body}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      {/* Practical details */}
+      <section className="border-t border-white/5">
+        <Container className="py-20">
+          <Reveal>
+            <h2 className="text-4xl text-cream sm:text-5xl">
+              {content.logisticsHeading}
+            </h2>
+            <p className="mt-4 max-w-2xl text-cream-muted">
+              {content.logisticsIntro}
+            </p>
+          </Reveal>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {content.logistics.map((l, i) => (
+              <Reveal key={l.title} delay={i * 70}>
+                <Card className="h-full">
+                  <h3 className="text-lg text-cream">{l.title}</h3>
+                  <p className="mt-3 text-sm text-cream-muted">{l.body}</p>
+                </Card>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <ConsultCTA />
     </>

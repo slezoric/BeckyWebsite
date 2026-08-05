@@ -107,7 +107,7 @@ export default function Home() {
             ))}
           </div>
           <Reveal className="mt-10">
-            <ButtonLink href="/process/" variant="ghost">
+            <ButtonLink href="/kap/#what-happens" variant="ghost">
               {content.journeyButton}
             </ButtonLink>
           </Reveal>

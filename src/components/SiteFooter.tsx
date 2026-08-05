@@ -3,7 +3,6 @@ import Image from "next/image";
 import { crisis, nav, navExtras, site, socialLinks } from "@/lib/site";
 
 const legal = [
-  { href: "/getting-started/", label: "Getting Started" },
   { href: "/informed-consent/", label: "Informed Consent" },
   { href: "/disclaimer/", label: "Disclaimer" },
   { href: "/privacy/", label: "Privacy" },

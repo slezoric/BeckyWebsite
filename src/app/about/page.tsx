@@ -94,7 +94,7 @@ export default function AboutPage() {
               <p className="mt-3 text-cream-muted">{content.credentialsEmpty}</p>
             )}
             <div className="mt-6">
-              <ButtonLink href="/process/" variant="ghost">
+              <ButtonLink href="/kap/#what-happens" variant="ghost">
                 {content.credentialsButton}
               </ButtonLink>
             </div>
