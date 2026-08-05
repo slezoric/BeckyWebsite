@@ -1,33 +1,33 @@
 {
-  "metaTitle": "Meet Becky",
-  "metaDescription": "Becky brings deep training and an even deeper belief that people know how to heal — offering a warm, grounded, unhurried place to do that work.",
-  "eyebrow": "Meet Becky",
-  "heading": "Someone to walk beside you",
-  "intro": "Deep training, and an even deeper belief that people already carry what they need to heal — sometimes they just need good company while they find it.",
+  "heading": "Your humble guide",
+  "credentialsHeading": "Credentials & licensure",
   "bio": [
-    "Becky has a deep respect for what the mind can do when it is given room. She works with people carrying depression, anxiety, old hurt, and the ordinary hard parts of being alive — and helps them find their way back to breathing a little easier.",
-    "At the heart of her work is a simple belief: healing is not linear. It is an unfolding journey, and it asks for safety, curiosity, and courage. This medicine is one way of reaching the quieter, more resilient part of yourself — the one that has been there all along, underneath everything.",
-    "She'll prepare you properly, stay with you through the whole of it, and sit with you afterward while you make sense of what you found. People describe her space as warm, grounded, and entirely without judgment. She meets you exactly where you are — not where you think you ought to be.",
-    "Whether you are worn down by something you have carried for years, or simply sense there is more waiting for you, Becky would be glad to walk alongside you."
+    "Becky has a deep respect for what the mind can do when it is given the space. She cares for people with many different experiences, ranging from deep despair to sweet curiosity. She helps them find their way back to themselves and those they love.",
+    "At the heart of her work is a simple truth: The way in is the way out. Our journeys call for safety, curiosity, and courage. These journeys are one way of reaching the quieter, more resilient part of yourself - the one that has been there all along - a world within.\n",
+    "She'll prepare you properly, stay with you through the whole of it, and sit with you afterward while you make sense of what you found. People describe her space as warm, grounded, and accepting. She meets you exactly where you are — not where you think you ought to be.",
+    "Whether you are worn down by the weight of the world, or simply sense there is more waiting for you, Becky's curiosity can lead you to yours."
   ],
+  "eyebrow": "Meet Becky",
+  "intro": "Book and street smart, Becky is well-trained and well-resourced to keep you safe, but what's more important is her belief that you already have everything you need within you. Ready when you are.",
   "approachesHeading": "How she works",
+  "credentialsButton": "See the whole journey",
+  "credentialsEmpty": "A World Within LLC provides holistic integration coaching, spiritual support, and educational resources. We do not provide medical, clinical, or psychological therapy, nor do we diagnose or treat any medical or mental health condition. Our services do not involve the provision, manufacture, or administration of any illegal or controlled substances. Seeking guidance through non-ordinary states of consciousness involves personal choice and risk; our role is strictly limited to non-clinical preparation, harm reduction education, and integration support.",
+  "ctaHeading": "Would you like to know more",
+  "metaTitle": "Meet Becky",
   "approachesIntro": "A few threads run through everything Becky does, woven differently for each person who sits down with her.",
   "approaches": [
     {
-      "title": "Listening to the body",
-      "body": "So much of what we carry is held in the body, not the mind. Becky pays attention to both."
+      "title": "Tuning into your parts",
+      "body": "Yourself will tell you just about everything you need to know. You just need a treasure map. Turns out, Becky has one. It's meditative, it's reflective, it's exploratory, and it's very real opportunity to get to know yourself."
     },
     {
-      "title": "Meeting the moment",
-      "body": "Coming to each moment with curiosity rather than judgment — which is how rigid things start to soften."
+      "title": "Slow is smooth",
+      "body": "Your system sets the pace and Becky helps you find your rhythm, but... we go low and slow.\nComing to each trailhead with curiosity. "
     },
     {
-      "title": "Gentle with old hurt",
-      "body": "Nothing forced, nothing rushed. You stay in charge of the pace, and of what you do and don't touch."
+      "title": "Extra-Ordinary",
+      "body": "Meditation; non-ordinary states of consciousness; spirituality; deep-inner exploration; curiosity; neuroplasticity."
     }
   ],
-  "credentialsHeading": "Credentials & licensure",
-  "credentialsEmpty": "Licensure, certifications, and training details to be confirmed.",
-  "credentialsButton": "See the whole journey",
-  "ctaHeading": "Let's begin the conversation"
+  "metaDescription": "Explore non-ordinary states of consciousness safely. Receive non-clinical, unlicensed holistic guidance and integration support for deep inner healing and personal growth"
 }
