@@ -1,36 +1,45 @@
 {
-  "name": "A World Within",
+  "serviceArea": "Des Moines Metro Area",
   "legalName": "A World Within LLC",
-  "tagline": "Extra-Ordinary Care",
-  "discipline": "Care for Non-Ordinary States of Consciousness",
-  "practitioner": "Becky J Schwanz",
-  "practitionerTitle": "",
-  "portrait": "/images/becky-portrait.jpg",
+  "name": "A World Within",
+  "social": {
+    "instagram": "",
+    "facebook": "",
+    "linkedin": ""
+  },
   "portraitAlt": "Becky J Schwanz, smiling, wearing a black hat and a woven shawl",
-  "email": "becky@extraordinarycare432.com",
-  "phone": "(515) 329-5083",
-  "phoneHref": "tel:+15153295083",
+  "phone": "1234567890",
+  "tagline": "Extra-Ordinary Care",
   "responseTime": "within 7 business days",
-  "inPerson": true,
+  "url": "https://aworldwithin.example",
+  "hours": [
+    {
+      "day": "Monday – Thursday",
+      "value": "Limited availability"
+    },
+    {
+      "day": "Friday",
+      "value": "By appointment"
+    },
+    {
+      "day": "Saturday – Sunday",
+      "value": "By appointment"
+    }
+  ],
+  "discipline": "Care for Non-Ordinary States of Consciousness",
   "address": {
     "line1": "",
     "city": "",
     "state": "",
     "zip": ""
   },
-  "serviceArea": "Des Moines Metro Area",
-  "hours": [
-    { "day": "Monday – Thursday", "value": "By appointment" },
-    { "day": "Friday", "value": "By appointment" },
-    { "day": "Saturday – Sunday", "value": "Closed" }
-  ],
-  "credentials": [],
   "bookingUrl": "",
-  "social": {
-    "instagram": "",
-    "facebook": "",
-    "linkedin": ""
-  },
-  "url": "https://aworldwithin.example",
-  "description": "Ketamine-assisted therapy with Becky — a warm, unhurried place to work with depression, anxiety, and old hurt, with someone beside you the whole way."
+  "phoneHref": "1234567890",
+  "inPerson": true,
+  "practitioner": "Becky J Schwanz",
+  "portrait": "/images/becky-portrait.jpg",
+  "credentials": [],
+  "email": "becky@extraordinarycare432.com",
+  "description": "NOSC with Becky — a warm, unhurried place to work with burdens, and old hurt, with someone beside you the whole way.",
+  "practitionerTitle": ""
 }
