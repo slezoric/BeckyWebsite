@@ -1,12 +1,14 @@
 {
-  "metaTitle": "What It Helps",
-  "metaDescription": "What this work can help with — set out honestly, alongside how much research stands behind each, including where the evidence is still thin.",
-  "eyebrow": "What it helps",
+  "footnote": "There are also things this work isn't right for, and Becky will tell you plainly if that's the case for you — some conditions make it genuinely unsafe. Working that out together is always the first step.",
+  "tableHeadNote": "What we know so far",
   "heading": "An honest look at what this can and can't do",
+  "tableHeadEvidence": "Evidence",
+  "eyebrow": "REMOVE THIS ENTIRE PAGE",
   "intro": "You deserve the real picture, not a sales pitch. Here is what people come with, and how much research genuinely stands behind each one — including the places where we simply don't know enough yet.",
   "tableHeadCondition": "What you might be carrying",
-  "tableHeadEvidence": "Evidence",
-  "tableHeadNote": "What we know so far",
+  "ctaHeading": "Wondering if it could help you?",
+  "metaTitle": "What It Helps",
+  "metaDescription": "What this work can help with — set out honestly, alongside how much research stands behind each, including where the evidence is still thin.",
   "conditions": [
     {
       "name": "Depression that hasn't lifted",
@@ -59,7 +61,5 @@
       "note": "A small number of studies point to possible benefit. There isn't yet enough evidence to consider this a settled path."
     }
   ],
-  "footnote": "There are also things this work isn't right for, and Becky will tell you plainly if that's the case for you — some conditions make it genuinely unsafe. Working that out together is always the first step.",
-  "footnoteLink": "See whether this is right for you →",
-  "ctaHeading": "Wondering if it could help you?"
+  "footnoteLink": "See whether this is right for you →"
 }
