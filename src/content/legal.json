@@ -4,7 +4,6 @@
     "metaDescription": "Important information about the educational nature of this website, the off-label use of ketamine, and the limits of what's offered here.",
     "eyebrow": "Legal",
     "heading": "Disclaimer",
-    "reviewNote": "revert to original disclaimer note",
     "sections": [
       {
         "heading": "Educational information only",
@@ -41,9 +40,8 @@
   "privacy": {
     "metaTitle": "Privacy Policy",
     "metaDescription": "How A World Within handles the limited information collected through this website.",
-    "eyebrow": "Legal (this is included in the informed consent) CAN WE DELETE THIS?",
+    "eyebrow": "Legal",
     "heading": "Privacy Policy",
-    "reviewNote": "Before you decide whether to participate, please take a few minutes to read this information. Informed consent means you understand what participation involves, including the purpose of the project, what you will be asked to do, any potential risks or benefits, how your information will be protected, and your rights as a participant.",
     "sections": [
       {
         "heading": "What we collect",
@@ -82,7 +80,6 @@
     "metaDescription": "The terms governing your use of the A World Within website.",
     "eyebrow": "Legal",
     "heading": "Terms of Use",
-    "reviewNote": "Plain-language summary — to be reviewed by legal counsel.",
     "sections": [
       {
         "heading": "Acceptance",
@@ -129,7 +126,7 @@
     "heading": "Informed Consent & Participation Agreement",
     "intro": "This agreement is designed to create clarity, respect, and shared understanding between the Participant and the Integration Facilitator. The intention of this support is to provide a grounded, compassionate, and respectful space for individuals who are exploring, experiencing, or integrating non-ordinary states of consciousness.",
     "callout": "This page is educational. Before you begin, you'll review and sign a complete informed-consent document with Becky, and you'll have the chance to ask anything you wish. It's very important to us that you feel safe and respected throughout.\n\nParticipation is a personal choice. You are invited to engage with curiosity, self-responsibility, and awareness of your own needs, values, and boundaries.",
-    "reviewNote": "A complete, signed consent document is provided during intake. This summary should be reviewed by qualified legal counsel before launch.",
+    "reviewNote": "A complete, signed consent document is provided during your intake, and you'll have the chance to ask about anything in it.",
     "sections": [
       {
         "heading": "Understanding This Support",

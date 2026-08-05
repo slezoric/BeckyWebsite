@@ -31,6 +31,12 @@ Connect the repo in Netlify and it builds automatically.
 - **Analytics (optional):** set `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` in Netlify env
   vars to enable cookieless Plausible analytics (`src/components/Analytics.tsx`).
 
+> [!IMPORTANT]
+> **The legal pages still need attorney review.** Disclaimer, Privacy, Terms and
+> Informed Consent are drafts. That reminder used to be printed on the pages
+> themselves, which meant visitors read "should be reviewed by legal counsel
+> before the site goes live" — it now lives here instead.
+
 ## Content editing (Decap CMS)
 
 **Becky edits the site herself at `/admin`** — no code, no developer needed.

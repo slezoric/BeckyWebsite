@@ -707,7 +707,6 @@ collections:
             fields:
               - { name: eyebrow, label: "Small line above the heading", widget: string }
               - { name: heading, label: "Page heading", widget: string }
-              - { name: reviewNote, label: "Note at the top", widget: text }
               - name: sections
                 label: "Sections"
                 label_singular: "section"
@@ -733,7 +732,6 @@ collections:
             fields:
               - { name: eyebrow, label: "Small line above the heading", widget: string }
               - { name: heading, label: "Page heading", widget: string }
-              - { name: reviewNote, label: "Note at the top", widget: text }
               - name: sections
                 label: "Sections"
                 label_singular: "section"
@@ -759,7 +757,6 @@ collections:
             fields:
               - { name: eyebrow, label: "Small line above the heading", widget: string }
               - { name: heading, label: "Page heading", widget: string }
-              - { name: reviewNote, label: "Note at the top", widget: text }
               - name: sections
                 label: "Sections"
                 label_singular: "section"

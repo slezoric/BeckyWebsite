@@ -17,9 +17,6 @@ export default function PrivacyPage() {
       <PageHeader eyebrow={content.eyebrow} title={content.heading} />
       <Container className="py-6 pb-20">
         <Reveal>
-          <p className="mb-8 max-w-3xl text-sm text-cream-dim">
-            {content.reviewNote}
-          </p>
           <ContentSections sections={content.sections} className="max-w-3xl" />
         </Reveal>
       </Container>
