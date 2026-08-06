@@ -7,17 +7,23 @@ import SiteFooter from "@/components/SiteFooter";
 import StructuredData from "@/components/StructuredData";
 import Analytics from "@/components/Analytics";
 
+// preload is off deliberately. Next was preloading the latin-ext subsets
+// (~50KB across both faces), which this site never uses — its text is plain
+// Latin. The latin files it does need are fetched from the stylesheet as
+// normal, so nothing is lost and every page load is 50KB lighter.
 const ephesis = Ephesis({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-ephesis",
   display: "swap",
+  preload: false,
 });
 
 const mulish = Mulish({
   subsets: ["latin"],
   variable: "--font-mulish",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -48,7 +54,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ephesis.variable} ${mulish.variable}`}>
+    // data-scroll-behavior tells Next the smooth scrolling in globals.css is
+    // deliberate, so it doesn't warn about route transitions.
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${ephesis.variable} ${mulish.variable}`}
+    >
       <head>
         {/* If JS is disabled, scroll-reveal content must still be visible. */}
         <noscript>
