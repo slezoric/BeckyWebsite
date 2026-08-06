@@ -48,5 +48,7 @@
     }
   ],
   "heroPrimaryButton": "Let's talk about it",
-  "quote": "\"The healing and transformative potential in non-ordinary states of consciousness is profound,\" \n "
+  "quote": "\"The healing and transformative potential in non-ordinary states of consciousness is profound,\" \n ",
+  "heroImage": "/images/forest-path.jpg",
+  "heroImageAlt": "A woodland path winding into morning mist, sunlight falling through the trees"
 }

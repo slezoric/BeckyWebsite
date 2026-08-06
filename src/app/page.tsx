@@ -1,6 +1,7 @@
 import { ButtonLink, Card, Container, ConsultCTA } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import Link from "next/link";
+import Image from "next/image";
 import content from "@/content/home.json";
 
 export default function Home() {
@@ -8,10 +9,21 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        {/* Warm, deep wash (placeholder for a real nature photograph). */}
+        {/* The path photograph, held back behind a deep wash so the headline
+            keeps its contrast. The image sets the mood; it never competes
+            with the words. */}
+        <Image
+          src={content.heroImage}
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover object-center opacity-45"
+        />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(120%_90%_at_80%_-10%,rgba(90,39,51,0.55),transparent_55%),radial-gradient(90%_80%_at_0%_100%,rgba(156,107,78,0.32),transparent_60%)]"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(36,16,22,0.72),rgba(36,16,22,0.82)_45%,var(--color-base))]"
         />
         <Container className="pb-16 pt-24 text-center sm:pt-32">
           <Reveal>
