@@ -19,11 +19,13 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
-          className="-z-20 object-cover object-center opacity-45"
+          className="-z-20 object-cover object-center opacity-85"
         />
+        {/* Wash kept as light as the headline's contrast allows, so the path
+            is actually visible rather than a hint behind a curtain. */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(36,16,22,0.72),rgba(36,16,22,0.82)_45%,var(--color-base))]"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(36,16,22,0.56),rgba(36,16,22,0.66)_45%,var(--color-base))]"
         />
         <Container className="pb-16 pt-24 text-center sm:pt-32">
           <Reveal>
@@ -64,8 +66,11 @@ export default function Home() {
         />
         <Container className="py-20">
           <Reveal>
+            {/* Strip any quote marks she typed, so we never end up with two
+                sets when the template adds its own. */}
             <p className="mx-auto max-w-3xl text-center font-display text-4xl leading-relaxed text-cream sm:text-5xl">
-              &ldquo;{content.quote}&rdquo;
+              &ldquo;{content.quote.trim().replace(/^["“”']+|["“”']+$/g, "")}
+              &rdquo;
             </p>
             <p className="mt-6 text-center text-sm uppercase tracking-widest text-cream-dim">
               {content.quoteAttribution}
@@ -141,7 +146,7 @@ export default function Home() {
             {content.steps.map((s, i) => (
               <Reveal key={s.number} delay={i * 100}>
                 <div>
-                  <span className="font-display text-5xl text-gold">
+                  <span className="font-sans text-xl font-semibold uppercase tracking-[0.2em] text-gold">
                     {s.number}
                   </span>
                   <h3 className="mt-3 text-xl text-cream">{s.title}</h3>

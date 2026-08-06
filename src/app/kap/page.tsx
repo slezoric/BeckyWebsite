@@ -13,16 +13,20 @@ export const metadata: Metadata = {
 export default function HowItFlowsPage() {
   return (
     <>
-      <PageHeader
-        eyebrow={content.eyebrow}
-        title={content.heading}
-        intro={content.intro}
-      />
+      {/* Title only. The intro moves into the left column below so the
+          reassurance cards rise up beside it, instead of leaving the top
+          right of the page empty. */}
+      <PageHeader eyebrow={content.eyebrow} title={content.heading} />
 
       {/* What this is */}
       <Container className="py-10">
         <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr]">
           <div>
+            <Reveal>
+              <p className="mb-10 max-w-2xl whitespace-pre-line text-lg text-cream-muted">
+                {content.intro.trim()}
+              </p>
+            </Reveal>
             <ContentSections sections={content.sections} />
           </div>
 
@@ -115,7 +119,9 @@ export default function HowItFlowsPage() {
             {content.phases.map((p, i) => (
               <Reveal key={p.number} delay={i * 60} as="li">
                 <div className="flex gap-6 rounded-2xl border border-white/5 bg-surface/40 p-6 sm:p-8">
-                  <span className="font-display text-5xl text-gold sm:text-6xl">
+                  {/* Sans, not the script: roman numerals in a calligraphic
+                      face are near-impossible to tell apart at a glance. */}
+                  <span className="shrink-0 font-sans text-3xl font-semibold uppercase tracking-widest text-gold sm:text-4xl">
                     {p.number}
                   </span>
                   <div>

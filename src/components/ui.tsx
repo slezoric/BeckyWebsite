@@ -53,7 +53,7 @@ export function PageHeader({
   intro?: string;
 }) {
   return (
-    <Container className="pb-4 pt-20 sm:pt-24">
+    <Container className="pb-4 pt-12 sm:pt-16">
       <Reveal>
         {eyebrow && (
           <p className="text-sm uppercase tracking-widest text-blush">
@@ -64,7 +64,11 @@ export function PageHeader({
           {title}
         </h1>
         {intro && (
-          <p className="mt-6 max-w-2xl text-lg text-cream-muted">{intro}</p>
+          // whitespace-pre-line honours line breaks typed in the editor.
+          // Without it, HTML collapses them and separate lines run together.
+          <p className="mt-6 max-w-2xl whitespace-pre-line text-lg text-cream-muted">
+            {intro.trim()}
+          </p>
         )}
       </Reveal>
     </Container>
