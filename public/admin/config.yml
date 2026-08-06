@@ -121,6 +121,33 @@ collections:
               widget: string,
             }
           - {
+              name: heroImage,
+              label: "Background photograph at the top",
+              widget: image,
+            }
+          - {
+              name: heroImageAlt,
+              label: "Description of that photograph",
+              widget: string,
+              hint: "Read aloud to visitors using a screen reader.",
+            }
+          - { name: quoteImage, label: "Photograph behind the quote", widget: image }
+          - {
+              name: quoteImageAlt,
+              label: "Description of the quote photograph",
+              widget: string,
+            }
+          - {
+              name: conditionsImage,
+              label: "Picture beside 'what people come with'",
+              widget: image,
+            }
+          - {
+              name: conditionsImageAlt,
+              label: "Description of that picture",
+              widget: string,
+            }
+          - {
               name: metaTitle,
               label: "Search-engine title (optional)",
               widget: string,
@@ -276,6 +303,24 @@ collections:
             fields:
               - { name: title, label: "Card title", widget: string }
               - { name: body, label: "Card text", widget: text }
+          - { name: galleryHeading, label: "Illustrations — heading", widget: string }
+          - { name: galleryIntro, label: "Illustrations — intro", widget: text }
+          - name: gallery
+            label: "Illustrations"
+            label_singular: "illustration"
+            widget: list
+            summary: "{{fields.caption}}"
+            hint: "Drag to reorder. Each needs a picture, a short title and a sentence or two."
+            fields:
+              - { name: image, label: "Picture", widget: image }
+              - {
+                  name: alt,
+                  label: "Description of the picture",
+                  widget: string,
+                  hint: "Read aloud to visitors using a screen reader.",
+                }
+              - { name: caption, label: "Short title", widget: string }
+              - { name: body, label: "Description", widget: text }
           - { name: metaTitle, label: "Search-engine title", widget: string }
           - {
               name: metaDescription,
