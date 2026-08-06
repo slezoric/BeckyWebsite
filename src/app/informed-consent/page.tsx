@@ -23,7 +23,10 @@ export default function InformedConsentPage() {
       <Container className="py-6 pb-4">
         <Reveal>
           <Card className="border-gold/20 bg-gold/5">
-            <p className="text-sm text-cream-muted">{content.callout}</p>
+            {/* whitespace-pre-line so the paragraph break she typed survives */}
+            <p className="whitespace-pre-line text-sm text-cream-muted">
+              {content.callout.trim()}
+            </p>
           </Card>
         </Reveal>
       </Container>

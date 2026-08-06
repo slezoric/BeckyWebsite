@@ -9,15 +9,6 @@ export type Strength =
   | "Moderate but preliminary"
   | "Preliminary";
 
-/** The options offered in the admin panel, strongest first. */
-export const strengthOrder: Strength[] = [
-  "Strong",
-  "Moderate to Strong",
-  "Moderate",
-  "Moderate but preliminary",
-  "Preliminary",
-];
-
 // Confidence ramp: brightest (gold) for the strongest evidence, fading to a
 // muted neutral for the most preliminary — so strength reads at a glance.
 export const strengthColor: Record<Strength, string> = {
