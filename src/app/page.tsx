@@ -48,8 +48,20 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Ethos */}
-      <section className="border-y border-white/5 bg-base-2/60">
+      {/* Ethos — the willow's roots carry the "world within" idea */}
+      <section className="relative overflow-hidden border-y border-white/5 bg-base-2/60">
+        <Image
+          src={content.quoteImage}
+          alt=""
+          aria-hidden="true"
+          fill
+          sizes="100vw"
+          className="-z-20 object-cover object-center opacity-25"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-base-2/75"
+        />
         <Container className="py-20">
           <Reveal>
             <p className="mx-auto max-w-3xl text-center font-display text-4xl leading-relaxed text-cream sm:text-5xl">
@@ -73,15 +85,35 @@ export default function Home() {
               {content.conditionsHeading}
             </h2>
           </Reveal>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {content.conditions.map((c, i) => (
-              <Reveal key={c.title} delay={i * 80}>
-                <Card className="h-full">
-                  <h3 className="text-xl text-cream">{c.title}</h3>
-                  <p className="mt-3 text-sm text-cream-muted">{c.body}</p>
-                </Card>
-              </Reveal>
-            ))}
+          <div className="mt-10 grid items-start gap-8 lg:grid-cols-[1fr_1.5fr]">
+            {/* The painting sits beside the cards rather than behind them, so
+                the weight it depicts is felt without obscuring the words. */}
+            <Reveal>
+              <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/5">
+                <Image
+                  src={content.conditionsImage}
+                  alt={content.conditionsImageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-base/60 via-transparent to-transparent"
+                />
+              </div>
+            </Reveal>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              {content.conditions.map((c, i) => (
+                <Reveal key={c.title} delay={i * 80}>
+                  <Card className="h-full">
+                    <h3 className="text-xl text-cream">{c.title}</h3>
+                    <p className="mt-3 text-sm text-cream-muted">{c.body}</p>
+                  </Card>
+                </Reveal>
+              ))}
+            </div>
           </div>
           <Reveal className="mt-8">
             <Link
