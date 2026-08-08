@@ -228,6 +228,78 @@ collections:
             }
 
       # ---------------------------------------------------------------------
+      - name: "services"
+        label: "What I Offer page"
+        file: "src/content/services.json"
+        description: "The ways you work with people, fees, and anything you sell."
+        fields:
+          - { name: eyebrow, label: "Small line above the heading", widget: string }
+          - { name: heading, label: "Page heading", widget: string }
+          - { name: intro, label: "Opening paragraph", widget: text }
+          - { name: servicesHeading, label: "Heading above the list", widget: string, required: false }
+          - name: services
+            label: "Ways of working"
+            label_singular: "offering"
+            widget: list
+            summary: "{{fields.name}}"
+            hint: "Drag to reorder. People usually read these top to bottom, so put the starting point first."
+            fields:
+              - { name: name, label: "Name of the offering", widget: string }
+              - {
+                  name: duration,
+                  label: "How long it takes",
+                  widget: string,
+                  required: false,
+                  hint: "For example 'About an hour'. Leave empty to hide.",
+                }
+              - {
+                  name: note,
+                  label: "Little highlighted label",
+                  widget: string,
+                  required: false,
+                  hint: "Optional, e.g. 'Where everyone starts'. Leave empty to hide.",
+                }
+              - { name: body, label: "Description", widget: text }
+          - { name: feesHeading, label: "Fees — heading", widget: string, required: false }
+          - {
+              name: feesBody,
+              label: "Fees — what you want to say",
+              widget: text,
+              required: false,
+              hint: "Leave empty to hide the whole fees section.",
+            }
+          - {
+              name: productsHeading,
+              label: "Shop — heading",
+              widget: string,
+              required: false,
+            }
+          - {
+              name: productsIntro,
+              label: "Shop — intro",
+              widget: text,
+              required: false,
+            }
+          - name: products
+            label: "Things you sell"
+            label_singular: "product"
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            hint: "Leave this empty and the whole shop section stays hidden — better than showing 'coming soon'. Add one when you're ready."
+            fields:
+              - { name: name, label: "Product name", widget: string }
+              - { name: price, label: "Price", widget: string, required: false }
+              - { name: body, label: "Description", widget: text }
+          - {
+              name: ctaHeading,
+              label: "Heading of the closing invitation",
+              widget: string,
+            }
+          - { name: metaTitle, label: "Search-engine title", widget: string }
+          - { name: metaDescription, label: "Search-engine description", widget: text }
+
+      # ---------------------------------------------------------------------
       - name: "how-it-works"
         label: "How It Flows page"
         description: "Also holds what happens on the day, and the practical details — these used to be a separate page."
@@ -248,31 +320,6 @@ collections:
                 label_singular: "paragraph"
                 widget: list
                 field: { name: paragraph, label: "Paragraph", widget: text }
-          - {
-              name: safetyCardHeading,
-              label: "Reassurance box — heading",
-              widget: string,
-            }
-          - {
-              name: safetyCardBody,
-              label: "Reassurance box — text",
-              widget: text,
-            }
-          - {
-              name: factsCardHeading,
-              label: "Quick facts box — heading",
-              widget: string,
-            }
-          - name: facts
-            label: "Quick facts"
-            label_singular: "fact"
-            widget: list
-            field: { name: fact, label: "Fact", widget: string }
-          - {
-              name: honestNote,
-              label: "Honest note (the highlighted box)",
-              widget: text,
-            }
           - {
               name: journeyHeading,
               label: "What happens — heading",
@@ -310,24 +357,6 @@ collections:
             fields:
               - { name: title, label: "Card title", widget: string }
               - { name: body, label: "Card text", widget: text }
-          - { name: galleryHeading, label: "Illustrations — heading", widget: string }
-          - { name: galleryIntro, label: "Illustrations — intro", widget: text }
-          - name: gallery
-            label: "Illustrations"
-            label_singular: "illustration"
-            widget: list
-            summary: "{{fields.caption}}"
-            hint: "Drag to reorder. Each needs a picture, a short title and a sentence or two."
-            fields:
-              - { name: image, label: "Picture", widget: image }
-              - {
-                  name: alt,
-                  label: "Description of the picture",
-                  widget: string,
-                  hint: "Read aloud to visitors using a screen reader.",
-                }
-              - { name: caption, label: "Short title", widget: string }
-              - { name: body, label: "Description", widget: text }
           - { name: metaTitle, label: "Search-engine title", widget: string }
           - {
               name: metaDescription,
@@ -388,6 +417,24 @@ collections:
               label: "Heading of the closing invitation",
               widget: string,
             }
+          - { name: galleryHeading, label: "Illustrations — heading", widget: string }
+          - { name: galleryIntro, label: "Illustrations — intro", widget: text }
+          - name: gallery
+            label: "Illustrations"
+            label_singular: "illustration"
+            widget: list
+            summary: "{{fields.caption}}"
+            hint: "Drag to reorder. Each needs a picture, a short title and a sentence or two."
+            fields:
+              - { name: image, label: "Picture", widget: image }
+              - {
+                  name: alt,
+                  label: "Description of the picture",
+                  widget: string,
+                  hint: "Read aloud to visitors using a screen reader.",
+                }
+              - { name: caption, label: "Short title", widget: string }
+              - { name: body, label: "Description", widget: text }
           - { name: metaTitle, label: "Search-engine title", widget: string }
           - {
               name: metaDescription,

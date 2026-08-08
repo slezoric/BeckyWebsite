@@ -6,6 +6,7 @@ export const dynamic = "force-static";
 const paths = [
   "/",
   "/about/",
+  "/services/",
   "/kap/",
   "/what-we-treat/",
   "/faq/",

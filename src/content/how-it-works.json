@@ -1,16 +1,7 @@
 {
-  "safetyCardHeading": "What do you need to feel safe here",
   "heading": "Together ~ we prepare, we journey, we integrate. Care within connection.",
-  "safetyCardBody": "No needles, no doctors, no shrinks, no nonsense. Just extra-ordinary care with B.",
-  "facts": [
-    "Non-ordinary states of consciousness have been explored across cultures and traditions for centuries as pathways for self-discovery, reflection, and deeper connection.",
-    "Relief can come quickly — sometimes the same day",
-    "Studies exploring psychedelic experiences have found that participants often report increases in psychological flexibility—the ability to approach thoughts, emotions, and life experiences with greater openness and awareness.",
-    "Research suggests that the intensity of a meaningful non-ordinary state of consciousness experience, along with thoughtful preparation and integration, is associated with greater increases in personal insight, self-awareness, and lasting positive change."
-  ],
   "eyebrow": "How does it work",
-  "factsCardHeading": "The emerging science of NOSC",
-  "intro": "Legally prescribed medication \ndissociative medicine\nholistic integrative care\n\nExpanded states of consciousness can open the door to profound self-discovery, helping you reconnect with your inner wisdom, meet the different parts of yourself with compassion, and gain fresh perspective on your inner world. When approached with intention and supported through thoughtful integration, these experiences can create space for healing, harmony, and a deeper connection with the many parts of who you are. They can inspire lasting personal growth, emotional well-being, and a greater sense of wholeness, authenticity, and inner alignment.",
+  "intro": "Expanded states of consciousness can open the door to profound self-discovery, helping you reconnect with your inner wisdom, meet the different parts of yourself with compassion, and gain fresh perspective on your inner world. When approached with intention and supported through thoughtful integration, these experiences can create space for healing, harmony, and a deeper connection with the many parts of who you are. They can inspire lasting personal growth, emotional well-being, and a greater sense of wholeness, authenticity, and inner alignment.",
   "sections": [
     {
       "heading": "Holistic integration care",
@@ -43,7 +34,6 @@
       ]
     }
   ],
-  "honestNote": "Honest note: this is still a newer path, and no one can promise you a particular outcome. It helps many people, it does not help everyone, and it works best as part of a wider circle of care.",
   "metaTitle": "How This Works",
   "metaDescription": "Non-ordinary states of consciousness may support the brain’s natural capacity for neuroplasticity—the ability to adapt, form new connections, and develop new patterns of awareness.",
   "journeyHeading": "Low and slow",
@@ -88,34 +78,6 @@
     {
       "title": "Looking after you",
       "body": "If you have the support of a loved one, I encourage you to accept their help and care once you're home."
-    }
-  ],
-  "galleryHeading": "What shifts inside",
-  "galleryIntro": "These are illustrations rather than photographs — a way of picturing what researchers describe happening while the senses soften and old patterns loosen their grip.",
-  "gallery": [
-    {
-      "image": "/images/brain-globe.jpg",
-      "alt": "A brain resting inside a glass snow globe",
-      "caption": "A world within",
-      "body": "Everything you have lived sits inside one quiet space. This work is simply a way of visiting it with company."
-    },
-    {
-      "image": "/images/brain-anatomy.jpg",
-      "alt": "Illustration of a brain with its regions labelled and pathways glowing",
-      "caption": "How things usually run",
-      "body": "On an ordinary day, thoughts and feelings travel the same well-worn routes — which is why old patterns can be so hard to step out of."
-    },
-    {
-      "image": "/images/brain-synesthesia.jpg",
-      "alt": "Illustration of the senses radiating from a brain in coloured light",
-      "caption": "When the senses mingle",
-      "body": "Colour, sound and touch can blur into one another. Music may be felt rather than heard. It is strange, and for most people rather beautiful."
-    },
-    {
-      "image": "/images/brain-connections.jpg",
-      "alt": "Illustration of a bright web of new connections forming",
-      "caption": "New paths forming",
-      "body": "Parts that rarely speak to one another start connecting. This is the opening — and what you make of it afterwards is where the change settles."
     }
   ]
 }

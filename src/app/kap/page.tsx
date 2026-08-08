@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Card, Container, ConsultCTA, PageHeader } from "@/components/ui";
 import ContentSections from "@/components/ContentSections";
 import Reveal from "@/components/Reveal";
@@ -18,91 +17,19 @@ export default function HowItFlowsPage() {
           right of the page empty. */}
       <PageHeader eyebrow={content.eyebrow} title={content.heading} />
 
-      {/* What this is */}
+      {/* What this is. Single column now that the side cards are gone —
+          a two-column grid with nothing in the second column would leave
+          the right half of the page empty. */}
       <Container className="py-10">
-        <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr]">
-          <div>
-            <Reveal>
-              <p className="mb-10 max-w-2xl whitespace-pre-line text-lg text-cream-muted">
-                {content.intro.trim()}
-              </p>
-            </Reveal>
-            <ContentSections sections={content.sections} />
-          </div>
-
-          <div className="space-y-5">
-            <Reveal>
-              <Card>
-                <h3 className="text-lg text-cream">
-                  {content.safetyCardHeading}
-                </h3>
-                <p className="mt-3 text-sm text-cream-muted">
-                  {content.safetyCardBody}
-                </p>
-              </Card>
-            </Reveal>
-            <Reveal delay={80}>
-              <Card>
-                <h3 className="text-lg text-cream">
-                  {content.factsCardHeading}
-                </h3>
-                <ul className="mt-3 space-y-2 text-sm text-cream-muted">
-                  {content.facts.map((f) => (
-                    <li key={f}>· {f}</li>
-                  ))}
-                </ul>
-              </Card>
-            </Reveal>
-            <Reveal delay={160}>
-              <Card className="border-gold/20 bg-gold/5">
-                <p className="text-sm text-cream-muted">{content.honestNote}</p>
-              </Card>
-            </Reveal>
-          </div>
-        </div>
-      </Container>
-
-      {/* Illustrations of what shifts. These are cool-toned images on black,
-          so each is framed and given a warm veil to sit with the palette
-          rather than fight it. */}
-      <section className="border-t border-white/5">
-        <Container className="py-20">
+        <div className="max-w-3xl">
           <Reveal>
-            <h2 className="max-w-3xl text-4xl text-cream sm:text-5xl">
-              {content.galleryHeading}
-            </h2>
-            <p className="mt-4 max-w-2xl text-cream-muted">
-              {content.galleryIntro}
+            <p className="mb-10 whitespace-pre-line text-lg text-cream-muted">
+              {content.intro.trim()}
             </p>
           </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {content.gallery.map((g, i) => (
-              <Reveal key={g.image} delay={i * 70}>
-                <figure className="h-full overflow-hidden rounded-2xl border border-white/5 bg-surface/40">
-                  <div className="relative aspect-square">
-                    <Image
-                      src={g.image}
-                      alt={g.alt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 45vw"
-                      className="object-cover"
-                    />
-                    {/* Warm veil bridges the cool artwork to the page palette */}
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-gradient-to-t from-base/70 via-wine/15 to-transparent"
-                    />
-                  </div>
-                  <figcaption className="p-6">
-                    <h3 className="text-xl text-cream">{g.caption}</h3>
-                    <p className="mt-2 text-sm text-cream-muted">{g.body}</p>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
+          <ContentSections sections={content.sections} />
+        </div>
+      </Container>
 
       {/* What actually happens — formerly its own page */}
       <section id="what-happens" className="border-t border-white/5 bg-base-2/60">

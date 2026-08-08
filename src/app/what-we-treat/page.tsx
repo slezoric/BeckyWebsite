@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Container, ConsultCTA, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import { strengthColor, type Strength } from "@/lib/conditions";
@@ -89,6 +90,47 @@ export default function WhatWeTreatPage() {
           </p>
         </Reveal>
       </Container>
+
+      {/* Illustrations of what shifts — moved here from How It Flows.
+          These are cool-toned images on black, so each is framed and given a
+          warm veil to sit with the palette rather than fight it. */}
+      <section className="border-t border-white/5">
+        <Container className="py-20">
+          <Reveal>
+            <h2 className="max-w-3xl text-4xl text-cream sm:text-5xl">
+              {content.galleryHeading}
+            </h2>
+            <p className="mt-4 max-w-2xl text-cream-muted">
+              {content.galleryIntro}
+            </p>
+          </Reveal>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            {content.gallery.map((g, i) => (
+              <Reveal key={g.image} delay={i * 70}>
+                <figure className="h-full overflow-hidden rounded-2xl border border-white/5 bg-surface/40">
+                  <div className="relative aspect-square">
+                    <Image
+                      src={g.image}
+                      alt={g.alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 45vw"
+                      className="object-cover"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-gradient-to-t from-base/70 via-wine/15 to-transparent"
+                    />
+                  </div>
+                  <figcaption className="p-6">
+                    <h3 className="text-xl text-cream">{g.caption}</h3>
+                    <p className="mt-2 text-sm text-cream-muted">{g.body}</p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <ConsultCTA heading={content.ctaHeading} />
     </>

@@ -1,0 +1,46 @@
+{
+  "metaTitle": "What I Offer",
+  "metaDescription": "The ways Becky works with people — first conversations, preparing together, journeys, and integration support, including for experiences you had elsewhere.",
+  "eyebrow": "What I offer",
+  "heading": "Ways we can work together",
+  "intro": "Everything here is shaped around you rather than a package. Some people want the whole path; others come only for the part they are missing. We work out which together, and nothing is booked before you feel ready.",
+  "servicesHeading": "The work",
+  "services": [
+    {
+      "name": "A first conversation",
+      "duration": "About an hour",
+      "body": "No commitment, no pressure. You share what brought you here and what you are hoping for, and we work out honestly whether this is your path. If it isn't, I'll say so and point you somewhere better.",
+      "note": "Where everyone starts"
+    },
+    {
+      "name": "Preparing together",
+      "duration": "One or more sessions",
+      "body": "Before anything else, we get to know each other properly. We talk through what the day will hold, what you might meet along the way, and what kind of support helps you feel safest. Every question is welcome, however small.",
+      "note": ""
+    },
+    {
+      "name": "The journey",
+      "duration": "A half day",
+      "body": "You settle somewhere soft and quiet, and let the medicine carry you. I stay beside you the whole way through, with calm breath and warm words. Afterward you rest, and someone you trust takes you home.",
+      "note": ""
+    },
+    {
+      "name": "Integration",
+      "duration": "Ongoing, at your pace",
+      "body": "This is where the lasting change is made. In the days and weeks that follow, we sit with whatever surfaced — the beautiful parts and the hard parts alike — and turn what you glimpsed into something you can actually live.",
+      "note": "Where the real work happens"
+    },
+    {
+      "name": "Integration on its own",
+      "duration": "As many sessions as you need",
+      "body": "If you have already had an experience elsewhere and are carrying something you cannot quite place, you are welcome here for the integration alone. You do not need to journey with me to be supported by me.",
+      "note": "You don't need to have journeyed with me"
+    }
+  ],
+  "feesHeading": "About fees",
+  "feesBody": "Fees are discussed openly in our first conversation, so there are no surprises and nothing to work out on your own. If cost is what stands between you and reaching out, say so — it is worth a conversation.",
+  "productsHeading": "",
+  "productsIntro": "",
+  "products": [],
+  "ctaHeading": "Not sure which you need?"
+}
