@@ -13,16 +13,23 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        eyebrow={content.eyebrow}
-        title={content.heading}
-        intro={content.intro}
-      />
+      {/* Title only. The intro moves into the text column below, so it sits
+          beside the photograph instead of stranding the right half of the
+          page empty. */}
+      <PageHeader eyebrow={content.eyebrow} title={content.heading} />
 
       <Container className="py-10">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           <Reveal>
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-surface-2 to-wine/40">
+            {/* The framing lives here, not in the file. The full photograph
+                stays in the repo untouched; this only decides how much of it
+                the page shows.
+
+                Her original has a lot of empty studio floor — she covers only
+                about 37% of the frame — so it is zoomed and panned onto her.
+                To adjust: `scale` sets how close, `object-position` sets what
+                is centred (she sits at roughly 60% across, 55% down). */}
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-surface-2 to-wine/40">
               {site.portrait ? (
                 <Image
                   src={site.portrait}
@@ -30,10 +37,10 @@ export default function AboutPage() {
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover object-top"
+                  className="scale-[1.32] object-cover object-[60%_46%]"
                 />
               ) : (
-                <div className="flex h-full items-center justify-center text-center text-sm text-cream-dim">
+                <div className="flex aspect-[4/5] items-center justify-center text-center text-sm text-cream-dim">
                   Portrait of {site.practitioner}
                 </div>
               )}
@@ -42,9 +49,20 @@ export default function AboutPage() {
 
           <Reveal delay={80}>
             <div className="space-y-5 text-lg text-cream-muted">
+              {/* The page intro leads the column, then the fuller bio */}
+              <p className="whitespace-pre-line text-cream">
+                {content.intro.trim()}
+              </p>
               {content.bio.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
+              {/* Signed off in the script face, so the page reads like a
+                  letter from her rather than copy about her. */}
+              {content.signature && (
+                <p className="pt-2 font-display text-5xl leading-none text-cream sm:text-6xl">
+                  {content.signature}
+                </p>
+              )}
             </div>
           </Reveal>
         </div>

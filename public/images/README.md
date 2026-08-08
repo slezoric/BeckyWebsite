@@ -1,15 +1,28 @@
 # Image assets
 
-Files here are served from the site root — e.g. `becky-portrait.jpg` in this
-folder is referenced in code as `/images/becky-portrait.jpg`.
+Files here are served from the site root — e.g. `becky-portrait.webp` in this
+folder is referenced in code as `/images/becky-portrait.webp`.
 
 ## Practitioner portrait
 
-    public/images/becky-portrait.jpg
+    public/images/becky-portrait.webp
 
-Referenced from `src/lib/site.ts` (the `portrait` field). If you use a different
-filename or format, update that field to match. Recommended: portrait
-orientation, at least 1000px tall, under ~500KB.
+Set in `src/content/site.json` (the `portrait` field), so it can also be changed
+from the admin panel.
+
+Supply the **camera original**, not a copy that has been through email or a
+messaging app — those arrive around 450px wide and look soft once the browser
+scales them up. Anything from about 1200px wide is fine.
+
+The photograph is shown whole: the About page sets no fixed aspect ratio and no
+`object-cover`, so nothing is cropped. If a tighter composition is ever wanted,
+crop it in CSS there rather than editing the file, so the full frame stays in
+the repo.
+
+WebP is used because it is roughly 45% smaller than the same JPEG at matching
+quality, with support in every current browser. AVIF would be another ~20%
+smaller again, but needs Safari 16 or newer, which felt like the wrong trade
+for an audience that skews older.
 
 ## Logo
 

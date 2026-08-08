@@ -193,6 +193,13 @@ collections:
               - { name: title, label: "Card title", widget: string }
               - { name: body, label: "Card text", widget: text }
           - {
+              name: signature,
+              label: "Signature at the end of your story",
+              widget: string,
+              required: false,
+              hint: "Shown in the handwriting font, like signing a letter. Leave empty to hide it.",
+            }
+          - {
               name: credentialsHeading,
               label: "Credentials heading",
               widget: string,
