@@ -49,8 +49,10 @@
   --text-lg: 1.1875rem; /* 19px */
   --text-lg--line-height: 1.65;
 
-  /* Content width */
-  --breakpoint-content: 72rem;
+  /* Content width. Must be --container-* : in Tailwind v4 a --breakpoint-*
+     token defines a responsive breakpoint, not a max-width, so max-w-content
+     silently resolved to nothing and every page ran full-bleed. */
+  --container-content: 72rem;
 }
 
 html {

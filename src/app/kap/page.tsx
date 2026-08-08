@@ -12,18 +12,20 @@ export const metadata: Metadata = {
 export default function HowItFlowsPage() {
   return (
     <>
-      {/* Title only. The intro moves into the left column below so the
-          reassurance cards rise up beside it, instead of leaving the top
-          right of the page empty. */}
-      <PageHeader eyebrow={content.eyebrow} title={content.heading} />
+      {/* Centred to sit over the single reading column below it. */}
+      <PageHeader
+        eyebrow={content.eyebrow}
+        title={content.heading}
+        centered
+      />
 
-      {/* What this is. Single column now that the side cards are gone —
-          a two-column grid with nothing in the second column would leave
-          the right half of the page empty. */}
+      {/* Long-form reading. With the side cards gone this is a single column,
+          so it is centred rather than left-hugging — otherwise the whitespace
+          all pools on the right and reads as a gap rather than a margin. */}
       <Container className="py-10">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-2xl">
           <Reveal>
-            <p className="mb-10 whitespace-pre-line text-lg text-cream-muted">
+            <p className="mb-12 whitespace-pre-line text-lg text-cream-muted">
               {content.intro.trim()}
             </p>
           </Reveal>

@@ -47,26 +47,34 @@ export function PageHeader({
   eyebrow,
   title,
   intro,
+  centered = false,
 }: {
   eyebrow?: string;
   title: string;
   intro?: string;
+  /** Use on long-form pages whose body is a single centred column, so the
+   *  heading doesn't sit left of the text beneath it. */
+  centered?: boolean;
 }) {
   return (
-    <Container className="pb-4 pt-12 sm:pt-16">
+    <Container className={`pb-4 pt-12 sm:pt-16 ${centered ? "text-center" : ""}`}>
       <Reveal>
         {eyebrow && (
           <p className="text-sm uppercase tracking-widest text-blush">
             {eyebrow}
           </p>
         )}
-        <h1 className="mt-4 max-w-3xl text-5xl text-cream sm:text-6xl">
+        <h1
+          className={`mt-4 max-w-3xl text-5xl text-cream sm:text-6xl ${centered ? "mx-auto" : ""}`}
+        >
           {title}
         </h1>
         {intro && (
           // whitespace-pre-line honours line breaks typed in the editor.
           // Without it, HTML collapses them and separate lines run together.
-          <p className="mt-6 max-w-2xl whitespace-pre-line text-lg text-cream-muted">
+          <p
+            className={`mt-6 max-w-2xl whitespace-pre-line text-lg text-cream-muted ${centered ? "mx-auto" : ""}`}
+          >
             {intro.trim()}
           </p>
         )}
