@@ -1,0 +1,33 @@
+{
+  "// note": "Project settings so the editor understands this stack. Applies to VS Code, Antigravity and other VS Code-based editors.",
+
+  // Tailwind v4 has no tailwind.config file — the design tokens live in CSS,
+  // so point the extension at that file or autocomplete won't know our colours.
+  "tailwindCSS.experimental.configFile": "src/app/globals.css",
+  "tailwindCSS.includeLanguages": { "typescriptreact": "html" },
+
+  // Tailwind's own at-rules aren't standard CSS; stop the built-in linter
+  // flagging @theme and @apply as unknown.
+  "css.lint.unknownAtRules": "ignore",
+
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" },
+
+  // Use the TypeScript version in node_modules, not the editor's bundled one,
+  // so type errors match what `npm run build` reports.
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  // Build output and dependencies are noise in search and the file tree.
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/out": true,
+    "**/package-lock.json": true
+  },
+  "files.exclude": {
+    "**/.next": true,
+    "**/out": true
+  }
+}

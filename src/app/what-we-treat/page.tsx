@@ -11,6 +11,53 @@ export const metadata: Metadata = {
   description: content.metaDescription,
 };
 
+type GalleryItem = {
+  image: string;
+  alt: string;
+  caption: string;
+  body: string;
+};
+
+/**
+ * A row of two illustrations. Used twice: once above the table, once below.
+ *
+ * The pictures are shown whole — object-contain rather than object-cover — so
+ * nothing is cut off. They are all square, so the frame is square too and
+ * there is nothing to letterbox in practice; if a non-square image is ever
+ * swapped in it will sit inside the frame rather than being cropped to fit.
+ */
+function GalleryPair({
+  items,
+  startDelay = 0,
+}: {
+  items: GalleryItem[];
+  startDelay?: number;
+}) {
+  return (
+    <div className="mt-10 grid gap-6 sm:grid-cols-2">
+      {items.map((g, i) => (
+        <Reveal key={g.image} delay={(startDelay + i) * 70}>
+          <figure className="h-full overflow-hidden rounded-2xl border border-white/5 bg-surface/40">
+            <div className="relative aspect-square">
+              <Image
+                src={g.image}
+                alt={g.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, 45vw"
+                className="object-contain"
+              />
+            </div>
+            <figcaption className="p-6">
+              <h3 className="text-xl text-cream">{g.caption}</h3>
+              <p className="mt-2 text-sm text-cream-muted">{g.body}</p>
+            </figcaption>
+          </figure>
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
 export default function WhatWeTreatPage() {
   return (
     <>
@@ -19,6 +66,24 @@ export default function WhatWeTreatPage() {
         title={content.heading}
         intro={content.intro}
       />
+
+      {/*
+        The illustrations sit in two pairs, one pair above the table and one
+        below. Order comes from the gallery list in the content file: the
+        first two render above, the last two below. Reordering there moves
+        them on the page — no code change needed.
+      */}
+      <Container className="pt-6">
+        <Reveal>
+          <h2 className="max-w-3xl text-4xl text-cream sm:text-5xl">
+            {content.galleryHeading}
+          </h2>
+          <p className="mt-4 max-w-2xl text-cream-muted">
+            {content.galleryIntro}
+          </p>
+        </Reveal>
+        <GalleryPair items={content.gallery.slice(0, 2)} />
+      </Container>
 
       <Container className="py-10">
         {/* Evidence table (cards on mobile, table on larger screens) */}
@@ -91,46 +156,9 @@ export default function WhatWeTreatPage() {
         </Reveal>
       </Container>
 
-      {/* Illustrations of what shifts — moved here from How It Flows.
-          These are cool-toned images on black, so each is framed and given a
-          warm veil to sit with the palette rather than fight it. */}
-      <section className="border-t border-white/5">
-        <Container className="py-20">
-          <Reveal>
-            <h2 className="max-w-3xl text-4xl text-cream sm:text-5xl">
-              {content.galleryHeading}
-            </h2>
-            <p className="mt-4 max-w-2xl text-cream-muted">
-              {content.galleryIntro}
-            </p>
-          </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {content.gallery.map((g, i) => (
-              <Reveal key={g.image} delay={i * 70}>
-                <figure className="h-full overflow-hidden rounded-2xl border border-white/5 bg-surface/40">
-                  <div className="relative aspect-square">
-                    <Image
-                      src={g.image}
-                      alt={g.alt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 45vw"
-                      className="object-cover"
-                    />
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-gradient-to-t from-base/70 via-wine/15 to-transparent"
-                    />
-                  </div>
-                  <figcaption className="p-6">
-                    <h3 className="text-xl text-cream">{g.caption}</h3>
-                    <p className="mt-2 text-sm text-cream-muted">{g.body}</p>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <Container className="pb-6">
+        <GalleryPair items={content.gallery.slice(2, 4)} startDelay={2} />
+      </Container>
 
       <ConsultCTA heading={content.ctaHeading} />
     </>

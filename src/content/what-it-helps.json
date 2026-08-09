@@ -3,7 +3,7 @@
   "tableHeadNote": "What we know so far",
   "heading": "An honest look at what this can and can't do",
   "tableHeadEvidence": "Evidence",
-  "eyebrow": "REMOVE THIS ENTIRE PAGE",
+  "eyebrow": "What it helps",
   "intro": "You deserve the real picture, not a sales pitch. Here is what people come with, and how much research genuinely stands behind each one — including the places where we simply don't know enough yet.",
   "tableHeadCondition": "What you might be carrying",
   "ctaHeading": "Wondering if it could help you?",
@@ -46,16 +46,10 @@
   "galleryIntro": "These are illustrations rather than photographs — a way of picturing what researchers describe happening while the senses soften and old patterns loosen their grip.",
   "gallery": [
     {
-      "image": "/images/brain-globe.jpg",
-      "alt": "A brain resting inside a glass snow globe",
-      "caption": "A world within",
-      "body": "Everything you have lived sits inside one quiet space. This work is simply a way of visiting it with company."
-    },
-    {
-      "image": "/images/brain-anatomy.jpg",
-      "alt": "Illustration of a brain with its regions labelled and pathways glowing",
-      "caption": "How things usually run",
-      "body": "On an ordinary day, thoughts and feelings travel the same well-worn routes — which is why old patterns can be so hard to step out of."
+      "image": "/images/brain-connections.jpg",
+      "alt": "Illustration of a bright web of new connections forming",
+      "caption": "New paths forming",
+      "body": "Parts that rarely speak to one another start connecting. This is the opening — and what you make of it afterwards is where the change settles."
     },
     {
       "image": "/images/brain-synesthesia.jpg",
@@ -64,10 +58,16 @@
       "body": "Colour, sound and touch can blur into one another. Music may be felt rather than heard. It is strange, and for most people rather beautiful."
     },
     {
-      "image": "/images/brain-connections.jpg",
-      "alt": "Illustration of a bright web of new connections forming",
-      "caption": "New paths forming",
-      "body": "Parts that rarely speak to one another start connecting. This is the opening — and what you make of it afterwards is where the change settles."
+      "image": "/images/brain-anatomy.jpg",
+      "alt": "Illustration of a brain with its regions labelled and pathways glowing",
+      "caption": "How things usually run",
+      "body": "On an ordinary day, thoughts and feelings travel the same well-worn routes — which is why old patterns can be so hard to step out of."
+    },
+    {
+      "image": "/images/brain-globe.jpg",
+      "alt": "A brain resting inside a glass snow globe",
+      "caption": "A world within",
+      "body": "Everything you have lived sits inside one quiet space. This work is simply a way of visiting it with company."
     }
   ]
 }

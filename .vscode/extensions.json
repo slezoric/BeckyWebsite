@@ -1,0 +1,9 @@
+{
+  "// note": "Suggested when the folder is opened. Works in VS Code, Antigravity, Cursor and other VS Code-based editors.",
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "unifiedjs.vscode-mdx"
+  ]
+}
