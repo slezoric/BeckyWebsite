@@ -26,5 +26,43 @@
   "placeholderName": "How should we address you?",
   "successHeading": "Thank you for reaching out",
   "labelName": "Name",
-  "crisisHeading": "Need help right now?"
+  "crisisHeading": "Need help right now?",
+  "optionalHeading": "A few optional questions",
+  "optionalIntro": "All of these can be skipped — they just help Becky prepare before you speak.",
+  "labelHeardAbout": "How did you hear about Becky?",
+  "optionsHeardAbout": [
+    "A friend or family member",
+    "Another therapist or doctor",
+    "Found you online",
+    "Social media",
+    "Somewhere else"
+  ],
+  "labelInterest": "What brings you here?",
+  "optionsInterest": [
+    "Not sure yet — I'd like to talk it through",
+    "The whole journey, start to finish",
+    "Integration only (I journeyed elsewhere)",
+    "Asking on behalf of someone else"
+  ],
+  "labelContactMethod": "Best way to reach you",
+  "optionsContactMethod": [
+    "Email",
+    "Phone call",
+    "Text message"
+  ],
+  "labelBestTime": "Best time to reach you",
+  "optionsBestTime": [
+    "Any time",
+    "Morning",
+    "Afternoon",
+    "Evening"
+  ],
+  "labelTimeframe": "How soon are you hoping to begin?",
+  "optionsTimeframe": [
+    "Whenever there's space",
+    "In the next few weeks",
+    "In a month or two",
+    "Just gathering information for now"
+  ],
+  "selectPlaceholder": "— choose one —"
 }

@@ -47,34 +47,26 @@ export function PageHeader({
   eyebrow,
   title,
   intro,
-  centered = false,
 }: {
   eyebrow?: string;
   title: string;
   intro?: string;
-  /** Use on long-form pages whose body is a single centred column, so the
-   *  heading doesn't sit left of the text beneath it. */
-  centered?: boolean;
 }) {
   return (
-    <Container className={`pb-4 pt-12 sm:pt-16 ${centered ? "text-center" : ""}`}>
+    <Container className="pb-4 pt-12 sm:pt-16">
       <Reveal>
         {eyebrow && (
           <p className="text-sm uppercase tracking-widest text-blush">
             {eyebrow}
           </p>
         )}
-        <h1
-          className={`mt-4 max-w-3xl text-5xl text-cream sm:text-6xl ${centered ? "mx-auto" : ""}`}
-        >
+        <h1 className="mt-4 max-w-3xl text-5xl text-cream sm:text-6xl">
           {title}
         </h1>
         {intro && (
           // whitespace-pre-line honours line breaks typed in the editor.
           // Without it, HTML collapses them and separate lines run together.
-          <p
-            className={`mt-6 max-w-2xl whitespace-pre-line text-lg text-cream-muted ${centered ? "mx-auto" : ""}`}
-          >
+          <p className="mt-6 max-w-2xl whitespace-pre-line text-lg text-cream-muted">
             {intro.trim()}
           </p>
         )}
@@ -100,7 +92,17 @@ export function Card({
   );
 }
 
-/** Long-form readable text block for education/legal pages. */
+/**
+ * Long-form readable text block for education/legal pages.
+ *
+ * Paragraphs are held to about 68 characters a line. Long lines are the main
+ * thing that makes body text tiring — the eye loses its place returning to the
+ * start of the next one. The container can stay wide; only the prose narrows.
+ *
+ * Deliberately NOT justified. Browsers justify by stretching word spaces with
+ * no hyphenation, which opens "rivers" of white space and makes it harder to
+ * track along a line — worst for exactly the readers this site is built for.
+ */
 export function Prose({
   children,
   className = "",
@@ -110,7 +112,7 @@ export function Prose({
 }) {
   return (
     <div
-      className={`space-y-5 text-cream-muted [&_a]:text-gold [&_a]:underline-offset-4 hover:[&_a]:underline [&_h2]:mt-12 [&_h2]:text-4xl [&_h2]:text-cream [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:text-cream [&_li]:pl-1 [&_strong]:text-cream [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6 ${className}`}
+      className={`space-y-5 text-cream-muted [&_a]:text-gold [&_a]:underline-offset-4 hover:[&_a]:underline [&_h2]:mt-12 [&_h2]:text-4xl [&_h2]:text-cream [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:text-cream [&_li]:pl-1 [&_p]:max-w-152 [&_strong]:text-cream [&_ul]:list-disc [&_ul]:max-w-152 [&_ul]:space-y-2 [&_ul]:pl-6 ${className}`}
     >
       {children}
     </div>

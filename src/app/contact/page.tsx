@@ -13,6 +13,38 @@ export const metadata: Metadata = {
 const field =
   "mt-2 w-full rounded-lg border border-white/10 bg-base-2 px-4 py-3 text-cream placeholder:text-cream-dim focus:border-gold focus:outline-none";
 
+/** A skippable dropdown. All of these are optional by design — the form's job
+ *  is to get someone nervous over the line, not to interview them. */
+function SelectField({
+  id,
+  label,
+  options,
+  placeholder,
+  className = "",
+}: {
+  id: string;
+  label: string;
+  options: string[];
+  placeholder: string;
+  className?: string;
+}) {
+  return (
+    <div className={className}>
+      <label htmlFor={id} className="block text-sm text-cream-muted">
+        {label}
+      </label>
+      <select id={id} name={id} defaultValue="" className={field}>
+        <option value="">{placeholder}</option>
+        {options.map((o) => (
+          <option key={o} value={o}>
+            {o}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 export default function ContactPage() {
   return (
     <>
@@ -106,6 +138,57 @@ export default function ContactPage() {
                     placeholder={content.placeholderMessage}
                   />
                 </div>
+
+                {/* Optional questions, set apart and clearly skippable.
+                    They help Becky prepare and show her which referrals
+                    actually work — but none of them asks about health, which
+                    is what keeps this form outside HIPAA's scope. Keep it
+                    that way if you add more. */}
+                <fieldset className="mt-2 border-t border-white/10 pt-6">
+                  <legend className="sr-only">
+                    {content.optionalHeading}
+                  </legend>
+                  <p className="text-cream">{content.optionalHeading}</p>
+                  <p className="mt-1 text-sm text-cream-dim">
+                    {content.optionalIntro}
+                  </p>
+
+                  <div className="mt-5 grid gap-5 sm:grid-cols-2">
+                    <SelectField
+                      id="interest"
+                      label={content.labelInterest}
+                      options={content.optionsInterest}
+                      placeholder={content.selectPlaceholder}
+                      className="sm:col-span-2"
+                    />
+                    <SelectField
+                      id="heard-about"
+                      label={content.labelHeardAbout}
+                      options={content.optionsHeardAbout}
+                      placeholder={content.selectPlaceholder}
+                      className="sm:col-span-2"
+                    />
+                    <SelectField
+                      id="contact-method"
+                      label={content.labelContactMethod}
+                      options={content.optionsContactMethod}
+                      placeholder={content.selectPlaceholder}
+                    />
+                    <SelectField
+                      id="best-time"
+                      label={content.labelBestTime}
+                      options={content.optionsBestTime}
+                      placeholder={content.selectPlaceholder}
+                    />
+                    <SelectField
+                      id="timeframe"
+                      label={content.labelTimeframe}
+                      options={content.optionsTimeframe}
+                      placeholder={content.selectPlaceholder}
+                      className="sm:col-span-2"
+                    />
+                  </div>
+                </fieldset>
 
                 <p className="text-sm leading-relaxed text-cream-muted">
                   {content.privacyNote}

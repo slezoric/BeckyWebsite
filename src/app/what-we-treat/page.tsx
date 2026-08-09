@@ -61,11 +61,18 @@ function GalleryPair({
 export default function WhatWeTreatPage() {
   return (
     <>
-      <PageHeader
-        eyebrow={content.eyebrow}
-        title={content.heading}
-        intro={content.intro}
-      />
+      {/* The old page heading and intro were removed. Rather than leave the
+          page with no <h1> — which search engines and screen readers both
+          rely on — the illustrations heading now leads the page. Put a
+          `heading` back in the content file and this reverts to the normal
+          page header. */}
+      {content.heading ? (
+        <PageHeader
+          eyebrow={content.eyebrow}
+          title={content.heading}
+          intro={content.intro}
+        />
+      ) : null}
 
       {/*
         The illustrations sit in two pairs, one pair above the table and one
@@ -73,11 +80,22 @@ export default function WhatWeTreatPage() {
         first two render above, the last two below. Reordering there moves
         them on the page — no code change needed.
       */}
-      <Container className="pt-6">
+      <Container className={content.heading ? "pt-6" : "pt-12 sm:pt-16"}>
         <Reveal>
-          <h2 className="max-w-3xl text-4xl text-cream sm:text-5xl">
-            {content.galleryHeading}
-          </h2>
+          {content.eyebrow && !content.heading && (
+            <p className="text-sm uppercase tracking-widest text-blush">
+              {content.eyebrow}
+            </p>
+          )}
+          {content.heading ? (
+            <h2 className="max-w-3xl text-4xl text-cream sm:text-5xl">
+              {content.galleryHeading}
+            </h2>
+          ) : (
+            <h1 className="mt-4 max-w-3xl text-4xl text-cream sm:text-5xl">
+              {content.galleryHeading}
+            </h1>
+          )}
           <p className="mt-4 max-w-2xl text-cream-muted">
             {content.galleryIntro}
           </p>

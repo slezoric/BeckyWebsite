@@ -1,8 +1,13 @@
 <!--
   Netlify Forms detection stub.
   Netlify registers forms by scanning static HTML at deploy time. This bare
-  form guarantees the "consultation" form (and all its fields) is detected,
+  form guarantees the "consultation" form and ALL its fields are detected,
   independent of how Next.js renders the interactive form on /contact/.
+
+  IMPORTANT: every field on the real form must also appear here. A field
+  missing from this list is silently dropped from submissions — the form
+  still works, the answer just never reaches Becky.
+
   Do not delete.
 -->
 <!doctype html>
@@ -18,6 +23,14 @@
       <input type="email" name="email" />
       <input type="tel" name="phone" />
       <textarea name="message"></textarea>
+
+      <!-- optional lead questions -->
+      <select name="interest"></select>
+      <select name="heard-about"></select>
+      <select name="contact-method"></select>
+      <select name="best-time"></select>
+      <select name="timeframe"></select>
+
       <input name="bot-field" />
     </form>
   </body>

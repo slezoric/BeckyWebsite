@@ -12,18 +12,12 @@ export const metadata: Metadata = {
 export default function HowItFlowsPage() {
   return (
     <>
-      {/* Centred to sit over the single reading column below it. */}
-      <PageHeader
-        eyebrow={content.eyebrow}
-        title={content.heading}
-        centered
-      />
+      <PageHeader eyebrow={content.eyebrow} title={content.heading} />
 
-      {/* Long-form reading. With the side cards gone this is a single column,
-          so it is centred rather than left-hugging — otherwise the whitespace
-          all pools on the right and reads as a gap rather than a margin. */}
+      {/* Same shape as the other long-form pages (consent, disclaimer,
+          privacy, terms): left-aligned heading, body held to max-w-3xl. */}
       <Container className="py-10">
-        <div className="mx-auto max-w-2xl">
+        <div className="max-w-3xl">
           <Reveal>
             <p className="mb-12 whitespace-pre-line text-lg text-cream-muted">
               {content.intro.trim()}

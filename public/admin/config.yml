@@ -541,6 +541,39 @@ collections:
               label: "Form — message hint text",
               widget: string,
             }
+          - { name: optionalHeading, label: "Optional questions — heading", widget: string }
+          - { name: optionalIntro, label: "Optional questions — intro", widget: text }
+          - { name: selectPlaceholder, label: "Dropdown placeholder text", widget: string }
+          - { name: labelInterest, label: "'What brings you here' label", widget: string }
+          - name: optionsInterest
+            label: "'What brings you here' choices"
+            label_singular: "choice"
+            widget: list
+            field: { name: choice, label: "Choice", widget: string }
+          - { name: labelHeardAbout, label: "'How did you hear' label", widget: string }
+          - name: optionsHeardAbout
+            label: "'How did you hear' choices"
+            label_singular: "choice"
+            widget: list
+            field: { name: choice, label: "Choice", widget: string }
+          - { name: labelContactMethod, label: "'Best way to reach you' label", widget: string }
+          - name: optionsContactMethod
+            label: "'Best way to reach you' choices"
+            label_singular: "choice"
+            widget: list
+            field: { name: choice, label: "Choice", widget: string }
+          - { name: labelBestTime, label: "'Best time' label", widget: string }
+          - name: optionsBestTime
+            label: "'Best time' choices"
+            label_singular: "choice"
+            widget: list
+            field: { name: choice, label: "Choice", widget: string }
+          - { name: labelTimeframe, label: "'How soon' label", widget: string }
+          - name: optionsTimeframe
+            label: "'How soon' choices"
+            label_singular: "choice"
+            widget: list
+            field: { name: choice, label: "Choice", widget: string }
           - {
               name: privacyNote,
               label: "Privacy note under the form",

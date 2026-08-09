@@ -3,12 +3,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nav, navExtras, site } from "@/lib/site";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+
+  // Escape closes the menu. Without this, an overlay can only be dismissed by
+  // tapping, which strands anyone navigating by keyboard.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/5 bg-base/85 backdrop-blur-md">
@@ -32,20 +43,26 @@ export default function SiteHeader() {
             className="h-20 w-auto sm:hidden"
           />
           {/* Wider screens: circle moves beside the name so the header bar
-              stays shallow and sits alongside the navigation. */}
+              stays shallow and sits alongside the navigation.
+
+              Height is fixed from sm up. It used to grow at 2xl, but with the
+              container capped at 72rem there isn't the room — five links plus
+              the button need most of the bar. */}
           <Image
             src="/images/logo-horizontal.png"
             alt=""
             aria-hidden="true"
             width={1244}
             height={213}
-            className="hidden h-14 w-auto sm:block 2xl:h-16"
+            className="hidden h-12 w-auto sm:block xl:h-14"
           />
         </Link>
 
         {/* Desktop nav */}
+        {/* min-w-0 lets this shrink rather than push into the logo if the
+            labels are ever made longer in the admin panel. */}
         <nav
-          className="hidden items-center gap-4 xl:flex 2xl:gap-7"
+          className="hidden min-w-0 items-center gap-4 xl:flex"
           aria-label="Primary"
         >
           {nav.map((item) => {
@@ -99,36 +116,47 @@ export default function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile nav */}
+      {/* Mobile nav. Absolutely positioned so it floats over the page instead
+          of adding height to the sticky header, which used to shove all the
+          content down when the menu opened. A scrim behind it dims the page
+          and closes the menu when tapped. */}
       {open && (
-        <nav
-          id="mobile-nav"
-          className="border-t border-white/5 bg-base-2 px-5 py-4 xl:hidden"
-          aria-label="Primary"
-        >
-          <ul className="flex flex-col gap-1">
-            {nav.map((item) => (
-              <li key={item.href}>
+        <>
+          {/* Scrim: dims the page and closes the menu when tapped outside. */}
+          <div
+            aria-hidden="true"
+            onClick={() => setOpen(false)}
+            className="fixed inset-0 -z-10 bg-base/70 xl:hidden"
+          />
+          <nav
+            id="mobile-nav"
+            className="absolute inset-x-0 top-full max-h-[calc(100dvh-100%)] overflow-y-auto border-b border-white/5 bg-base-2 px-5 py-4 shadow-2xl shadow-black/50 xl:hidden"
+            aria-label="Primary"
+          >
+            <ul className="flex flex-col gap-1">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-md px-3 py-3 text-cream-muted hover:bg-surface hover:text-cream"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="mt-2">
                 <Link
-                  href={item.href}
+                  href="/contact/"
                   onClick={() => setOpen(false)}
-                  className="block rounded-md px-3 py-3 text-cream-muted hover:bg-surface hover:text-cream"
+                  className="block rounded-full bg-gold px-5 py-3.5 text-center font-medium text-base-2 transition-transform duration-150 active:scale-[0.98]"
                 >
-                  {item.label}
+                  {navExtras.headerButton}
                 </Link>
               </li>
-            ))}
-            <li className="mt-2">
-              <Link
-                href="/contact/"
-                onClick={() => setOpen(false)}
-                className="block rounded-full bg-gold px-5 py-3.5 text-center font-medium text-base-2 transition-transform duration-150 active:scale-[0.98]"
-              >
-                {navExtras.headerButton}
-              </Link>
-            </li>
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        </>
       )}
     </header>
   );
