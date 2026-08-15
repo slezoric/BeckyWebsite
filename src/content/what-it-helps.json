@@ -1,49 +1,13 @@
 {
-  "footnote": "There are also things this work isn't right for, and Becky will tell you plainly if that's the case for you — some conditions make it genuinely unsafe. Working that out together is always the first step.",
-  "tableHeadNote": "What we know so far",
-  "heading": "",
-  "tableHeadEvidence": "Evidence",
+  "footnote": "There are reasons this support isn't right for everyone, and Becky will tell you plainly if that's the case for you — some conditions make it genuinely unsafe. Working that out together is always the first step.",
+  "tableHeadNote": "Delete",
+  "heading": "What shifts inside",
+  "tableHeadEvidence": "Delete",
   "eyebrow": "What it helps",
-  "intro": "",
-  "tableHeadCondition": "What you might be carrying",
-  "ctaHeading": "Wondering if it could help you?",
-  "metaTitle": "What It Helps",
-  "metaDescription": "What this work can help with — set out honestly, alongside how much research stands behind each, including where the evidence is still thin.",
-  "conditions": [
-    {
-      "name": "Depression that hasn't lifted",
-      "strength": "Strong",
-      "note": "This is where the evidence is strongest. For people who have tried other things without much relief, the heaviness often begins to lift within hours or days rather than weeks."
-    },
-    {
-      "name": "Depression",
-      "strength": "Strong",
-      "note": "Real, meaningful relief for many people — including those who wouldn't describe their depression as severe. It tends to arrive quickly, and usually holds better with more than one visit."
-    },
-    {
-      "name": "Thoughts of ending your life",
-      "strength": "Strong",
-      "note": "Among the most striking findings: these thoughts can quieten remarkably fast, sometimes within hours — often before the wider heaviness has begun to lift."
-    },
-    {
-      "name": "The low side of bipolar",
-      "strength": "Moderate to Strong",
-      "note": "Good evidence of real relief during the depressive stretches. Because it can occasionally tip things the other way, this is done with especially close care from your doctor."
-    },
-    {
-      "name": "The weight of past trauma",
-      "strength": "Moderate",
-      "note": "Encouraging results, particularly when the medicine is paired with real therapeutic support — which is exactly how it is offered here. The research is younger than it is for depression."
-    },
-    {
-      "name": "Anxiety",
-      "strength": "Moderate",
-      "note": "Many people find the constant background hum of worry quietens. Relief often comes quickly, though it usually takes more than one visit to settle in."
-    }
-  ],
-  "footnoteLink": "See whether this is right for you →",
+  "intro": "These are illustrations, not photographs - a way of picturing what science describe happening while the senses soften and old patterns loosen their grip.",
+  "tableHeadCondition": "Delete",
   "galleryHeading": "What shifts inside",
-  "galleryIntro": "These are illustrations rather than photographs — a way of picturing what researchers describe happening while the senses soften and old patterns loosen their grip.",
+  "ctaHeading": "Wondering if it could help you?",
   "gallery": [
     {
       "image": "/images/brain-connections.webp",
@@ -69,5 +33,10 @@
       "caption": "A world within",
       "body": "Everything you have lived sits inside one quiet space. This work is simply a way of visiting it with company."
     }
-  ]
+  ],
+  "metaTitle": "What It Helps",
+  "metaDescription": "What this work can help with — set out honestly, alongside how much research stands behind each, including where the evidence is still thin.",
+  "conditions": [],
+  "footnoteLink": "See whether this is right for you →",
+  "galleryIntro": "These are illustrations rather than photographs — a way of picturing what researchers describe happening while the senses soften and old patterns loosen their grip."
 }
