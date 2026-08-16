@@ -1,6 +1,9 @@
 {
+  "heroImage": "/images/forest-path.jpg",
   "journeyHeading": "You'll know every step before you take it",
   "quoteAttribution": "-Stanislav Grof",
+  "conditionsImage": "/images/inner-light.jpg",
+  "conditionsImageAlt": "A painting of figures sitting with their grief, gathered around a warm central light",
   "steps": [
     {
       "number": "First",
@@ -18,10 +21,12 @@
       "body": "Returning from the woods, you gather the beautiful stones and insights you found along the trail to build a permanent home. This is where you walk the wisdom back into your daily routine, letting the new path become your familiar, everyday terrain."
     }
   ],
-  "heroHeading": "Healing is a winding path. Compassion and curiosity lead the way.",
+  "heroImageAlt": "A woodland path winding into morning mist, sunlight falling through the trees",
+  "heroHeading": "Healing is a winding path. Curiosity and compassion lead the way.",
   "journeyEyebrow": "The journey",
-  "conditionsHeading": "What are you seeking care for?",
-  "heroSecondaryButton": "How the care flows",
+  "conditionsHeading": "What are you seeking support for?",
+  "quoteImageAlt": "A willow tree at sunrise, its root system spreading wide beneath the ground",
+  "heroSecondaryButton": "How the support flows",
   "heroEyebrow": "A journey inward, wandering with B",
   "conditionsEyebrow": "Do you see your reflection in any of these experiences?",
   "heroIntro": "There is a world within — quieter and more resilient than you've imagined. This is a warm, rhythmic place to rest while you explore, with someone beside you the whole way.",
@@ -49,10 +54,5 @@
   ],
   "heroPrimaryButton": "Let's talk about it",
   "quote": "\"The healing and transformative potential in non-ordinary states of consciousness is profound,\" \n ",
-  "heroImage": "/images/forest-path.jpg",
-  "heroImageAlt": "A woodland path winding into morning mist, sunlight falling through the trees",
-  "quoteImage": "/images/willow-roots.jpg",
-  "quoteImageAlt": "A willow tree at sunrise, its root system spreading wide beneath the ground",
-  "conditionsImage": "/images/inner-light.jpg",
-  "conditionsImageAlt": "A painting of figures sitting with their grief, gathered around a warm central light"
+  "quoteImage": "/images/willow-roots.jpg"
 }
