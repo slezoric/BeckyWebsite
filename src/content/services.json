@@ -1,46 +1,40 @@
 {
-  "metaTitle": "What I Offer",
-  "metaDescription": "The ways Becky works with people — first conversations, preparing together, journeys, and integration support, including for experiences you had elsewhere.",
-  "eyebrow": "What I offer",
   "heading": "Ways we can work together",
-  "intro": "Everything here is shaped around you rather than a package. Some people want the whole path; others come only for the part they are missing. We work out which together, and nothing is booked before you feel ready.",
+  "products": [],
   "servicesHeading": "The work",
+  "productsIntro": "",
+  "eyebrow": "What I offer",
+  "intro": "Everything here is shaped around you rather than pre-determined. Some people want the whole path; others come for integration or spiritual exploration. We decide together, and move when you feel ready.",
+  "feesBody": "Fees are discussed openly in our first conversation, so there are no surprises and nothing to work out on your own. If cost is what stands between you and reaching out, say so — it is worth a conversation.",
+  "ctaHeading": "Which support fits your need?",
+  "metaTitle": "What I offer",
+  "feesHeading": "About the cost",
+  "metaDescription": "The supports Becky provides: One-on-One; Couples; Professional Experientials; Integration Only",
   "services": [
     {
-      "name": "A first conversation",
-      "duration": "About an hour",
-      "body": "No commitment, no pressure. You share what brought you here and what you are hoping for, and we work out honestly whether this is your path. If it isn't, I'll say so and point you somewhere better.",
-      "note": "Where everyone starts"
-    },
-    {
-      "name": "Preparing together",
-      "duration": "One or more sessions",
-      "body": "Before anything else, we get to know each other properly. We talk through what the day will hold, what you might meet along the way, and what kind of support helps you feel safest. Every question is welcome, however small.",
+      "name": "Just or You",
+      "duration": "",
+      "body": "We work one-on-one. We work together, paving the way for your new experiences. I recommend 6-8 visits, depending on your goals and availability. This gives us the opportunity to build a connection and deepen your experience. ",
       "note": ""
     },
     {
-      "name": "The journey",
-      "duration": "A half day",
-      "body": "You settle somewhere soft and quiet, and let the medicine carry you. I stay beside you the whole way through, with calm breath and warm words. Afterward you rest, and someone you trust takes you home.",
+      "name": "Couples",
+      "duration": "",
+      "body": "This support is for couples who are wanting to deepen their connection, and for those hoping to soften some tension for growth and understanding. This support is not currently for couples in crisis. ",
       "note": ""
     },
     {
-      "name": "Integration",
-      "duration": "Ongoing, at your pace",
-      "body": "This is where the lasting change is made. In the days and weeks that follow, we sit with whatever surfaced — the beautiful parts and the hard parts alike — and turn what you glimpsed into something you can actually live.",
-      "note": "Where the real work happens"
+      "name": "Professional Experiential",
+      "duration": "",
+      "body": "This support is for professionals in the mental health, social work, and medical fields. If you are a professional who is curious about this kind of support, you're in the right place. Experience what that buzz is all about. Until you experience it yourself, you will always be moving through a space of mystery, and mystery will always come with apprehension. Let's dispel the mystery together.  ",
+      "note": ""
     },
     {
-      "name": "Integration on its own",
-      "duration": "As many sessions as you need",
-      "body": "If you have already had an experience elsewhere and are carrying something you cannot quite place, you are welcome here for the integration alone. You do not need to journey with me to be supported by me.",
-      "note": "You don't need to have journeyed with me"
+      "name": "Integration Only",
+      "duration": "",
+      "body": "Integration is where the lasting growth happens, it's the most important part of the journey. This support is for those who are actively engaged in high-level (IV, IM) Ketamine care through a local Ketamine clinic. These clinics do not provide integration, but I do, I'm happy to provide just the integration phase of the support. ",
+      "note": ""
     }
   ],
-  "feesHeading": "About fees",
-  "feesBody": "Fees are discussed openly in our first conversation, so there are no surprises and nothing to work out on your own. If cost is what stands between you and reaching out, say so — it is worth a conversation.",
-  "productsHeading": "",
-  "productsIntro": "",
-  "products": [],
-  "ctaHeading": "Not sure which you need?"
+  "productsHeading": ""
 }
