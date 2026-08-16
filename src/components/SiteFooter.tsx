@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { crisis, music, nav, navExtras, site, socialLinks } from "@/lib/site";
+import PhoneText from "@/components/PhoneText";
 
 const legal = [
   { href: "/informed-consent/", label: "Informed Consent" },
@@ -15,16 +16,12 @@ export default function SiteFooter() {
       {/* Crisis line — always present, never a dead end */}
       <div className="border-b border-white/5 bg-surface/40">
         <div className="mx-auto max-w-content px-5 py-5 text-sm text-cream-muted sm:px-8">
+          {/* The note already names the numbers, so they are linked in place
+              rather than repeated. A second "Call or text 988" used to be
+              appended here, which meant every page said 988 twice. */}
           <p>
             <span className="font-medium text-cream">In crisis?</span>{" "}
-            {crisis.note.replace(/^If you are/, "If you're")}{" "}
-            <a
-              href={crisis.lineHref}
-              className="whitespace-nowrap font-medium text-gold underline-offset-4 hover:underline"
-            >
-              Call or text {crisis.line}
-            </a>
-            .
+            <PhoneText text={crisis.note.replace(/^If you are/, "If you're")} />
           </p>
         </div>
       </div>

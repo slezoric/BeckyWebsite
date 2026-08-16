@@ -438,16 +438,13 @@ collections:
               name: crisisCalloutStrong,
               label: "Crisis box — bold opening words",
               widget: string,
+              hint: "Shown in bold at the start. Usually ends with a comma.",
             }
           - {
-              name: crisisCalloutBeforeNumber,
-              label: "Crisis box — text before the phone number",
-              widget: string,
-            }
-          - {
-              name: crisisCalloutAfterNumber,
-              label: "Crisis box — text after the phone number",
+              name: crisisCalloutBody,
+              label: "Crisis box — the rest of the message",
               widget: text,
+              hint: "Write it as one normal sentence. Type phone numbers straight into the text (988, 911, or a full number) and they become tappable on their own — you don't need to leave a gap for them.",
             }
           - { name: requirementsHeading, label: "'What you'll need' heading", widget: string }
           - { name: requirementsIntro, label: "'What you'll need' intro", widget: text }

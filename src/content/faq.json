@@ -47,7 +47,7 @@
   ],
   "heading": "Ask anything. Nothing here is a silly question.",
   "notRightIntro": "In these situations this work could genuinely cause harm, so it isn't offered. If that's you, it doesn't mean nothing can help — it means something else will serve you better, and Becky will point you toward it.",
-  "crisisCalloutStrong": "If you're in danger of hurting yourself right now",
+  "crisisCalloutStrong": "If you're in danger of hurting yourself right now,",
   "notRight": [
     "Schizophrenia, schizoaffective disorder, or psychosis that is currently active",
     "A manic or mixed episode happening right now",
@@ -70,7 +70,6 @@
   "requirementsHeading": "What you'll need",
   "metaTitle": "Questions",
   "eligibilityHeading": "This isn't right for everyone — and that's said with care",
-  "crisisCalloutBeforeNumber": ", please don't wait for an appointment — call or text ",
   "treatFirstIntro": "These don't close the door — they just need looking after before you begin. Often it's a matter of one conversation with your healthcare professional, and they should be consulted if you experience any of the following conditions...",
   "treatFirst": [
     "High blood pressure that is not well managed",
@@ -82,8 +81,8 @@
   ],
   "metaDescription": "Honest answers to what people most often want to know — whether it's safe, what it feels like, whether it's right for you, and what happens afterward.",
   "closingBody": "Beginning is simpler than it looks: you reach out, and you talk. You'll say what brought you here and what you're hoping for, and together you'll work out whether this is your path. There is no pressure either way, and no commitment in asking.",
-  "crisisCalloutAfterNumber": " to reach someone straight away, or 911 in an emergency. You deserve help sooner than a website can offer.",
   "notRightHeading": "When this isn't the right path",
   "requirementsIntro": "Not hurdles — just the circle of support that makes this work safe and lasting.",
-  "eligibilityIntro": "Some of what follows may read like a list of rules. It isn't. Every line exists to keep you safe, and Becky would far rather tell you honestly that this isn't your path than take you somewhere that could harm you."
+  "eligibilityIntro": "Some of what follows may read like a list of rules. It isn't. Every line exists to keep you safe, and Becky would far rather tell you honestly that this isn't your path than take you somewhere that could harm you.",
+  "crisisCalloutBody": "please don't wait for an appointment — call or text 988 to reach someone straight away, or 911 in an emergency. You deserve help sooner than a website can offer."
 }

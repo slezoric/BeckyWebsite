@@ -55,12 +55,16 @@ export const navExtras = {
   legalFootnote: navContent.legalFootnote,
 };
 
-// U.S. 988 Suicide & Crisis Lifeline — surfaced sitewide so no one hits a dead end.
+/**
+ * The crisis note shown in the footer of every page, so nobody hits a dead end.
+ *
+ * The phone numbers live in the note's own wording, not here. They used to be
+ * hard-coded alongside it, and the code then appended a "Call or text 988"
+ * link to a sentence that already said 988 — so every page named it twice.
+ * PhoneText links whatever numbers the text contains, which keeps the wording
+ * and the numbers in one place where Becky can see both.
+ */
 export const crisis = {
-  line: "988",
-  lineHref: "tel:988",
-  text: "Text or call 988",
-  label: "988 Suicide & Crisis Lifeline",
   note: navContent.crisisNote,
 } as const;
 

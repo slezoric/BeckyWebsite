@@ -8,7 +8,7 @@ import {
 } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import RichText from "@/components/RichText";
-import { crisis } from "@/lib/site";
+import PhoneText from "@/components/PhoneText";
 import content from "@/content/faq.json";
 
 export const metadata: Metadata = {
@@ -69,27 +69,16 @@ export default function QuestionsPage() {
 
           <Reveal className="mt-8">
             <div className="rounded-2xl border border-clay/30 bg-clay/10 p-6">
+              {/* Becky writes this as one ordinary sentence with the numbers
+                  in it; PhoneText makes them tappable. It used to be split
+                  around an injected number she could not see, which is how
+                  "...emergency department988 to reach someone" reached the
+                  live site. */}
               <p className="text-sm text-cream">
                 <strong className="text-cream">
                   {content.crisisCalloutStrong}
-                </strong>
-                {/* The phone number is only injected when the "after" text
-                    exists to sit around it. Becky's wording now points to 911
-                    and the emergency department instead, so nothing is
-                    inserted mid-sentence. Put text back in
-                    crisisCalloutAfterNumber and the link returns. */}
-                {content.crisisCalloutBeforeNumber}
-                {content.crisisCalloutAfterNumber && (
-                  <>
-                    <a
-                      href={crisis.lineHref}
-                      className="font-medium text-gold underline-offset-4 hover:underline"
-                    >
-                      {crisis.line}
-                    </a>
-                    {content.crisisCalloutAfterNumber}
-                  </>
-                )}
+                </strong>{" "}
+                <PhoneText text={content.crisisCalloutBody} />
               </p>
             </div>
           </Reveal>
