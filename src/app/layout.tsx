@@ -79,6 +79,8 @@ export default function RootLayout({
           {children}
         </main>
         <SiteFooter />
+        {/* The music toggle now lives in SiteHeader — it was a floating
+            button here, which overlapped the page text on phones. */}
         <StructuredData />
         <Analytics />
       </body>

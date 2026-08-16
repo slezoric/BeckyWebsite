@@ -12,23 +12,26 @@ export const metadata: Metadata = {
 export default function HowItFlowsPage() {
   return (
     <>
-      <PageHeader eyebrow={content.eyebrow} title={content.heading} />
+      {/* The intro goes through PageHeader, exactly as on the other long-form
+          pages. It used to be rendered separately below, which pushed it a
+          full 3.5rem clear of the heading it belongs to and left it looking
+          stranded. */}
+      <PageHeader
+        eyebrow={content.eyebrow}
+        title={content.heading}
+        intro={content.intro}
+      />
 
-      {/* Same shape as the other long-form pages (consent, disclaimer,
-          privacy, terms): left-aligned heading, body held to max-w-3xl. */}
-      <Container className="py-10">
-        <div className="max-w-3xl">
-          <Reveal>
-            <p className="mb-12 whitespace-pre-line text-lg text-cream-muted">
-              {content.intro.trim()}
-            </p>
-          </Reveal>
-          <ContentSections sections={content.sections} />
-        </div>
+      {/* Same shape as consent, disclaimer, privacy and terms. */}
+      <Container className="pb-16 pt-8">
+        <ContentSections sections={content.sections} className="max-w-3xl" />
       </Container>
 
       {/* What actually happens — formerly its own page */}
-      <section id="what-happens" className="border-t border-white/5 bg-base-2/60">
+      <section
+        id="what-happens"
+        className="border-t border-white/5 bg-base-2/60"
+      >
         <Container className="py-20">
           <Reveal>
             <h2 className="max-w-3xl text-4xl text-cream sm:text-5xl">
@@ -48,7 +51,9 @@ export default function HowItFlowsPage() {
                     {p.number}
                   </span>
                   <div>
-                    <h3 className="text-xl text-cream sm:text-2xl">{p.title}</h3>
+                    <h3 className="text-xl text-cream sm:text-2xl">
+                      {p.title}
+                    </h3>
                     <p className="mt-3 text-cream-muted">{p.body}</p>
                   </div>
                 </div>
@@ -62,7 +67,9 @@ export default function HowItFlowsPage() {
       <section className="border-t border-white/5">
         <Container className="py-20">
           <Reveal>
-            <h2 className="text-4xl text-cream sm:text-5xl">
+            {/* max-w-3xl matches every other h2 on the page — without it this
+                one ran the full container width and sat visibly wider. */}
+            <h2 className="max-w-3xl text-4xl text-cream sm:text-5xl">
               {content.logisticsHeading}
             </h2>
             <p className="mt-4 max-w-2xl text-cream-muted">

@@ -373,40 +373,6 @@ collections:
           - { name: heading, label: "Page heading", widget: string }
           - { name: intro, label: "Opening paragraph", widget: text }
           - {
-              name: tableHeadCondition,
-              label: "Table column 1 heading",
-              widget: string,
-            }
-          - {
-              name: tableHeadEvidence,
-              label: "Table column 2 heading",
-              widget: string,
-            }
-          - {
-              name: tableHeadNote,
-              label: "Table column 3 heading",
-              widget: string,
-            }
-          - name: conditions
-            label: "Conditions"
-            label_singular: "condition"
-            widget: list
-            summary: "{{fields.name}} — {{fields.strength}}"
-            hint: "Each row of the table. Drag to reorder; strongest evidence usually goes first."
-            fields:
-              - { name: name, label: "What someone might be carrying", widget: string }
-              - name: strength
-                label: "How strong is the evidence?"
-                widget: select
-                options:
-                  - "Strong"
-                  - "Moderate to Strong"
-                  - "Moderate"
-                  - "Moderate but preliminary"
-                  - "Preliminary"
-                hint: "This sets the colour of the little badge."
-              - { name: note, label: "What we know so far", widget: text }
-          - {
               name: footnote,
               label: "Note below the table",
               widget: text,
@@ -417,8 +383,6 @@ collections:
               label: "Heading of the closing invitation",
               widget: string,
             }
-          - { name: galleryHeading, label: "Illustrations — heading", widget: string }
-          - { name: galleryIntro, label: "Illustrations — intro", widget: text }
           - name: gallery
             label: "Illustrations"
             label_singular: "illustration"
@@ -733,6 +697,46 @@ collections:
               widget: string,
               hint: "Read aloud to visitors who use a screen reader. Describe what's in the picture.",
             }
+          - name: music
+            label: "Background music"
+            widget: object
+            collapsed: true
+            fields:
+              - {
+                  name: file,
+                  label: "Music file",
+                  widget: file,
+                  required: false,
+                  hint: "Upload an MP3. Leave empty and the play button is hidden entirely. Use royalty-free music only, and fill in the credit below — most licences require it.",
+                }
+              - { name: title, label: "Track name", widget: string, required: false }
+              - { name: artist, label: "Artist", widget: string, required: false }
+              - {
+                  name: sourceUrl,
+                  label: "Link to where you got it",
+                  widget: string,
+                  required: false,
+                  hint: "Many licences require a link back to the source.",
+                }
+              - {
+                  name: licence,
+                  label: "Licence",
+                  widget: string,
+                  required: false,
+                  hint: "For example 'Pixabay Content Licence' or 'CC BY 4.0'.",
+                }
+              - {
+                  name: volume,
+                  label: "Volume",
+                  widget: number,
+                  value_type: float,
+                  min: 0,
+                  max: 1,
+                  step: 0.05,
+                  hint: "0 is silent, 1 is full. 0.35 is a gentle background level.",
+                }
+              - { name: playLabel, label: "Play button text", widget: string }
+              - { name: pauseLabel, label: "Pause button text", widget: string }
           - {
               name: url,
               label: "Website address",

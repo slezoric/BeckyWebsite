@@ -41,5 +41,15 @@
   "credentials": [],
   "email": "becky@extraordinarycare432.com",
   "description": "NOSC with Becky — a warm, unhurried place to work with burdens, and old hurt, with someone beside you the whole way.",
-  "practitionerTitle": ""
+  "practitionerTitle": "",
+  "music": {
+    "file": "/music/432hz-meditation.mp3",
+    "playLabel": "Play music",
+    "pauseLabel": "Pause music",
+    "volume": 0.35,
+    "title": "432Hz Meditation (With Nature Sound)",
+    "artist": "danamusic",
+    "sourceUrl": "https://pixabay.com/music/ambient-432hz-meditation-with-nature-sound-355840/",
+    "licence": "Pixabay Content Licence"
+  }
 }

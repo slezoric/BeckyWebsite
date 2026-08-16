@@ -1,26 +1,10 @@
 {
   "footnote": "There are reasons this support isn't right for everyone, and Becky will tell you plainly if that's the case for you — some conditions make it genuinely unsafe. Working that out together is always the first step.",
-  "tableHeadNote": "Delete",
   "heading": "What shifts inside",
-  "tableHeadEvidence": "Delete",
   "eyebrow": "What it helps",
-  "intro": "These are illustrations, not photographs - a way of picturing what science describe happening while the senses soften and old patterns loosen their grip.",
-  "tableHeadCondition": "Delete",
-  "galleryHeading": "What shifts inside",
+  "intro": "These are illustrations rather than photographs — a way of picturing what science describes happening while the senses soften and old patterns loosen their grip.",
   "ctaHeading": "Wondering if it could help you?",
   "gallery": [
-    {
-      "image": "/images/brain-connections.webp",
-      "alt": "Illustration of a bright web of new connections forming",
-      "caption": "New paths forming",
-      "body": "Parts that rarely speak to one another start connecting. This is the opening — and what you make of it afterwards is where the change settles."
-    },
-    {
-      "image": "/images/brain-synesthesia.webp",
-      "alt": "Illustration of the senses radiating from a brain in coloured light",
-      "caption": "When the senses mingle",
-      "body": "Colour, sound and touch can blur into one another. Music may be felt rather than heard. It is strange, and for most people rather beautiful."
-    },
     {
       "image": "/images/brain-anatomy.webp",
       "alt": "Illustration of a brain with its regions labelled and pathways glowing",
@@ -32,11 +16,21 @@
       "alt": "A brain resting inside a glass snow globe",
       "caption": "A world within",
       "body": "Everything you have lived sits inside one quiet space. This work is simply a way of visiting it with company."
+    },
+    {
+      "image": "/images/brain-synesthesia.webp",
+      "alt": "Illustration of the senses radiating from a brain in coloured light",
+      "caption": "When the senses mingle",
+      "body": "Colour, sound and touch can blur into one another. Music may be felt rather than heard. It is strange, and for most people rather beautiful."
+    },
+    {
+      "image": "/images/brain-connections.webp",
+      "alt": "Illustration of a bright web of new connections forming",
+      "caption": "New paths forming",
+      "body": "Parts that rarely speak to one another start connecting. This is the opening — and what you make of it afterwards is where the change settles."
     }
   ],
   "metaTitle": "What It Helps",
   "metaDescription": "What this work can help with — set out honestly, alongside how much research stands behind each, including where the evidence is still thin.",
-  "conditions": [],
-  "footnoteLink": "See whether this is right for you →",
-  "galleryIntro": "These are illustrations rather than photographs — a way of picturing what researchers describe happening while the senses soften and old patterns loosen their grip."
+  "footnoteLink": "See whether this is right for you →"
 }

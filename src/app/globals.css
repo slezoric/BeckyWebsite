@@ -58,6 +58,9 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* Required for the FAQ open/close animation further down: without it the
+     browser will not interpolate a height of `auto`. Ignored where unsupported. */
+  interpolate-size: allow-keywords;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -127,5 +130,36 @@ h4 {
   .reveal.is-visible {
     opacity: 1;
     transform: none;
+  }
+
+  /*
+    Smooth open/close for the FAQ answers.
+
+    <details> normally snaps open, which is jarring on a page people read
+    when they are anxious. Three pieces make this work:
+
+      interpolate-size  lets the browser animate to and from `auto` height,
+                        which CSS otherwise refuses to do
+      ::details-content is the wrapper the browser puts around the answer
+      allow-discrete    lets content-visibility flip at the right moment,
+                        so the closing animation is visible rather than
+                        being cut off instantly
+
+    Wrapped in @supports so browsers without ::details-content (older
+    Safari and Firefox) simply keep the current instant toggle. Nothing
+    breaks there — it just doesn't glide.
+  */
+  @supports selector(::details-content) {
+    details::details-content {
+      block-size: 0;
+      overflow: hidden;
+      transition:
+        block-size 0.32s ease,
+        content-visibility 0.32s allow-discrete;
+    }
+
+    details[open]::details-content {
+      block-size: auto;
+    }
   }
 }

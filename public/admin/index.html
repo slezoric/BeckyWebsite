@@ -8,8 +8,27 @@
   </head>
   <body>
     <!-- Decap CMS: the editing panel. Everything it can change is described
-         in config.yml next to this file. -->
-    <script src="https://unpkg.com/decap-cms@^3.8.4/dist/decap-cms.js"></script>
+         in config.yml next to this file.
+
+         Pinned to an exact version, with an integrity hash, on purpose.
+         This script runs in a page that holds a GitHub token able to commit
+         to the repository, so it is the most privileged code on the site.
+         The previous "^3.8.4" range let unpkg decide what to serve — it had
+         already drifted to 3.15.1 — which meant any future publish of that
+         package, malicious or merely broken, would have run here unreviewed.
+
+         TO UPGRADE: change both the version in the URL and the hash. Get the
+         new hash with:
+           curl -sL https://unpkg.com/decap-cms@VERSION/dist/decap-cms.js \
+             | openssl dgst -sha384 -binary | openssl base64 -A
+         Prefix the result with "sha384-". If the hash does not match what
+         the CDN serves, the browser refuses to run it and the panel will not
+         load — that is the protection working, not a bug. -->
+    <script
+      src="https://unpkg.com/decap-cms@3.15.1/dist/decap-cms.js"
+      integrity="sha384-in6eHztHveqQ7uMZ1fDaKlDmacQLFuLH2wWrFTiymyuS8zQ5bixwL8U3AeRi8h/L"
+      crossorigin="anonymous"
+    ></script>
     <script>
       // Make the live preview pane look like the real website, so what Becky
       // sees while typing resembles what visitors will see.

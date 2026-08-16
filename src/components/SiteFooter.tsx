@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { crisis, nav, navExtras, site, socialLinks } from "@/lib/site";
+import { crisis, music, nav, navExtras, site, socialLinks } from "@/lib/site";
 
 const legal = [
   { href: "/informed-consent/", label: "Informed Consent" },
@@ -95,7 +95,10 @@ export default function SiteFooter() {
               </li>
             ))}
             <li>
-              <Link href="/contact/" className="text-gold hover:text-gold-light">
+              <Link
+                href="/contact/"
+                className="text-gold hover:text-gold-light"
+              >
                 Contact
               </Link>
             </li>
@@ -104,9 +107,42 @@ export default function SiteFooter() {
       </div>
 
       <div className="mx-auto max-w-content px-5 pb-10 sm:px-8">
+        {/* Music credit. Royalty-free tracks almost always require visible
+            attribution — this is a licence condition, not a courtesy. It
+            appears only once a track has actually been added. */}
+        {music.file && music.creditLine && (
+          <p className="mb-3 text-xs text-cream-dim">
+            Music:{" "}
+            {music.sourceUrl ? (
+              <a
+                href={music.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline-offset-4 hover:text-cream-muted hover:underline"
+              >
+                {music.creditLine}
+              </a>
+            ) : (
+              music.creditLine
+            )}
+          </p>
+        )}
         <p className="text-xs leading-relaxed text-cream-dim">
           © {"2025"} {site.legalName}. {site.discipline} with{" "}
           {site.practitioner}. {navExtras.legalFootnote}
+        </p>
+        {/* Build credit. Kept quiet and last — this is Becky's site, not a
+            shop window — but present and linked. */}
+        <p className="mt-3 text-xs text-cream-dim">
+          Built by{" "}
+          <a
+            href="https://lumenworks-llc.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline-offset-4 hover:text-cream-muted hover:underline"
+          >
+            LumenWorks LLC, NE
+          </a>
         </p>
       </div>
     </footer>

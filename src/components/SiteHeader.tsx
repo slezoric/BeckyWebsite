@@ -5,10 +5,21 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, navExtras, site } from "@/lib/site";
+import {
+  MusicAudio,
+  MusicToggle,
+  useMusicPlayer,
+} from "@/components/MusicPlayer";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+
+  // Music state lives here so the phone and desktop toggles stay in step —
+  // they are two buttons sharing one audio element. The header is also the
+  // right home for it: it persists across page changes, so playback is not
+  // interrupted when someone navigates.
+  const player = useMusicPlayer();
 
   // Escape closes the menu. Without this, an overlay can only be dismissed by
   // tapping, which strands anyone navigating by keyboard.
@@ -62,7 +73,11 @@ export default function SiteHeader() {
         {/* min-w-0 lets this shrink rather than push into the logo if the
             labels are ever made longer in the admin panel. */}
         <nav
-          className="hidden min-w-0 items-center gap-4 xl:flex"
+          // gap stays at 3 on every width. Widening it at 2xl cut the
+          // clearance to the logo from 46px back down to 22px, because the
+          // container is capped at 72rem and stops growing — the extra screen
+          // width goes to the margins, not to this bar.
+          className="hidden min-w-0 items-center gap-3 xl:flex"
           aria-label="Primary"
         >
           {nav.map((item) => {
@@ -80,6 +95,14 @@ export default function SiteHeader() {
               </Link>
             );
           })}
+          {/* Desktop music toggle, sitting just before the call to action so
+              the gold button stays the last and most prominent thing here. */}
+          <MusicToggle
+            playing={player.playing}
+            ready={player.ready}
+            toggle={player.toggle}
+            size="lg"
+          />
           <Link
             href="/contact/"
             className="whitespace-nowrap rounded-full bg-gold px-5 py-2.5 text-base font-medium text-base-2 transition-[background-color,transform] duration-150 hover:bg-gold-light active:scale-[0.97]"
@@ -88,33 +111,54 @@ export default function SiteHeader() {
           </Link>
         </nav>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          className="absolute right-3 inline-flex items-center justify-center rounded-md p-2 text-cream-muted sm:static sm:right-auto xl:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.75"
-            strokeLinecap="round"
-            aria-hidden="true"
+        {/* Controls for phones and tablets: music on the left, menu on the
+            right, logo centred between them.
+
+            On phones this spans the bar so the two sit at opposite edges and
+            the centred logo is not pushed off-centre. From sm up it collapses
+            into a normal pair at the right-hand end. Above xl it disappears
+            entirely — the full navigation takes over, with its own toggle.
+
+            The music button used to be a fixed floating pill, which sat on
+            top of the page text at every scroll position on a phone. */}
+        <div className="absolute inset-x-3 flex items-center justify-between sm:static sm:inset-auto sm:gap-2 xl:hidden">
+          <MusicToggle
+            playing={player.playing}
+            ready={player.ready}
+            toggle={player.toggle}
+          />
+
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-md p-2 text-cream-muted"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
           >
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            )}
-          </svg>
-        </button>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              {open ? (
+                <path d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
+
+      {/* One audio element for the whole site, living in the header so it
+          survives page navigation and both toggles drive the same playback. */}
+      <MusicAudio audioRef={player.audioRef} />
 
       {/* Mobile nav. Absolutely positioned so it floats over the page instead
           of adding height to the sticky header, which used to shove all the

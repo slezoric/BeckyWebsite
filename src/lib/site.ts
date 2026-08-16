@@ -23,6 +23,32 @@ export const site = siteContent;
 
 export const nav: { href: string; label: string }[] = navContent.items;
 
+/**
+ * Background music settings, plus the attribution line shown in the footer.
+ * Royalty-free licences almost always require visible credit, so the line is
+ * assembled from whichever of title / artist / licence have been filled in.
+ */
+const creditLine: string = [
+  // Title and artist read as one phrase — "Track by Someone" — so they are
+  // joined with a space. The licence is a separate fact, hence the divider.
+  [
+    siteContent.music.title,
+    siteContent.music.artist && `by ${siteContent.music.artist}`,
+  ]
+    .filter(Boolean)
+    .join(" "),
+  siteContent.music.licence,
+]
+  .filter(Boolean)
+  .join(" · ");
+
+export const music = {
+  ...siteContent.music,
+  creditLine,
+  /** Same string, used as the button's tooltip. */
+  credit: creditLine,
+};
+
 export const navExtras = {
   headerButton: navContent.headerButton,
   footerBlurb: navContent.footerBlurb,

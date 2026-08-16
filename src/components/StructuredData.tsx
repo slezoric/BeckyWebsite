@@ -35,8 +35,14 @@ export default function StructuredData() {
   return (
     <script
       type="application/ld+json"
-      // JSON-LD is static, build-time serialized content — safe to inline.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      // The "<" escape is not cosmetic. JSON.stringify leaves "<" alone, so a
+      // "</script>" typed into any CMS field would close this tag early and
+      // let the rest of that field be parsed as markup. Becky edits these
+      // values through /admin, so that input is not fully under our control.
+      // < is valid JSON and parses back to "<" unchanged.
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\\u003c"),
+      }}
     />
   );
 }

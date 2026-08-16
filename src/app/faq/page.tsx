@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { Card, Container, ConsultCTA, PageHeader, Prose } from "@/components/ui";
+import {
+  Card,
+  Container,
+  ConsultCTA,
+  PageHeader,
+  Prose,
+} from "@/components/ui";
 import Reveal from "@/components/Reveal";
+import RichText from "@/components/RichText";
 import { crisis } from "@/lib/site";
 import content from "@/content/faq.json";
 
@@ -33,7 +40,12 @@ export default function QuestionsPage() {
                     +
                   </span>
                 </summary>
-                <p className="pb-5 text-cream-muted">{f.answer}</p>
+                {/* Answers go through RichText so bullets and line breaks
+                    Becky types come out as a real list. Rendered flat before,
+                    which printed her "*" characters literally. */}
+                <Prose className="pb-5">
+                  <RichText text={f.answer} />
+                </Prose>
               </details>
             </Reveal>
           ))}
@@ -41,7 +53,10 @@ export default function QuestionsPage() {
       </Container>
 
       {/* Is this for me — formerly its own page */}
-      <section id="is-it-for-me" className="border-t border-white/5 bg-base-2/60">
+      <section
+        id="is-it-for-me"
+        className="border-t border-white/5 bg-base-2/60"
+      >
         <Container className="py-20">
           <Reveal>
             <h2 className="max-w-3xl text-4xl text-cream sm:text-5xl">
@@ -58,14 +73,23 @@ export default function QuestionsPage() {
                 <strong className="text-cream">
                   {content.crisisCalloutStrong}
                 </strong>
+                {/* The phone number is only injected when the "after" text
+                    exists to sit around it. Becky's wording now points to 911
+                    and the emergency department instead, so nothing is
+                    inserted mid-sentence. Put text back in
+                    crisisCalloutAfterNumber and the link returns. */}
                 {content.crisisCalloutBeforeNumber}
-                <a
-                  href={crisis.lineHref}
-                  className="font-medium text-gold underline-offset-4 hover:underline"
-                >
-                  {crisis.line}
-                </a>
-                {content.crisisCalloutAfterNumber}
+                {content.crisisCalloutAfterNumber && (
+                  <>
+                    <a
+                      href={crisis.lineHref}
+                      className="font-medium text-gold underline-offset-4 hover:underline"
+                    >
+                      {crisis.line}
+                    </a>
+                    {content.crisisCalloutAfterNumber}
+                  </>
+                )}
               </p>
             </div>
           </Reveal>
