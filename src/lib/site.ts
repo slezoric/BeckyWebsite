@@ -70,6 +70,32 @@ export const crisis = {
 
 // ---- Derived helpers (no need to edit) ----------------------------
 
+/**
+ * Turns a phone number as written into a tel: link.
+ *
+ * There used to be a second "phone number for tapping" field in the admin
+ * panel that had to be kept in step with the visible one, and it had already
+ * drifted — it held the bare digits with no "tel:" prefix, so the link on the
+ * contact page navigated to a dead path instead of dialling. Deriving it
+ * removes the chance of the two disagreeing.
+ *
+ * Short codes (988, 911) dial exactly as typed. Ten-digit numbers are assumed
+ * to be U.S. and get a +1; an explicit country code is left alone.
+ */
+export function toTelHref(value: string): string {
+  const trimmed = value.trim();
+  if (!trimmed) return "";
+  if (trimmed.startsWith("+")) return `tel:${trimmed.replace(/[^\d+]/g, "")}`;
+
+  let digits = trimmed.replace(/\D/g, "");
+  if (!digits) return "";
+  if (digits.length === 11 && digits.startsWith("1")) digits = digits.slice(1);
+  return digits.length === 10 ? `tel:+1${digits}` : `tel:${digits}`;
+}
+
+/** Tap-to-dial link for the practice phone number. */
+export const phoneHref = toTelHref(site.phone);
+
 /** Non-empty social links as [label, url] pairs. */
 export const socialLinks = Object.entries(site.social)
   .filter(([, url]) => url)

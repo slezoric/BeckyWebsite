@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ButtonLink, Container, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import CrisisResources from "@/components/CrisisResources";
-import { site, formattedAddress } from "@/lib/site";
+import { site, formattedAddress, phoneHref } from "@/lib/site";
 import content from "@/content/contact.json";
 
 export const metadata: Metadata = {
@@ -67,7 +67,11 @@ export default function ContactPage() {
               className="rounded-3xl border border-white/5 bg-surface/40 p-6 sm:p-8"
             >
               {/* Netlify form plumbing */}
-              <input type="hidden" name="form-name" defaultValue="consultation" />
+              <input
+                type="hidden"
+                name="form-name"
+                defaultValue="consultation"
+              />
               <p className="hidden">
                 <label>
                   Don&rsquo;t fill this out if you&rsquo;re human:{" "}
@@ -77,7 +81,10 @@ export default function ContactPage() {
 
               <div className="grid gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm text-cream-muted">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm text-cream-muted"
+                  >
                     {content.labelName}
                   </label>
                   <input
@@ -92,7 +99,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm text-cream-muted">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm text-cream-muted"
+                  >
                     {content.labelEmail}
                   </label>
                   <input
@@ -107,7 +117,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm text-cream-muted">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm text-cream-muted"
+                  >
                     {content.labelPhone}{" "}
                     <span className="text-cream-dim">
                       {content.labelPhoneOptional}
@@ -145,9 +158,7 @@ export default function ContactPage() {
                     is what keeps this form outside HIPAA's scope. Keep it
                     that way if you add more. */}
                 <fieldset className="mt-2 border-t border-white/10 pt-6">
-                  <legend className="sr-only">
-                    {content.optionalHeading}
-                  </legend>
+                  <legend className="sr-only">{content.optionalHeading}</legend>
                   <p className="text-cream">{content.optionalHeading}</p>
                   <p className="mt-1 text-sm text-cream-dim">
                     {content.optionalIntro}
@@ -208,7 +219,9 @@ export default function ContactPage() {
           <div className="space-y-6">
             <Reveal>
               <div className="rounded-3xl border border-white/5 bg-surface/40 p-6 sm:p-8">
-                <h2 className="text-3xl text-cream">{content.sidebarHeading}</h2>
+                <h2 className="text-3xl text-cream">
+                  {content.sidebarHeading}
+                </h2>
                 <dl className="mt-5 space-y-4 text-sm">
                   <div>
                     <dt className="text-cream-dim">Email</dt>
@@ -225,7 +238,7 @@ export default function ContactPage() {
                     <dt className="text-cream-dim">Phone</dt>
                     <dd>
                       <a
-                        href={site.phoneHref}
+                        href={phoneHref}
                         className="text-gold underline-offset-4 hover:underline"
                       >
                         {site.phone}

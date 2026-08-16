@@ -615,12 +615,6 @@ collections:
               hint: "For example (515) 329-5083",
             }
           - {
-              name: phoneHref,
-              label: "Phone number (for tapping)",
-              widget: string,
-              hint: "Digits only, keeping the 'tel:+1' at the start. For example tel:+15153295083",
-            }
-          - {
               name: responseTime,
               label: "How soon you usually reply",
               widget: string,

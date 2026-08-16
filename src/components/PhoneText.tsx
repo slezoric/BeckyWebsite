@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { toTelHref } from "@/lib/site";
 
 /**
  * Renders text and turns any phone number inside it into a tel: link.
@@ -28,10 +29,6 @@ import type { ReactNode } from "react";
 const PHONE =
   /(?:\+?1[\s.-]?)?(?:\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}|\b9(?:88|11)\b/g;
 
-function telHref(match: string) {
-  return `tel:${match.replace(/[^\d+]/g, "")}`;
-}
-
 export default function PhoneText({
   text,
   linkClassName = "font-medium text-gold underline-offset-4 hover:underline",
@@ -48,7 +45,7 @@ export default function PhoneText({
     parts.push(
       <a
         key={start}
-        href={telHref(match[0])}
+        href={toTelHref(match[0])}
         className={`whitespace-nowrap ${linkClassName}`}
       >
         {match[0]}
