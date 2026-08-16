@@ -6,10 +6,10 @@
   "ctaHeading": "Wondering if it could help you?",
   "gallery": [
     {
-      "image": "/images/brain-anatomy.webp",
-      "alt": "Illustration of a brain with its regions labelled and pathways glowing",
-      "caption": "How things usually run",
-      "body": "On an ordinary day, thoughts and feelings travel the same well-worn routes — which is why old patterns can be so hard to step out of."
+      "image": "/images/brain-connections.webp",
+      "alt": "Illustration of a bright web of new connections forming",
+      "caption": "New paths forming",
+      "body": "Parts that rarely speak to one another start connecting. This is the opening — and what you make of it afterwards is where the change settles."
     },
     {
       "image": "/images/brain-globe.webp",
@@ -18,10 +18,10 @@
       "body": "Everything you have lived sits inside one quiet space. This work is simply a way of visiting it with company."
     },
     {
-      "image": "/images/brain-connections.webp",
-      "alt": "Illustration of a bright web of new connections forming",
-      "caption": "New paths forming",
-      "body": "Parts that rarely speak to one another start connecting. This is the opening — and what you make of it afterwards is where the change settles."
+      "image": "/images/brain-anatomy.webp",
+      "alt": "Illustration of a brain with its regions labelled and pathways glowing",
+      "caption": "How things usually run",
+      "body": "On an ordinary day, thoughts and feelings travel the same well-worn routes — which is why old patterns can be so hard to step out of."
     },
     {
       "image": "/images/brain-synesthesia.webp",
