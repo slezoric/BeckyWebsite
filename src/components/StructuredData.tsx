@@ -1,4 +1,4 @@
-import { site } from "@/lib/site";
+import { site, phoneHref } from "@/lib/site";
 
 /**
  * schema.org MedicalBusiness JSON-LD for local search. Pulls from the client
@@ -13,7 +13,8 @@ export default function StructuredData() {
     description: site.description,
     url: site.url,
     email: site.email,
-    telephone: site.phone,
+    // E.164, which is what schema.org consumers expect.
+    telephone: phoneHref.replace(/^tel:/, ""),
     medicalSpecialty: "Psychiatric",
     availableService: {
       "@type": "MedicalTherapy",

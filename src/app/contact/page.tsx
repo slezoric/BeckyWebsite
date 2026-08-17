@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ButtonLink, Container, PageHeader } from "@/components/ui";
 import Reveal from "@/components/Reveal";
 import CrisisResources from "@/components/CrisisResources";
-import { site, formattedAddress, phoneHref } from "@/lib/site";
+import { site, formattedAddress, phoneHref, formattedPhone } from "@/lib/site";
 import content from "@/content/contact.json";
 
 export const metadata: Metadata = {
@@ -241,7 +241,7 @@ export default function ContactPage() {
                         href={phoneHref}
                         className="text-gold underline-offset-4 hover:underline"
                       >
-                        {site.phone}
+                        {formattedPhone}
                       </a>
                     </dd>
                   </div>

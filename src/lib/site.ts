@@ -96,6 +96,22 @@ export function toTelHref(value: string): string {
 /** Tap-to-dial link for the practice phone number. */
 export const phoneHref = toTelHref(site.phone);
 
+/**
+ * The phone number as people read it aloud: (515) 555-0134.
+ *
+ * Becky can type it into the admin panel however she likes — bare digits,
+ * dots, dashes — and it is presented the same way everywhere. Anything that
+ * is not a plain ten-digit U.S. number is shown exactly as she wrote it,
+ * so an extension or an international number is never mangled.
+ */
+export const formattedPhone = (() => {
+  const digits = site.phone.replace(/\D/g, "");
+  if (digits.length === 10) {
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  }
+  return site.phone;
+})();
+
 /** Non-empty social links as [label, url] pairs. */
 export const socialLinks = Object.entries(site.social)
   .filter(([, url]) => url)

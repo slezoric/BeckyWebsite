@@ -39,11 +39,24 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.discipline}`,
     description: site.description,
     url: site.url,
+    // The card people see when the site is shared in a message or a post.
+    // Without it every share renders a blank grey rectangle, which is a poor
+    // first impression at exactly the moment someone is recommending her.
+    // Regenerate with: python3 scripts/brand_assets.py
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} — ${site.tagline}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.discipline}`,
     description: site.description,
+    images: ["/images/og-image.png"],
   },
   robots: { index: true, follow: true },
 };

@@ -1,15 +1,17 @@
-# A World Within — Ketamine-Assisted Psychotherapy
+# A World Within — Care for Non-Ordinary States of Consciousness
 
-Marketing website for **A World Within LLC** (tagline: *ExtraOrdinary Care*), the
-KAP practice of Becky. Warm, nature-based, deep visual direction. Built to build
-trust and generate consultation requests.
+Website for **A World Within LLC** (tagline: *Extra-Ordinary Care*), the practice
+of Becky J Schwanz, serving the Des Moines Metro Area. Warm, deep, unhurried —
+built to earn trust and invite a consultation, not to sell.
+
+Live at **https://aworldwithin1.com**
 
 ## Stack
 
 - **Next.js 16** (App Router) exported as a fully static site (`output: 'export'`)
 - **Tailwind CSS v4** — design tokens in `src/app/globals.css`
 - **Netlify** hosting + **Netlify Forms** for the consultation request (no backend, no PHI collected)
-- Self-hosted Google fonts via `next/font`: Fraunces (serif) + Inter (sans)
+- Google fonts via `next/font`: **Ephesis** (script headings) + **Mulish** (body)
 
 ## Develop
 
@@ -86,22 +88,68 @@ public/
 
 Page copy is adapted from the client source docs (`CIFI_*.docx`, kept in repo root).
 
+## Brand assets — print, social, and the share card
+
+```bash
+python3 scripts/brand_assets.py
+```
+
+Reads everything from `src/content/site.json` — name, tagline, phone, email,
+service area, web address — so the assets never drift from the website. **Run it
+again whenever one of those changes**, in particular after the email moves to
+the new domain.
+
+It produces:
+
+| File | Size | For |
+| --- | --- | --- |
+| `public/images/og-image.png` | 1200 × 630 | the card shown when the site is shared anywhere |
+| `brand-assets/business-card-{front,back}.png` | 3.5 × 2in, 300dpi | handing to someone after a conversation |
+| `brand-assets/flyer-half-page.png` | 5.5 × 8.5in, 300dpi | noticeboard, waiting room, a referral partner's desk |
+| `brand-assets/poster-full-page.png` | 8.5 × 11in, 300dpi | clinic wall or community board |
+| `brand-assets/social-square.png` | 1080 × 1080 | Instagram and Facebook |
+
+Every printed piece carries a QR code to the site. They are dark-on-cream —
+never inverted, which some scanners refuse — and set to High error correction so
+they still read when creased or shadowed. The script refuses to write a page
+whose artwork reaches the trim edge, and refuses to shrink a QR below the point
+where scanning gets unreliable, rather than producing something that fails only
+once it is printed.
+
+Fonts are bundled in `scripts/fonts/` (SIL Open Font Licence) so this keeps
+working offline.
+
 ## ⚠️ Before launch — outstanding items
 
-Search the codebase for `TODO(becky)` to find every placeholder. Key ones:
+**Blocking**
 
-- **Contact details** — real email, phone, response time, service area /
-  telehealth states (`src/lib/site.ts`).
-- **Brand** — final logo/wordmark assets for "A World Within" + "ExtraOrdinary Care".
-- **Credentials** — license type, number, state(s), certifications
-  (`src/app/about/page.tsx`).
-- **Photography** — professional portrait + licensed nature imagery (currently
-  gradient placeholders).
-- **Legal review** — the Disclaimer, Privacy, Terms, and Informed Consent pages
-  are drafts and **must be reviewed by Becky's attorney / malpractice carrier**
-  before going live. Add the finalized signed-consent PDF.
-- **Domain** — update `site.url` in `src/lib/site.ts` and re-check
-  sitemap/robots/structured data.
+- **Legal review** — Disclaimer, Privacy, Terms and Informed Consent are drafts
+  and must be reviewed by Becky's attorney / malpractice carrier. Add the
+  finalised signed-consent PDF.
+- **Real phone number** — `phone` in `src/content/site.json` is still the
+  placeholder `1234567890`. It appears on the contact page and in the structured
+  data. Re-run `scripts/brand_assets.py` afterwards so the business card matches.
+- **Email** — moving to the new domain. Update `email` in the same file, then
+  re-run the asset script.
+- **Netlify Forms notification** — Forms → Notifications, so submissions
+  actually reach Becky. Send a real test through the deploy preview.
+- **Decap admin login** — the CMS uses the GitHub backend, so the GitHub OAuth
+  provider must be enabled in Netlify (Access control → OAuth). Confirm Becky
+  can sign in at `/admin` before handover.
+
+**Worth doing**
+
+- **Credentials** — `credentials` and `practitionerTitle` in
+  `src/content/site.json` are empty. Licence type, number and state are
+  trust-critical for a healthcare provider and are required in advertising in
+  many states.
+- **Address** — empty while `inPerson` is true, so no address is emitted in the
+  structured data and local search will not find her. Either fill it in, or say
+  so and the schema can be switched to service-area-only.
+- **Social links** — all blank in `site.json`; the footer row stays hidden until
+  one is filled in.
+- **Analytics** — set `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` in Netlify to enable it.
+  Cookieless, so no consent banner is needed. See `.env.example`.
 
 ## Safety notes baked in
 
