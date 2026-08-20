@@ -239,7 +239,7 @@ def og_image():
 
     OUT_WEB.mkdir(parents=True, exist_ok=True)
     img.save(OUT_WEB / "og-image.png", optimize=True)
-    return "public/images/og-image.png", img.size
+    return "public/images/og-image.png", img.size, "shown when the site is shared"
 
 
 def business_card():
@@ -261,8 +261,8 @@ def business_card():
 
     back = backdrop(w, h)
     d = ImageDraw.Draw(back)
-    qr = qr_panel(site["url"], 330)
-    back.paste(qr, (72, (h - qr.height) // 2), qr)
+    qr = qr_panel(site["url"], 390)
+    back.paste(qr, (66, (h - qr.height) // 2), qr)
 
     x = 470
     d.text((x, 150), site["name"], font=script(76), fill=CREAM)
@@ -282,9 +282,11 @@ def business_card():
         y += 40
 
     OUT_PRINT.mkdir(parents=True, exist_ok=True)
+    check_margins(front, "business-card-front.png")
+    check_margins(back, "business-card-back.png")
     front.save(OUT_PRINT / "business-card-front.png", dpi=(300, 300))
     back.save(OUT_PRINT / "business-card-back.png", dpi=(300, 300))
-    return "brand-assets/business-card-{front,back}.png", (w, h)
+    return "brand-assets/business-card-{front,back}.png", (w, h), scan_range(390)
 
 
 def sheet(name, w, h, blurb_lines, logo_h, qr_size):
@@ -363,7 +365,8 @@ def sheet(name, w, h, blurb_lines, logo_h, qr_size):
     check_margins(img, name)
     OUT_PRINT.mkdir(parents=True, exist_ok=True)
     img.save(OUT_PRINT / name, dpi=(300, 300))
-    return f"brand-assets/{name}", (w, h)
+    # qr_size is reported, not assumed: it may have been reduced above to fit.
+    return f"brand-assets/{name}", (w, h), scan_range(qr_size)
 
 
 # Each entry is one paragraph and is wrapped to fit. Do not hand-break these
@@ -382,16 +385,22 @@ POSTER_TEXT = FLYER_TEXT + [
 
 
 def flyer():
-    """5.5 x 8.5in at 300dpi — noticeboard, waiting room, a partner's desk."""
+    """5.5 x 8.5in at 300dpi — noticeboard, waiting room, a partner's desk.
+
+    Read from a foot or two away, so the code is sized for that."""
     return sheet(
-        "flyer-half-page.png", 1650, 2550, FLYER_TEXT, logo_h=520, qr_size=600
+        "flyer-half-page.png", 1650, 2550, FLYER_TEXT, logo_h=470, qr_size=780
     )
 
 
 def poster():
-    """8.5 x 11in at 300dpi — clinic wall or community board."""
+    """8.5 x 11in at 300dpi — clinic wall or community board.
+
+    The logo is smaller here than the page would allow, and the wording is
+    shorter, so the QR can be as large as possible: this is the one piece
+    people scan without walking right up to it."""
     return sheet(
-        "poster-full-page.png", 2550, 3300, POSTER_TEXT, logo_h=760, qr_size=860
+        "poster-full-page.png", 2550, 3300, POSTER_TEXT, logo_h=560, qr_size=1450
     )
 
 
@@ -414,13 +423,30 @@ def social_square():
 
     OUT_PRINT.mkdir(parents=True, exist_ok=True)
     img.save(OUT_PRINT / "social-square.png")
-    return "brand-assets/social-square.png", (w, h)
+    return "brand-assets/social-square.png", (w, h), "screen only, no print size"
+
+
+def scan_range(panel_px):
+    """Roughly how far away a printed code of this size still reads.
+
+    Phone cameras manage about ten times the code's own width. Reported on
+    every run because it is the number that decides whether a piece works in
+    the place it is going: a poster people scan from across a room needs a far
+    bigger code than a card held at arm's length. Shrinking a QR to make room
+    for wording is an easy, invisible mistake — this makes it visible.
+    """
+    code_in = panel_px * (1 - 2 * 0.085) / 300  # panel minus its quiet zone
+    inches = code_in * 10
+    return f"{code_in:.1f}in code, reads to ~" + (
+        f"{inches / 12:.1f} ft" if inches >= 12 else f"{inches:.0f} in"
+    )
 
 
 if __name__ == "__main__":
     print(f"Building from src/content/site.json — {site['url']}\n")
     for build in (og_image, business_card, flyer, poster, social_square):
-        path, size = build()
-        print(f"  {path:44} {size[0]} x {size[1]}")
+        path, size, note = build()
+        print(f"  {path:44} {size[0]:>4} x {size[1]:<4}  {note}")
     print("\nQR codes point at:", site["url"])
+    print(f"Phone: {pretty_phone(site['phone'])}    Email: {site['email']}")
     print("Re-run this after changing the phone, email or web address.")
