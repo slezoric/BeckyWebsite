@@ -9,6 +9,7 @@ import {
 import Reveal from "@/components/Reveal";
 import RichText from "@/components/RichText";
 import PhoneText from "@/components/PhoneText";
+import FaqSchema from "@/components/FaqSchema";
 import content from "@/content/faq.json";
 
 export const metadata: Metadata = {
@@ -19,6 +20,9 @@ export const metadata: Metadata = {
 export default function QuestionsPage() {
   return (
     <>
+      {/* Her answers, marked up so machines can read them too. */}
+      <FaqSchema />
+
       <PageHeader
         eyebrow={content.eyebrow}
         title={content.heading}
