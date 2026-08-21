@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Ephesis, Mulish } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
+import { versioned } from "@/lib/asset-version";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import StructuredData from "@/components/StructuredData";
@@ -45,7 +46,9 @@ export const metadata: Metadata = {
     // Regenerate with: python3 scripts/brand_assets.py
     images: [
       {
-        url: "/images/og-image.png",
+        // Versioned by content hash: preview caches key on the URL, so a
+        // changed picture at an unchanged address is never re-fetched.
+        url: versioned("/images/og-image.png"),
         width: 1200,
         height: 630,
         alt: `${site.name} — ${site.tagline}`,
@@ -56,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${site.name} — ${site.discipline}`,
     description: site.description,
-    images: ["/images/og-image.png"],
+    images: [versioned("/images/og-image.png")],
   },
   robots: { index: true, follow: true },
 };
