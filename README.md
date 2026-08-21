@@ -1,6 +1,6 @@
-# A World Within — Care for Non-Ordinary States of Consciousness
+# A World Within — Support for Non-Ordinary States of Consciousness
 
-Website for **A World Within LLC** (tagline: *Extra-Ordinary Care*), the practice
+Website for **A World Within LLC** (tagline: *Extra-Ordinary Support*), the practice
 of Becky J Schwanz, serving the Des Moines Metro Area. Warm, deep, unhurried —
 built to earn trust and invite a consultation, not to sell.
 
@@ -91,8 +91,18 @@ Page copy is adapted from the client source docs (`CIFI_*.docx`, kept in repo ro
 ## Brand assets — print, social, and the share card
 
 ```bash
+python3 scripts/logo_tagline.py   # only if the tagline changes
 python3 scripts/brand_assets.py
 ```
+
+> The word "care" was deliberately removed from anything describing what this
+> practice provides — it carries a meaning in a medical context the practice
+> does not claim. It is kept where it refers to *other* people's services
+> ("your healthcare professional", "psychiatric or therapeutic care"), because
+> there it is protective disclaimer language, and where it plainly means
+> *carefully* ("music chosen with care"). The tagline is drawn into the logo
+> artwork, so `logo_tagline.py` rewrites it there; originals are preserved in
+> `scripts/logo-originals/`.
 
 Reads everything from `src/content/site.json` — name, tagline, phone, email,
 service area, web address — so the assets never drift from the website. **Run it
