@@ -404,6 +404,45 @@ def poster():
     )
 
 
+def icons():
+    """The small mark: browser tab, phone home screen, search results.
+
+    Drawn rather than cropped out of the logo file, so it stays crisp at 32px
+    where a downscaled lockup turns to mush. It is the ring from her logo and
+    nothing else — the script wordmark is illegible at this size.
+
+    Google reads a site's icon from the favicon, the apple-touch-icon and the
+    web manifest. All three existed as files or not at all, and only the
+    favicon was ever declared in the HTML, so the other two were invisible to
+    it. These are written where Next picks them up and links them itself.
+    """
+    written = []
+    for size, path in (
+        (180, ROOT / "src" / "app" / "apple-icon.png"),
+        (192, OUT_WEB / "icon-192.png"),
+        (512, OUT_WEB / "icon-512.png"),
+    ):
+        img = Image.new("RGB", (size, size), BASE)
+        d = ImageDraw.Draw(img)
+        # Generous padding: home-screen icons get their corners rounded off by
+        # the operating system, and search results shrink this to a few pixels.
+        inset = size * 0.20
+        stroke = max(2, int(size * 0.055))
+        d.ellipse(
+            [inset, inset, size - inset - 1, size - inset - 1],
+            outline=CREAM,
+            width=stroke,
+        )
+        path.parent.mkdir(parents=True, exist_ok=True)
+        img.save(path, optimize=True)
+        written.append(path.name)
+
+    return "src/app/apple-icon.png + public/images/icon-{192,512}.png", (
+        512,
+        512,
+    ), "tab, home screen, search result"
+
+
 def social_square():
     """1080x1080 — Instagram and Facebook."""
     w = h = 1080
@@ -444,7 +483,7 @@ def scan_range(panel_px):
 
 if __name__ == "__main__":
     print(f"Building from src/content/site.json — {site['url']}\n")
-    for build in (og_image, business_card, flyer, poster, social_square):
+    for build in (og_image, icons, business_card, flyer, poster, social_square):
         path, size, note = build()
         print(f"  {path:44} {size[0]:>4} x {size[1]:<4}  {note}")
     print("\nQR codes point at:", site["url"])
