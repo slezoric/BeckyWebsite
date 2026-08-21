@@ -1,5 +1,10 @@
 # Netlify deploy config for the A World Within static site.
 # Next.js `output: 'export'` produces a fully static site in `out/`.
+#
+# Note there is deliberately no @netlify/plugin-nextjs. That plugin exists to
+# run Next's server — SSR, ISR, middleware — on Netlify Functions. Nothing
+# here needs a server, so it would add serverless machinery for a site made of
+# plain files. If Netlify ever auto-detects Next and enables it, remove it.
 
 [build]
   command = "npm run build"
@@ -17,8 +22,41 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
-# Long-cache immutable build assets.
+# Build assets carry a content hash in the filename, so they can be cached
+# forever — a change produces a different filename.
 [[headers]]
   for = "/_next/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Pictures were revalidating on every single page view, which is a round trip
+# per image per visit for files that rarely change.
+#
+# One day, NOT a year, and deliberately not `immutable`. Becky uploads images
+# through the admin panel into this same folder, and a replacement keeps its
+# filename — so anything longer would leave visitors looking at the old
+# picture with no way to force a refresh. A day is the most staleness worth
+# trading for the saving.
+#
+# The share card is exempt from that worry either way: its URL carries a
+# content hash, so a new image is a new address.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+# The music is 2.1MB and was being revalidated on every visit. It is a single
+# fixed track, so a week is safe and saves anyone who plays it repeatedly.
+[[headers]]
+  for = "/music/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+# The editing panel must never be cached. Becky's field definitions live in
+# config.yml, and a stale copy would show her an editor that no longer matches
+# the site — with fields that have been removed, or missing ones that were
+# added.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Cache-Control = "no-store"
