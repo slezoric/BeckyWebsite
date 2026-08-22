@@ -60,3 +60,53 @@
   for = "/admin/*"
   [headers.values]
     Cache-Control = "no-store"
+
+# ---------------------------------------------------------------------------
+# Lighthouse, run against each deploy.
+#
+# Declared here rather than in the Netlify UI so the thresholds live in
+# version control and change through review like anything else. If it is also
+# installed through the UI, remove it there — this file wins, and having two
+# records of the same thing invites them to disagree.
+#
+# The thresholds below are set from a measured baseline of the live site
+# rather than picked out of the air:
+#
+#     page        perf  a11y  best   seo
+#     home          91   100   100   100
+#     about         95   100   100   100
+#     contact       98   100   100   100
+#     faq           98   100   100   100
+#
+# Quality bars sit just under a perfect score, so a genuine regression fails
+# but ordinary noise does not. Performance is set well below its 91 because
+# it is the one metric that swings with the machine the build lands on;
+# holding it to 0.9 would fail builds for reasons no one changed. It is there
+# to catch something breaking badly, not to chase a number.
+#
+# Worth remembering: Becky publishing a wording change triggers a build. If a
+# threshold fails, her edit does not go live — and she will not know why.
+# Watch the first few runs before tightening any of these.
+# ---------------------------------------------------------------------------
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs]
+    output_path = "reports/lighthouse.html"
+
+    [plugins.inputs.thresholds]
+      performance = 0.7
+      accessibility = 0.95
+      best-practices = 0.95
+      seo = 0.95
+
+  # The pages that matter: the front door, the one people read longest, and
+  # the one that has to work for an enquiry to arrive at all.
+  [[plugins.inputs.audits]]
+    path = "index.html"
+
+  [[plugins.inputs.audits]]
+    path = "faq/index.html"
+
+  [[plugins.inputs.audits]]
+    path = "contact/index.html"

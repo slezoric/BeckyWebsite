@@ -1,8 +1,8 @@
 {
-  "heroImage": "/images/forest-path.jpg",
+  "heroImage": "/images/forest-path.webp",
   "journeyHeading": "You'll know every step before you take it",
   "quoteAttribution": "-Stanislav Grof",
-  "conditionsImage": "/images/inner-light.jpg",
+  "conditionsImage": "/images/inner-light.webp",
   "conditionsImageAlt": "A painting of figures sitting with their grief, gathered around a warm central light",
   "steps": [
     {
@@ -54,5 +54,5 @@
   ],
   "heroPrimaryButton": "Let's talk about it",
   "quote": "\"The healing and transformative potential in non-ordinary states of consciousness is profound,\" \n ",
-  "quoteImage": "/images/willow-roots.jpg"
+  "quoteImage": "/images/willow-roots.webp"
 }
